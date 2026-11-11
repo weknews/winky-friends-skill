@@ -65,6 +65,13 @@ def check_kit():
     ok = any(f.lower().endswith((".ttf", ".woff2")) for f in fonts)
     add("재료", "글꼴", "OK" if ok else "FAIL", "", "" if ok else "git pull")
 
+def check_guideline():
+    pdf = os.environ.get("WINKY_GUIDELINE_PDF") or os.path.join(ROOT, "local", "guideline", "kda-2025.pdf")
+    ok = os.path.exists(pdf); pp = importlib.util.find_spec("pypdf") is not None
+    add("대본(선택)", "진료지침 원문(새 주제 지침 대조용)", "OK" if ok else "MISSING", "" if ok else "학회 저작물이라 레포에 없다. 각자 받는다",
+        "" if ok else "python engine/guideline.py fetch (학회 홈페이지에서 약 5MB, 받기 전에 사람에게 묻는다)")
+    add("대본(선택)", "PDF 읽기(pypdf)", "OK" if pp else "MISSING", "", "" if pp else ("py -m pip install pypdf" if OS == "win" else "pip3 install pypdf"))
+
 def check_routes(host):
     backend = os.environ.get("WINKY_IMAGE_BACKEND", "codex")
     codex = shutil.which("codex")
@@ -92,7 +99,7 @@ if __name__ == "__main__":
     ap.add_argument("--host-tools", default="", help="에이전트가 쓸 수 있는 도구(쉼표). 예: suno,image_gen")
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args(); host = {t.strip().lower() for t in a.host_tools.split(",") if t.strip()}
-    check_runtime(); check_kit(); check_routes(host); check_claude()
+    check_runtime(); check_kit(); check_guideline(); check_routes(host); check_claude()
     fail = any(r["status"] == "FAIL" for r in rows)
     if a.json: print(json.dumps({"os": OS, "ok": not fail, "checks": rows}, ensure_ascii=False, indent=1))
     else:

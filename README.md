@@ -71,8 +71,9 @@ weknews/winky-friends-skill 스킬을 설치해 줘. 명령을 실행하기 전�
 3. `python engine/doctor.py --json` 으로 준비 상태를 점검해 줘(Windows는 python 대신 py). 네 도구 목록에 Suno MCP가 보이면 `--host-tools suno` 를 붙여. FAIL 항목은 결과에 나온 내 OS용 고치기 명령을 보여 주고 허락받은 뒤 실행해. doctor를 다시 돌려 FAIL이 0이 될 때까지 반복해 줘. MISSING은 선택 기능이니 알려만 줘.
 4. 확인으로 episodes/ep01-fruit-juice 폴더에서 `python ../../engine/setup_episode.py .`, `python ../../engine/build.py`, `python ../../engine/check.py` 를 차례로 돌려 「실패 0」이 나오는지 알려 줘.
 5. Suno를 쓸지 물어봐 줘(새 음악 큐를 만들 때만 필요하고, 없어도 영상은 만들어진다). 「Suno Pro 이상 구독이 있는지」와 「MCP 얼리 액세스 승인을 받았는지」를 차례로 묻고, 둘 다 예라면 `claude mcp add --transport http --scope user suno https://api.suno.com/mcp` 로 연결한 뒤 /mcp 에서 suno 인증(Authenticate)과 세션 다시 열기를 안내해 줘. 하나라도 아니면 연결하지 말고 docs/providers.md 「Suno」 절을 알려 줘.
-6. Bedrock, Claude API 키, OpenAI API 키를 쓰는지도 물어보고, 쓴다면 docs/providers.md 의 해당 절대로 설정을 도와줘.
-7. 마지막에 「대본은 /winky-script, 영상은 /winky-episode」 사용법을 세 줄로 알려 줘.
+6. 새 주제로 대본을 쓰려면 진료지침 원문이 필요하다. 「대한당뇨병학회 2025 당뇨병 진료지침 PDF(약 5MB)를 학회 홈페이지에서 받아 둘까요?」라고 묻고, 예라면 `python engine/guideline.py fetch` 와 `pip install pypdf` 를 실행해 줘. 원문은 local/ 에만 두고 레포에 올리지 않는다.
+7. Bedrock, Claude API 키, OpenAI API 키를 쓰는지도 물어보고, 쓴다면 docs/providers.md 의 해당 절대로 설정을 도와줘.
+8. 마지막에 「대본은 /winky-script, 영상은 /winky-episode」 사용법을 세 줄로 알려 줘.
 ```
 
 직접 설치하려면 Claude Code 대화 창에 이렇게 입력합니다(터미널에서는 앞에 `claude`를 붙이고 `/`를 뺍니다).
@@ -163,6 +164,7 @@ Claude Code에서 다른 플러그인과 스킬 이름이 겹치면 `/winky-frie
 |---|---|
 | Node 22 이상, ffmpeg, Python 3(numpy, Pillow) | 영상을 만들 때 |
 | PyAnimalese(MIT) | 인물 목소리. `git clone https://github.com/hwi-middle/PyAnimalese tools/PyAnimalese` |
+| 진료지침 원문 PDF와 pypdf | 새 주제로 대본을 쓸 때. `python engine/guideline.py fetch` |
 | Codex(ChatGPT 구독) 또는 OpenAI API 키 | 새 그림을 만들 때만. 설정은 [`docs/providers.md`](docs/providers.md) |
 | Suno Pro 이상 구독, MCP 얼리 액세스 승인, MCP 연결 | 새 음악 큐를 만들 때만. 정식 테마를 기준으로만 만듭니다([`docs/providers.md`](docs/providers.md) 「Suno」) |
 
@@ -217,7 +219,7 @@ rules/       세계관, 제작 사양, 지침 관문, 문구 점검, 낙인, 음
 episodes/    회차별 대본·컷 표·소리 큐·썸네일
 ```
 
-올리지 않은 것도 있습니다. 그림 생성 원본과 회차 결과 영상은 크기 때문에 뺐습니다(필요하면 관리자 [@bborok1234](https://github.com/bborok1234)(임미르)에게 요청). 대한당뇨병학회 「2025 당뇨병 진료지침」 PDF는 학회 저작물이라 파일을 올리지 않습니다. 필요하면 학회 홈페이지(diabetes.or.kr)에서 받습니다.
+올리지 않은 것도 있습니다. 그림 생성 원본과 회차 결과 영상은 크기 때문에 뺐습니다(필요하면 관리자 [@bborok1234](https://github.com/bborok1234)(임미르)에게 요청). 대한당뇨병학회 「2025 당뇨병 진료지침」 PDF는 학회 저작물이라 파일을 올리지 않습니다. 새 주제로 대본을 쓸 때는 `python engine/guideline.py fetch`로 각자 받아 `local/`에 둡니다(설치 글이 물어보고 받아 줍니다).
 
 ## 기여
 

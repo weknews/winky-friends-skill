@@ -21,3 +21,6 @@ kit/gen/out/
 review/
 # wav는 올리지 않는다. 정식 음원은 GitHub Release 「music-v1」 팩(engine/fetch_kit.py가 받음)
 *.wav
+
+# 각자 컴퓨터에만 두는 것(진료지침 원문 등). 올리지 않는다
+local/
