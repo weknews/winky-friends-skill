@@ -1,0 +1,3211 @@
+{
+ "version": 1,
+ "note": "공유 프리미티브 레지스트리. engine은 status=approved만 쓴다. 고칠 때는 engine/register.py로(손으로 고치면 check가 잡지 못한다).",
+ "actors": {
+  "bear": {
+   "mm": {
+    "h": 1800,
+    "headW": 839
+   },
+   "voice": {
+    "semi": -7,
+    "rate": 7
+   },
+   "status": "approved"
+  },
+  "panda": {
+   "mm": {
+    "h": 1600,
+    "headW": 745
+   },
+   "voice": {
+    "semi": 2,
+    "rate": 9
+   },
+   "status": "approved"
+  },
+  "penguin": {
+   "mm": {
+    "h": 1100,
+    "headW": 664
+   },
+   "voice": {
+    "semi": -2,
+    "rate": 6
+   },
+   "status": "approved"
+  },
+  "winky": {
+   "mm": {
+    "h": 650,
+    "headW": 332
+   },
+   "voice": {
+    "semi": 9,
+    "rate": 10
+   },
+   "status": "approved"
+  }
+ },
+ "sizes": {
+  "cup": {
+   "h": 190,
+   "w": 106
+  },
+  "apple": {
+   "h": 90,
+   "w": 80
+  },
+  "jug": {
+   "h": 200,
+   "w": 213
+  },
+  "box": {
+   "w": 500,
+   "h": 300
+  },
+  "box-open": {
+   "w": 612
+  },
+  "chair": {
+   "h": 900,
+   "w": 420,
+   "seat": 450
+  },
+  "meter": {
+   "h": 100,
+   "w": 60
+  },
+  "sweat": {
+   "h": 60
+  },
+  "notebook-open": {
+   "w": 300,
+   "h": 210
+  },
+  "notebook-closed": {
+   "w": 150,
+   "h": 210
+  },
+  "bear-paw": {
+   "w": 165
+  },
+  "winky-paw": {
+   "w": 95
+  },
+  "pencil": {
+   "l": 175
+  }
+ },
+ "items": {
+  "winky-서기-평온": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-stand-calm.webp",
+   "w": 786,
+   "h": 978,
+   "family": "winky-서기-평온",
+   "anchor": {
+    "face": [
+     200,
+     340,
+     580,
+     530
+    ],
+    "cx": 380,
+    "head": [
+     130,
+     200,
+     630,
+     520
+    ],
+    "torso": [
+     200,
+     560
+    ],
+    "sweat": [
+     600,
+     260
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-서기-말하기": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-stand-talk.webp",
+   "w": 786,
+   "h": 978,
+   "family": "winky-서기-평온",
+   "patched": true,
+   "anchor": {
+    "face": [
+     200,
+     340,
+     580,
+     530
+    ],
+    "cx": 380,
+    "head": [
+     130,
+     200,
+     630,
+     520
+    ],
+    "torso": [
+     200,
+     560
+    ],
+    "sweat": [
+     600,
+     260
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-서기-눈감음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-stand-blink.webp",
+   "w": 786,
+   "h": 978,
+   "family": "winky-서기-평온",
+   "patched": true,
+   "anchor": {
+    "face": [
+     200,
+     340,
+     580,
+     530
+    ],
+    "cx": 380,
+    "head": [
+     130,
+     200,
+     630,
+     520
+    ],
+    "torso": [
+     200,
+     560
+    ],
+    "sweat": [
+     600,
+     260
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-서기-놀람": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-stand-surprise.webp",
+   "w": 786,
+   "h": 978,
+   "family": "winky-서기-평온",
+   "patched": false,
+   "anchor": {
+    "face": [
+     200,
+     340,
+     580,
+     530
+    ],
+    "cx": 380,
+    "head": [
+     130,
+     200,
+     630,
+     520
+    ],
+    "torso": [
+     200,
+     560
+    ],
+    "sweat": [
+     600,
+     260
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-서기-당황": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-stand-fluster.webp",
+   "w": 786,
+   "h": 978,
+   "family": "winky-서기-평온",
+   "patched": false,
+   "anchor": {
+    "face": [
+     200,
+     340,
+     580,
+     530
+    ],
+    "cx": 380,
+    "head": [
+     130,
+     200,
+     630,
+     520
+    ],
+    "torso": [
+     200,
+     560
+    ],
+    "sweat": [
+     600,
+     260
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-서기-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-stand-smile.webp",
+   "w": 786,
+   "h": 978,
+   "family": "winky-서기-평온",
+   "patched": false,
+   "anchor": {
+    "face": [
+     200,
+     340,
+     580,
+     530
+    ],
+    "cx": 380,
+    "head": [
+     130,
+     200,
+     630,
+     520
+    ],
+    "torso": [
+     200,
+     560
+    ],
+    "sweat": [
+     600,
+     260
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신-평온": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bust-calm.webp",
+   "w": 967,
+   "h": 1498,
+   "family": "bear-상반신-평온",
+   "anchor": {
+    "face": [
+     320,
+     460,
+     690,
+     905
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     120,
+     820,
+     940
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     1000
+    ],
+    "sweat": [
+     745,
+     470
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신-말하기": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bust-talk.webp",
+   "w": 967,
+   "h": 1498,
+   "family": "bear-상반신-평온",
+   "patched": true,
+   "anchor": {
+    "face": [
+     320,
+     460,
+     690,
+     905
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     120,
+     820,
+     940
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     1000
+    ],
+    "sweat": [
+     745,
+     470
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신-눈감음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bust-blink.webp",
+   "w": 967,
+   "h": 1498,
+   "family": "bear-상반신-평온",
+   "patched": true,
+   "anchor": {
+    "face": [
+     320,
+     460,
+     690,
+     905
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     120,
+     820,
+     940
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     1000
+    ],
+    "sweat": [
+     745,
+     470
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bust-smile.webp",
+   "w": 967,
+   "h": 1498,
+   "family": "bear-상반신-평온",
+   "patched": false,
+   "anchor": {
+    "face": [
+     320,
+     460,
+     690,
+     905
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     120,
+     820,
+     940
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     1000
+    ],
+    "sweat": [
+     745,
+     470
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신-당황": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bust-fluster.webp",
+   "w": 967,
+   "h": 1498,
+   "family": "bear-상반신-평온",
+   "patched": false,
+   "anchor": {
+    "face": [
+     320,
+     460,
+     690,
+     905
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     120,
+     820,
+     940
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     1000
+    ],
+    "sweat": [
+     745,
+     470
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "penguin-상반신-평온": {
+   "kind": "actor",
+   "actor": "penguin",
+   "file": "kit/actors/penguin/penguin-bust-calm.webp",
+   "w": 859,
+   "h": 862,
+   "family": "penguin-상반신-평온",
+   "anchor": {
+    "face": [
+     180,
+     200,
+     620,
+     380
+    ],
+    "cx": 406,
+    "head": [
+     56,
+     0,
+     706,
+     440
+    ],
+    "torso": [
+     0,
+     859
+    ],
+    "fan": [
+     560,
+     340,
+     800,
+     720
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "penguin-상반신-말하기": {
+   "kind": "actor",
+   "actor": "penguin",
+   "file": "kit/actors/penguin/penguin-bust-talk.webp",
+   "w": 859,
+   "h": 862,
+   "family": "penguin-상반신-평온",
+   "patched": true,
+   "anchor": {
+    "face": [
+     180,
+     200,
+     620,
+     380
+    ],
+    "cx": 406,
+    "head": [
+     56,
+     0,
+     706,
+     440
+    ],
+    "torso": [
+     0,
+     859
+    ],
+    "fan": [
+     560,
+     340,
+     800,
+     720
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "penguin-상반신-눈감음": {
+   "kind": "actor",
+   "actor": "penguin",
+   "file": "kit/actors/penguin/penguin-bust-blink.webp",
+   "w": 859,
+   "h": 862,
+   "family": "penguin-상반신-평온",
+   "patched": true,
+   "anchor": {
+    "face": [
+     180,
+     200,
+     620,
+     380
+    ],
+    "cx": 406,
+    "head": [
+     56,
+     0,
+     706,
+     440
+    ],
+    "torso": [
+     0,
+     859
+    ],
+    "fan": [
+     560,
+     340,
+     800,
+     720
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "penguin-상반신-부채2": {
+   "kind": "actor",
+   "actor": "penguin",
+   "file": "kit/actors/penguin/penguin-bust-fan2.webp",
+   "w": 859,
+   "h": 862,
+   "family": "penguin-상반신-평온",
+   "patched": false,
+   "anchor": {
+    "face": [
+     180,
+     200,
+     620,
+     380
+    ],
+    "cx": 406,
+    "head": [
+     56,
+     0,
+     706,
+     440
+    ],
+    "torso": [
+     0,
+     859
+    ],
+    "fan": [
+     560,
+     340,
+     800,
+     720
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-들기-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-lift-smile.webp",
+   "w": 969,
+   "h": 1525,
+   "family": "bear-들기-웃음",
+   "anchor": {
+    "face": [
+     310,
+     280,
+     670,
+     560
+    ],
+    "cx": 490,
+    "head": [
+     136,
+     10,
+     826,
+     600
+    ],
+    "torso": [
+     100,
+     820
+    ],
+    "hand": [
+     866,
+     650
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-들기-웃음2": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-lift-smile2.webp",
+   "w": 969,
+   "h": 1525,
+   "family": "bear-들기-웃음",
+   "patched": false,
+   "anchor": {
+    "face": [
+     310,
+     280,
+     670,
+     560
+    ],
+    "cx": 490,
+    "head": [
+     136,
+     10,
+     826,
+     600
+    ],
+    "torso": [
+     100,
+     820
+    ],
+    "hand": [
+     866,
+     650
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-숙이기-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-bow-smile.webp",
+   "w": 863,
+   "h": 839,
+   "family": "winky-숙이기-웃음",
+   "anchor": {
+    "face": [
+     230,
+     360,
+     560,
+     520
+    ],
+    "cx": 460,
+    "head": [
+     190,
+     230,
+     650,
+     540
+    ],
+    "torso": [
+     330,
+     600
+    ],
+    "hand": [
+     450,
+     610
+    ],
+    "sweat": [
+     640,
+     250
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-숙이기-당황": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-bow-fluster.webp",
+   "w": 863,
+   "h": 839,
+   "family": "winky-숙이기-웃음",
+   "patched": false,
+   "anchor": {
+    "face": [
+     230,
+     360,
+     560,
+     520
+    ],
+    "cx": 460,
+    "head": [
+     190,
+     230,
+     650,
+     540
+    ],
+    "torso": [
+     330,
+     600
+    ],
+    "hand": [
+     450,
+     610
+    ],
+    "sweat": [
+     640,
+     250
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵-평온": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcup-calm.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵가득-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcupfull-smile.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "filled": true,
+   "patched": true,
+   "aligned": [
+    1.0,
+    4.0,
+    0.0,
+    0.984
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵가득-평온": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcupfull-calm.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "filled": true,
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵가득-말하기": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcupfull-talk.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "filled": true,
+   "patched": true,
+   "aligned": [
+    1.0,
+    4.0,
+    0.0,
+    0.984
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵가득-눈감음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcupfull-blink.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "filled": true,
+   "patched": true,
+   "aligned": [
+    1.0,
+    4.0,
+    0.0,
+    0.984
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵-말하기": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcup-talk.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "patched": true,
+   "aligned": [
+    1.0,
+    4.0,
+    0.0,
+    0.984
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵-눈감음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcup-blink.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "patched": true,
+   "aligned": [
+    1.0,
+    4.0,
+    0.0,
+    0.984
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcup-smile.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "patched": true,
+   "aligned": [
+    1.0,
+    4.0,
+    0.0,
+    0.984
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-상반신컵가득-당황": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-bustcupfull-fluster.webp",
+   "w": 960,
+   "h": 1497,
+   "family": "bear-상반신컵-평온",
+   "filled": true,
+   "patched": true,
+   "aligned": [
+    1.0,
+    4.0,
+    0.0,
+    0.984
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 482,
+    "derived": {
+     "old": "bear-상반신-평온",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.984
+     ]
+    },
+    "face": [
+     319,
+     459,
+     689,
+     904
+    ],
+    "head": [
+     109,
+     119,
+     819,
+     939
+    ],
+    "torso": [
+     -1,
+     966
+    ],
+    "sweat": [
+     744,
+     469
+    ],
+    "held": [
+     "cup",
+     667,
+     986,
+     755,
+     1145
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-내밀기컵-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-reachcup-smile.webp",
+   "w": 831,
+   "h": 1534,
+   "family": "bear-내밀기컵-웃음",
+   "anchor": {
+    "scale": "h",
+    "cx": 403,
+    "derived": {
+     "old": "bear-내밀기-웃음",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.956
+     ]
+    },
+    "face": [
+     339,
+     260,
+     639,
+     540
+    ],
+    "head": [
+     83,
+     10,
+     653,
+     600
+    ],
+    "torso": [
+     39,
+     679
+    ],
+    "held": [
+     "cup",
+     697,
+     677,
+     778,
+     838
+    ],
+    "mouth": [
+     737,
+     725
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-내밀기컵가득-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-reachcupfull-smile.webp",
+   "w": 831,
+   "h": 1534,
+   "family": "bear-내밀기컵-웃음",
+   "filled": true,
+   "anchor": {
+    "scale": "h",
+    "cx": 403,
+    "derived": {
+     "old": "bear-내밀기-웃음",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.956
+     ]
+    },
+    "face": [
+     339,
+     260,
+     639,
+     540
+    ],
+    "head": [
+     83,
+     10,
+     653,
+     600
+    ],
+    "torso": [
+     39,
+     679
+    ],
+    "held": [
+     "cup",
+     697,
+     677,
+     778,
+     838
+    ],
+    "mouth": [
+     737,
+     725
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-들기측정기-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-liftmeter-smile.webp",
+   "w": 904,
+   "h": 1522,
+   "family": "bear-들기측정기-웃음",
+   "anchor": {
+    "scale": "h",
+    "cx": 487,
+    "derived": {
+     "old": "bear-들기-웃음",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.99
+     ]
+    },
+    "face": [
+     307,
+     280,
+     667,
+     560
+    ],
+    "head": [
+     133,
+     10,
+     823,
+     600
+    ],
+    "torso": [
+     97,
+     817
+    ],
+    "held": [
+     "meter",
+     810,
+     632,
+     842,
+     719
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-들기측정기-당황": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-liftmeter-fluster.webp",
+   "w": 904,
+   "h": 1522,
+   "family": "bear-들기측정기-웃음",
+   "patched": false,
+   "aligned": [
+    1.0,
+    0.0,
+    0.0,
+    0.998
+   ],
+   "anchor": {
+    "scale": "h",
+    "cx": 487,
+    "derived": {
+     "old": "bear-들기-웃음",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.99
+     ]
+    },
+    "face": [
+     307,
+     280,
+     667,
+     560
+    ],
+    "head": [
+     133,
+     10,
+     823,
+     600
+    ],
+    "torso": [
+     97,
+     817
+    ],
+    "held": [
+     "meter",
+     810,
+     632,
+     842,
+     719
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-따르기-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-pour-smile.webp",
+   "w": 856,
+   "h": 1191,
+   "family": "winky-따르기-웃음",
+   "anchor": {
+    "scale": "h",
+    "cx": 407,
+    "derived": {
+     "old": "winky-내밀기-웃음",
+     "align": [
+      0.945,
+      102.0,
+      92.0,
+      0.871
+     ]
+    },
+    "face": [
+     272,
+     474,
+     605,
+     672
+    ],
+    "head": [
+     153,
+     299,
+     685,
+     688
+    ],
+    "torso": [
+     248,
+     566
+    ],
+    "held": [
+     "jug",
+     0,
+     3,
+     362,
+     338
+    ],
+    "top": 165
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-따르기기울임-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-pourtilt-smile.webp",
+   "w": 856,
+   "h": 1191,
+   "family": "winky-따르기-웃음",
+   "patched": false,
+   "aligned": [
+    1.0,
+    0.0,
+    0.0,
+    0.973
+   ],
+   "anchor": {
+    "scale": "h",
+    "cx": 407,
+    "derived": {
+     "old": "winky-내밀기-웃음",
+     "align": [
+      0.945,
+      102.0,
+      92.0,
+      0.871
+     ]
+    },
+    "face": [
+     272,
+     474,
+     605,
+     672
+    ],
+    "head": [
+     153,
+     299,
+     685,
+     688
+    ],
+    "torso": [
+     248,
+     566
+    ],
+    "spout": [
+     2,
+     228
+    ],
+    "top": 165
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-숙이기컵-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-bowcup-smile.webp",
+   "w": 860,
+   "h": 833,
+   "family": "winky-숙이기컵-웃음",
+   "anchor": {
+    "scale": "head",
+    "cx": 456,
+    "derived": {
+     "old": "winky-숙이기-웃음",
+     "align": [
+      1.005,
+      0.0,
+      -4.0,
+      0.978
+     ]
+    },
+    "face": [
+     227,
+     359,
+     556,
+     518
+    ],
+    "head": [
+     188,
+     229,
+     645,
+     538
+    ],
+    "torso": [
+     327,
+     596
+    ],
+    "sweat": [
+     635,
+     249
+    ],
+    "held": [
+     "cup",
+     355,
+     500,
+     508,
+     778
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-숙이기컵-당황": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-bowcup-fluster.webp",
+   "w": 860,
+   "h": 833,
+   "family": "winky-숙이기컵-웃음",
+   "patched": false,
+   "aligned": [
+    1.0,
+    0.0,
+    0.0,
+    0.997
+   ],
+   "anchor": {
+    "scale": "head",
+    "cx": 456,
+    "derived": {
+     "old": "winky-숙이기-웃음",
+     "align": [
+      1.005,
+      0.0,
+      -4.0,
+      0.978
+     ]
+    },
+    "face": [
+     227,
+     359,
+     556,
+     518
+    ],
+    "head": [
+     188,
+     229,
+     645,
+     538
+    ],
+    "torso": [
+     327,
+     596
+    ],
+    "sweat": [
+     635,
+     249
+    ],
+    "held": [
+     "cup",
+     355,
+     500,
+     508,
+     778
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-서기-시무룩": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-stand-sulk.webp",
+   "w": 798,
+   "h": 830,
+   "anchor": {
+    "face": [
+     230,
+     250,
+     560,
+     400
+    ],
+    "cx": 394,
+    "head": [
+     134,
+     50,
+     654,
+     410
+    ],
+    "torso": [
+     230,
+     560
+    ],
+    "scale": "head"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "panda-뒤돌기": {
+   "kind": "actor",
+   "actor": "panda",
+   "file": "kit/actors/panda/panda-back.webp",
+   "w": 827,
+   "h": 1472,
+   "anchor": {
+    "face": [
+     0,
+     60,
+     610,
+     550
+    ],
+    "cx": 300,
+    "head": [
+     0,
+     60,
+     610,
+     550
+    ],
+    "torso": [
+     80,
+     540
+    ],
+    "hand": [
+     740,
+     690
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-내밀기-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-reach-smile.webp",
+   "w": 990,
+   "h": 1353,
+   "anchor": {
+    "face": [
+     280,
+     450,
+     700,
+     700
+    ],
+    "cx": 450,
+    "head": [
+     130,
+     230,
+     800,
+     720
+    ],
+    "torso": [
+     250,
+     650
+    ],
+    "hand": [
+     150,
+     760
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-hand-pencil": {
+   "kind": "hand",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-hand-pencil.webp",
+   "w": 581,
+   "h": 1494,
+   "anchor": {
+    "paw": [
+     0,
+     0,
+     581,
+     620
+    ],
+    "pawc": [
+     290,
+     330
+    ],
+    "tip": [
+     6,
+     50
+    ],
+    "pencil": [
+     6,
+     50,
+     440,
+     470
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": "EDIT the attached bear paw reference (BEAR DAD's raised paw and sky-blue sleeve). ONE body part plus one pencil: BEAR DAD's right forearm and paw, Seen from DIRECTLY ABOVE (top-down, flat, no perspective), like a paper cut-out lying on a table. The arm comes UP from the BOTTOM edge of the picture: the SKY-BLUE hoodie jacket sleeve (same blue paper and cuff as the reference) runs straight down and is cut off by the bottom edge. The brown paw (same brown paper as the reference) holds a plain unpainted pale-wood pencil the way you write: fingers curled around it, the pencil leaning so its sharpened gray graphite TIP points to the UPPER-LEFT and is the top-left-most point of the whole picture, a small white eraser end at the other side. The pencil is about as long as the paw is wide (pencil length about 1.05 times the paw width). No red anywhere. The paw is about 30% of the picture width, near the top. Arm vertical, centered, long (it fills the height). No body, no head, no paper, no writing. If your image tool offers a transparent background option, turn it on and keep the alpha; otherwise use the plain flat magenta background.",
+   "ref": null,
+   "gen": {
+    "size": "1024x1536",
+    "key": "magenta",
+    "tool": "kit/gen/gen.sh",
+    "note": "1회차 프롬프트. 고침 회차(gen3~6)는 episodes/ep01-fruit-juice/legacy/gen9.py"
+   },
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-서기-당황": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-stand-fluster.webp",
+   "w": 958,
+   "h": 1521,
+   "anchor": {
+    "face": [
+     330,
+     280,
+     700,
+     560
+    ],
+    "cx": 486,
+    "head": [
+     130,
+     10,
+     820,
+     600
+    ],
+    "torso": [
+     120,
+     850
+    ],
+    "sweat": [
+     230,
+     310
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-양손들기-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-hold2-smile.webp",
+   "w": 952,
+   "h": 1302,
+   "anchor": {
+    "face": [
+     270,
+     430,
+     670,
+     660
+    ],
+    "cx": 452,
+    "head": [
+     152,
+     240,
+     782,
+     680
+    ],
+    "torso": [
+     270,
+     640
+    ],
+    "hand": [
+     452,
+     720
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-들기컵-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-liftcup-smile.webp",
+   "w": 922,
+   "h": 1522,
+   "anchor": {
+    "scale": "h",
+    "cx": 487,
+    "derived": {
+     "old": "bear-들기-웃음",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.99
+     ]
+    },
+    "face": [
+     307,
+     280,
+     667,
+     560
+    ],
+    "head": [
+     133,
+     10,
+     823,
+     600
+    ],
+    "torso": [
+     97,
+     817
+    ],
+    "held": [
+     "cup",
+     791,
+     585,
+     870,
+     739
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "notebook-open": {
+   "kind": "prop",
+   "file": "kit/props/notebook-open.webp",
+   "w": 1376,
+   "h": 908,
+   "anchor": {
+    "labels": [
+     [
+      0.5305,
+      0.1377,
+      0.6395,
+      0.2808
+     ],
+     [
+      0.5305,
+      0.3359,
+      0.6395,
+      0.4758
+     ],
+     [
+      0.5305,
+      0.5341,
+      0.6395,
+      0.6773
+     ],
+     [
+      0.5305,
+      0.7357,
+      0.6395,
+      0.8811
+     ]
+    ],
+    "entry": [
+     0.6577,
+     0.7159,
+     0.9448,
+     0.8943
+    ],
+    "base": 0.8645374449339207
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": "ONE prop only, no characters: an open paper notebook (a meal diary) lying flat, Seen from DIRECTLY ABOVE (top-down, flat, no perspective), like a paper cut-out lying on a table. Landscape 300:210 (two pages side by side, a soft fold in the middle, no spiral), thin pale sky-blue paper cover edges peeking around the white pages. The RIGHT page has a simple table drawn with thin pale gray-blue lines: FOUR equal horizontal rows filling the page; each row has a small BLANK label box at its left (about one fifth of the row width) and a wide writing area to its right. In the top three rows the writing area holds only a few faint light-gray pencil scribble lines (illegible squiggles, never letters). The BOTTOM (fourth) row is completely EMPTY: two thin pale ruled lines, lots of white space, nothing written. The LEFT page is blank white with a few faint pale ruled lines. No letters, no numbers, no text anywhere. If your image tool offers a transparent background option, turn it on and keep the alpha; otherwise use the plain flat magenta background.",
+   "ref": null,
+   "gen": {
+    "size": "1536x1024",
+    "key": "magenta",
+    "tool": "kit/gen/gen.sh",
+    "note": "1회차 프롬프트. 고침 회차(gen3~6)는 episodes/ep01-fruit-juice/legacy/gen9.py"
+   },
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-door-cu": {
+   "kind": "set",
+   "file": "kit/sets/door/CU/set-door-cu.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-kitchen-w": {
+   "kind": "set",
+   "file": "kit/sets/kitchen/W/set-kitchen-w.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "box-open": {
+   "kind": "prop",
+   "file": "kit/props/box-open.webp",
+   "w": 771,
+   "h": 522,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-hand": {
+   "kind": "hand",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-hand.webp",
+   "w": 332,
+   "h": 1471,
+   "anchor": {
+    "paw": [
+     0,
+     1180,
+     332,
+     1471
+    ],
+    "pawc": [
+     166,
+     1340
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": "EDIT the attached Winky paw reference (WINKY's cream front paws). ONE body part only: WINKY's right front leg and paw, Seen from DIRECTLY ABOVE (top-down, flat, no perspective), like a paper cut-out lying on a table. The arm comes DOWN from the TOP edge of the picture: a cream fur foreleg (same cream paper as the reference, no clothes) runs straight down from the top edge (cut off by the top edge) and ends in a small round cream paw lying FLAT, PALM DOWN, three little toe slits at its bottom edge, the same paw shape as the reference. The paw is about 30% of the picture width; its bottom tip about 6% above the bottom edge. Leg vertical, centered, long (it fills the height). No body, no head, no ears, no tail, nothing in the paw. If your image tool offers a transparent background option, turn it on and keep the alpha; otherwise use the plain flat magenta background.",
+   "ref": null,
+   "gen": {
+    "size": "1024x1536",
+    "key": "magenta",
+    "tool": "kit/gen/gen.sh",
+    "note": "1회차 프롬프트. 고침 회차(gen3~6)는 episodes/ep01-fruit-juice/legacy/gen9.py"
+   },
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "notebook-closed": {
+   "kind": "prop",
+   "file": "kit/props/notebook-closed.webp",
+   "w": 920,
+   "h": 1394,
+   "anchor": {
+    "text": [
+     0.16,
+     0.195,
+     0.85,
+     0.37
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": "The SAME notebook as the attached open notebook picture, now CLOSED, lying flat, Seen from DIRECTLY ABOVE (top-down, flat, no perspective), like a paper cut-out lying on a table. Portrait 150:210. The front cover is the same pale sky-blue paper as the cover edges of the open notebook, with one BLANK white rectangular label panel in the upper middle of the cover (about 60% of the cover width). No letters, no numbers, no text, no spiral. If your image tool offers a transparent background option, turn it on and keep the alpha; otherwise use the plain flat magenta background.",
+   "ref": null,
+   "gen": {
+    "size": "1024x1536",
+    "key": "magenta",
+    "tool": "kit/gen/gen.sh",
+    "note": "1회차 프롬프트. 고침 회차(gen3~6)는 episodes/ep01-fruit-juice/legacy/gen9.py"
+   },
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "winky-양손컵-웃음": {
+   "kind": "actor",
+   "actor": "winky",
+   "file": "kit/actors/winky/winky-hold2cup-smile.webp",
+   "w": 952,
+   "h": 1301,
+   "anchor": {
+    "scale": "h",
+    "cx": 452,
+    "derived": {
+     "old": "winky-양손들기-웃음",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.994
+     ]
+    },
+    "face": [
+     270,
+     429,
+     670,
+     659
+    ],
+    "head": [
+     152,
+     239,
+     782,
+     679
+    ],
+    "torso": [
+     270,
+     640
+    ],
+    "held": [
+     "cup",
+     345,
+     548,
+     550,
+     935
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "meter": {
+   "kind": "prop",
+   "file": "kit/props/meter.webp",
+   "w": 382,
+   "h": 934,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-office-cu": {
+   "kind": "set",
+   "file": "kit/sets/office/CU/set-office-cu.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-office-m": {
+   "kind": "set",
+   "file": "kit/sets/office/M/set-office-m.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "chair": {
+   "kind": "prop",
+   "file": "kit/props/chair.webp",
+   "w": 662,
+   "h": 1213,
+   "anchor": {
+    "seat": 640
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "panda-양손사과-놀람": {
+   "kind": "actor",
+   "actor": "panda",
+   "file": "kit/actors/panda/panda-hold2apple-surprise.webp",
+   "w": 716,
+   "h": 1504,
+   "anchor": {
+    "scale": "h",
+    "cx": 460,
+    "derived": {
+     "old": "panda-양손들기-놀람",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.987
+     ]
+    },
+    "face": [
+     220,
+     221,
+     700,
+     481
+    ],
+    "head": [
+     10,
+     61,
+     710,
+     601
+    ],
+    "torso": [
+     130,
+     600
+    ],
+    "held": [
+     "apple",
+     645,
+     610,
+     702,
+     690
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-hand-flat": {
+   "kind": "hand",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-hand-flat.webp",
+   "w": 308,
+   "h": 1476,
+   "anchor": {
+    "paw": [
+     0,
+     20,
+     308,
+     330
+    ],
+    "pawc": [
+     154,
+     190
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": "EDIT the attached bear paw reference (BEAR DAD's raised paw and sky-blue sleeve). ONE body part only: BEAR DAD's right forearm and paw, Seen from DIRECTLY ABOVE (top-down, flat, no perspective), like a paper cut-out lying on a table. The arm comes UP from the BOTTOM edge of the picture: the SKY-BLUE hoodie jacket sleeve (same blue paper and cuff as the reference) runs straight down and is cut off by the bottom edge. At the top of the arm, the brown paw lies FLAT, PALM DOWN, fingers pointing up, four short thick rounded fingers slightly apart, the same brown paper color and rounded shape as the reference paw. The paw is about 30% of the picture width, its fingertips near the top (about 6% from the top edge). The arm is vertical and centered, long (it fills the height). No body, no head, no other paw, nothing in the paw. If your image tool offers a transparent background option, turn it on and keep the alpha; otherwise use the plain flat magenta background.",
+   "ref": null,
+   "gen": {
+    "size": "1024x1536",
+    "key": "magenta",
+    "tool": "kit/gen/gen.sh",
+    "note": "1회차 프롬프트. 고침 회차(gen3~6)는 episodes/ep01-fruit-juice/legacy/gen9.py"
+   },
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "panda-내밀기-웃음": {
+   "kind": "actor",
+   "actor": "panda",
+   "file": "kit/actors/panda/panda-reach-smile.webp",
+   "w": 784,
+   "h": 1497,
+   "anchor": {
+    "face": [
+     230,
+     220,
+     680,
+     470
+    ],
+    "cx": 480,
+    "head": [
+     56,
+     60,
+     706,
+     580
+    ],
+    "torso": [
+     180,
+     700
+    ],
+    "hand": [
+     60,
+     680
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-kitchen-m": {
+   "kind": "set",
+   "file": "kit/sets/kitchen/M/set-kitchen-m.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "box-closed": {
+   "kind": "prop",
+   "file": "kit/props/box-closed.webp",
+   "w": 627,
+   "h": 371,
+   "anchor": {
+    "text": [
+     0.19,
+     0.43,
+     0.8,
+     0.85
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-table": {
+   "kind": "set",
+   "file": "kit/sets/table/board/set-table.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": "BACKGROUND PLATE, top-down: looking straight down at a plain WHITE paper tabletop that fills the entire frame edge to edge. Clean matte white paper surface with very faint paper fiber; the only other tone is a soft pale blue-gray (#DCE3EC) used for a gentle shadow along the edges and one or two large layered white paper sheets with thin pale blue-gray shadows between layers. It is a white table or desk top: NEVER brown, no wood, no wood grain, no beige, no tablecloth pattern. Nothing on it at all: no objects, no cups, no notebook, no hands, no text, no lines, no numbers.",
+   "ref": null,
+   "gen": {
+    "size": "1152x2048",
+    "key": "none",
+    "tool": "kit/gen/gen.sh",
+    "note": "1회차 프롬프트. 고침 회차(gen3~6)는 episodes/ep01-fruit-juice/legacy/gen9.py"
+   },
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "panda-내밀기통-웃음": {
+   "kind": "actor",
+   "actor": "panda",
+   "file": "kit/actors/panda/panda-reachjug-smile.webp",
+   "w": 838,
+   "h": 1500,
+   "anchor": {
+    "scale": "h",
+    "cx": 537,
+    "derived": {
+     "old": "panda-내밀기-웃음",
+     "align": [
+      1.0,
+      0.0,
+      0.0,
+      0.988
+     ]
+    },
+    "face": [
+     287,
+     223,
+     737,
+     473
+    ],
+    "head": [
+     113,
+     63,
+     763,
+     583
+    ],
+    "torso": [
+     237,
+     757
+    ],
+    "held": [
+     "jug",
+     15,
+     461,
+     250,
+     703
+    ]
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-kitchen-cu": {
+   "kind": "set",
+   "file": "kit/sets/kitchen/CU/set-kitchen-cu.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-들기-당황": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-lift-fluster.webp",
+   "w": 872,
+   "h": 1526,
+   "anchor": {
+    "face": [
+     280,
+     270,
+     640,
+     560
+    ],
+    "cx": 456,
+    "head": [
+     100,
+     10,
+     800,
+     600
+    ],
+    "torso": [
+     70,
+     800
+    ],
+    "hand": [
+     765,
+     700
+    ],
+    "scale": "h"
+   },
+   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-서기-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-stand-smile.webp",
+   "w": 1011,
+   "h": 1523,
+   "anchor": {
+    "face": [
+     320,
+     290,
+     680,
+     560
+    ],
+    "cx": 500,
+    "head": [
+     140,
+     10,
+     850,
+     600
+    ],
+    "torso": [
+     130,
+     870
+    ],
+    "scale": "h"
+   },
+   "source": "ep01/kit/bear-stand",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bear-내밀기-웃음": {
+   "kind": "actor",
+   "actor": "bear",
+   "file": "kit/actors/bear/bear-reach-smile.webp",
+   "w": 1015,
+   "h": 1534,
+   "anchor": {
+    "face": [
+     340,
+     260,
+     640,
+     540
+    ],
+    "cx": 404,
+    "head": [
+     84,
+     10,
+     654,
+     600
+    ],
+    "torso": [
+     40,
+     680
+    ],
+    "hand": [
+     930,
+     660
+    ],
+    "scale": "h"
+   },
+   "source": "ep01/kit/bear-handoff",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "panda-양손들기-놀람": {
+   "kind": "actor",
+   "actor": "panda",
+   "file": "kit/actors/panda/panda-hold2-surprise.webp",
+   "w": 822,
+   "h": 1503,
+   "anchor": {
+    "face": [
+     220,
+     220,
+     700,
+     480
+    ],
+    "cx": 460,
+    "head": [
+     10,
+     60,
+     710,
+     600
+    ],
+    "torso": [
+     130,
+     600
+    ],
+    "hand": [
+     630,
+     690
+    ],
+    "scale": "h"
+   },
+   "source": "ep01/kit/panda-recv",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "penguin-서기-평온": {
+   "kind": "actor",
+   "actor": "penguin",
+   "file": "kit/actors/penguin/penguin-stand-calm.webp",
+   "w": 859,
+   "h": 961,
+   "anchor": {
+    "face": [
+     220,
+     150,
+     600,
+     320
+    ],
+    "cx": 428,
+    "head": [
+     98,
+     0,
+     678,
+     370
+    ],
+    "torso": [
+     60,
+     820
+    ],
+    "scale": "h"
+   },
+   "source": "ep01/kit/penguin-stand",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "cup-empty": {
+   "kind": "prop",
+   "file": "kit/props/cup-empty.webp",
+   "w": 154,
+   "h": 273,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "cup-third": {
+   "kind": "prop",
+   "file": "kit/props/cup-third.webp",
+   "w": 153,
+   "h": 273,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "cup-twothird": {
+   "kind": "prop",
+   "file": "kit/props/cup-twothird.webp",
+   "w": 153,
+   "h": 273,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "cup-full": {
+   "kind": "prop",
+   "file": "kit/props/cup-full.webp",
+   "w": 153,
+   "h": 274,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "apple-whole": {
+   "kind": "prop",
+   "file": "kit/props/apple-whole.webp",
+   "w": 391,
+   "h": 439,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "jug": {
+   "kind": "prop",
+   "file": "kit/props/jug.webp",
+   "w": 288,
+   "h": 270,
+   "anchor": {
+    "grip": [
+     255,
+     150
+    ]
+   },
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "card": {
+   "kind": "ui",
+   "file": "kit/ui/card.webp",
+   "w": 1350,
+   "h": 836,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "card-s": {
+   "kind": "ui",
+   "file": "kit/ui/card-s.webp",
+   "w": 1363,
+   "h": 876,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "tape": {
+   "kind": "ui",
+   "file": "kit/ui/tape.webp",
+   "w": 195,
+   "h": 65,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "sweat": {
+   "kind": "prop",
+   "file": "kit/props/sweat.webp",
+   "w": 53,
+   "h": 71,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strip-w-short": {
+   "kind": "ui",
+   "file": "kit/ui/strip-w-short.webp",
+   "w": 869,
+   "h": 235,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strip-w-mid": {
+   "kind": "ui",
+   "file": "kit/ui/strip-w-mid.webp",
+   "w": 1301,
+   "h": 244,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strip-w-long": {
+   "kind": "ui",
+   "file": "kit/ui/strip-w-long.webp",
+   "w": 2003,
+   "h": 248,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bg-end": {
+   "kind": "set",
+   "file": "kit/sets/end/bg-end.jpg",
+   "w": 1152,
+   "h": 2048,
+   "source": "ep01/kit",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "iris-black": {
+   "kind": "fx",
+   "file": "kit/fx/iris-black.jpg",
+   "w": 1080,
+   "h": 1920,
+   "source": "ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "iris-rim": {
+   "kind": "fx",
+   "file": "kit/fx/iris-rim.jpg",
+   "w": 1080,
+   "h": 1920,
+   "source": "ep01-v9 prep.py",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "jug-empty": {
+   "kind": "prop",
+   "file": "kit/props/jug-empty.webp",
+   "w": 288,
+   "h": 270,
+   "anchor": {
+    "grip": [
+     255,
+     150
+    ]
+   },
+   "source": "jug.webp 색 바꾸기",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strike-1": {
+   "kind": "ui",
+   "file": "kit/ui/strike-1.png",
+   "w": 320,
+   "h": 44,
+   "source": "prep.py 연필 줄",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strike-2": {
+   "kind": "ui",
+   "file": "kit/ui/strike-2.png",
+   "w": 320,
+   "h": 44,
+   "source": "prep.py 연필 줄",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strike-3": {
+   "kind": "ui",
+   "file": "kit/ui/strike-3.png",
+   "w": 320,
+   "h": 44,
+   "source": "prep.py 연필 줄",
+   "status": "approved",
+   "approved": "2026-11-11 ep01 9e판",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "logo-main": {
+   "kind": "logo",
+   "file": "kit/logo/logo-main.png",
+   "status": "approved",
+   "approved": "2026-11-11 9d판 A1·A3",
+   "source": "kit/logo/README.md (Images 2.6)",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "logo-inline": {
+   "kind": "logo",
+   "file": "kit/logo/logo-inline.png",
+   "status": "approved",
+   "approved": "2026-11-11 9d판 A1·A3",
+   "source": "kit/logo/README.md (Images 2.6)",
+   "prompt": null,
+   "ref": null,
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  }
+ },
+ "music": {
+  "theme-a": {
+   "kind": "music",
+   "role": "theme",
+   "file": "kit/music/theme-a.wav",
+   "sha256": "5bf1fb1bd9fd7115ca58a2316832d2d958fda505faa04fbbb0cd6e8cdaf93ff6",
+   "bytes": 5766138,
+   "suno_clip": "c80fb038-bb9a-48f2-8d7e-6ddbc680b1c1",
+   "status": "approved",
+   "approved": "2026-11-11",
+   "source": "Suno Pro, kit/music/SOURCE.md",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bed-bright": {
+   "kind": "music",
+   "role": "bed",
+   "file": "kit/music/bed-bright.wav",
+   "sha256": "e1968e853ca72656c31cae40cb2e52120f1f59842e733ed2285d76c8338297f3",
+   "bytes": 5919738,
+   "suno_clip": "a7de5fbb-e233-455b-9a47-0878f4d5c0dd",
+   "status": "approved",
+   "approved": "2026-11-11",
+   "source": "Suno Pro, kit/music/SOURCE.md",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "bed-awkward": {
+   "kind": "music",
+   "role": "bed",
+   "file": "kit/music/bed-awkward.wav",
+   "sha256": "3c0cdf892e35b1789643c286ebe0a9f4d3015c503e28aec263d16d9e0815f63e",
+   "bytes": 4998138,
+   "suno_clip": "b0dd01f7-cd08-42bd-b069-20e255962e98",
+   "status": "approved",
+   "approved": "2026-11-11",
+   "source": "Suno Pro, kit/music/SOURCE.md",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "stings-1": {
+   "kind": "music",
+   "role": "stings",
+   "file": "kit/music/stings-1.wav",
+   "sha256": "9a9d89b7cd0ec1604b58d3c001f6b6b4658cad95a1e5227f0523cd6a7236625d",
+   "bytes": 3999738,
+   "suno_clip": "33c9e303-4d62-4184-94f6-ae00588b6430",
+   "status": "approved",
+   "approved": "2026-11-11",
+   "source": "Suno Pro, kit/music/SOURCE.md",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "sting-babam": {
+   "kind": "music",
+   "role": "sting",
+   "file": "kit/music/sting-babam.wav",
+   "sha256": "30c8b0914554f50ffb090fa845e3f41856ccc631df2fd93afe5b138d39e8ab44",
+   "bytes": 858590,
+   "suno_clip": "f20909df-5115-422c-89f1-c623268d7947",
+   "status": "approved",
+   "approved": "2026-11-11",
+   "source": "Suno Pro, kit/music/SOURCE.md",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "sting-boing": {
+   "kind": "music",
+   "role": "sting",
+   "file": "kit/music/sting-boing.wav",
+   "sha256": "24095cf61662e370d12f460cd5f68d84d7d51f492f10e1dcdc6b3d80c8da6a6a",
+   "bytes": 397790,
+   "suno_clip": "c4ce8e85-5080-4756-ada1-8346cf95a438",
+   "status": "approved",
+   "approved": "2026-11-11",
+   "source": "Suno Pro, kit/music/SOURCE.md",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "sting-wahwah": {
+   "kind": "music",
+   "role": "sting",
+   "file": "kit/music/sting-wahwah.wav",
+   "sha256": "693a0198fb93a3713f1535bdc93201e256b999baa88b0e8accb73d2e1153195e",
+   "bytes": 774110,
+   "suno_clip": "426b7275-933b-4c36-a5a0-92eced5fb473",
+   "status": "approved",
+   "approved": "2026-11-11",
+   "source": "Suno Pro, kit/music/SOURCE.md",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  }
+ },
+ "sfx": {
+  "띵동": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "탁": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "쿵": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "꿀꺽": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "쪼르륵": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "띠로리": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "뿅": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "삐질": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "아삭": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "톡": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "스윽": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  },
+  "사각": {
+   "kind": "sfx",
+   "source": "engine/sound.py SFX 합성",
+   "status": "approved",
+   "license": "MIT (engine/sound.py 합성)"
+  }
+ },
+ "music_pack": {
+  "version": "music-v1",
+  "url": "https://github.com/weknews/winky-friends-skill/releases/download/music-v1/winky-music-v1.zip",
+  "sha256": "4e91c766c3c69309db572c90c00f026c7fd86178b482334c4da43746d6184799",
+  "note": "정식 음원은 레포가 아니라 Release에 둔다. engine/fetch_kit.py가 처음 실행 때 받는다."
+ }
+}

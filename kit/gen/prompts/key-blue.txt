@@ -1,0 +1,1 @@
+KEY BACKGROUND: plain flat pure #0000FF blue background, no floor, no shadow on the background, no blue anywhere on the character or props, every figure well separated with wide gaps, nothing touching or overlapping.

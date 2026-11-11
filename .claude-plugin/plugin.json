@@ -1,0 +1,7 @@
+{
+  "name": "winky-friends",
+  "version": "0.1.0",
+  "description": "윙키와 친구들 · 모래언덕 빌라: 당뇨 오해 바로잡기 숏폼 시트콤 대본(winky-script)·영상 제작(winky-episode)·프리미티브 생성(winky-assets). 코드는 MIT, 그림·음원·인물은 위뉴 자산(LICENSE-ASSETS.md).",
+  "author": { "name": "Weknew (위뉴)" },
+  "license": "MIT"
+}

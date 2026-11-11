@@ -1,0 +1,13 @@
+{
+  "name": "winky-friends-skill",
+  "owner": { "name": "Weknew (위뉴)" },
+  "metadata": { "description": "윙키와 친구들 숏폼 시트콤 제작 스킬 마켓플레이스" },
+  "plugins": [
+    {
+      "name": "winky-friends",
+      "source": "./",
+      "description": "당뇨 오해 바로잡기 숏폼 시트콤 대본·영상·프리미티브 스킬 3종",
+      "version": "0.1.0"
+    }
+  ]
+}

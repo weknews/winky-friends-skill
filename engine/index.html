@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>윙키와 친구들 주스 세 잔 9d판</title>
+<script src="lib/gsap.min.js"></script>
+<script src="scene.js"></script>
+<style>
+  /* 화면의 그림은 전부 kit/ 그림이다. 좌표는 build.py가 계산한 scene.js 그대로. 글자만 HTML.
+     9b 글꼴(OFL): 주아 = 대사 자막·이름표·근거·표지·끝 화면 큰 줄, 도현 = 제목·「다음 날」·「그날 저녁」, 개구 굵게 = 기록장·상자 손글씨, Pretendard = 끝 화면 작은 줄.
+     한 굵기뿐인 글꼴은 100~900 전체에 대어 브라우저가 가짜 굵게를 만들지 않게 한다. */
+  @font-face { font-family: "Jua"; font-weight: 100 900; src: url("fonts/Jua-Regular.ttf") format("truetype"); }
+  @font-face { font-family: "DoHyeon"; font-weight: 100 900; src: url("fonts/DoHyeon-Regular.ttf") format("truetype"); }
+  @font-face { font-family: "Gaegu"; font-weight: 100 900; src: url("fonts/Gaegu-Bold.ttf") format("truetype"); }
+  @font-face { font-family: "Pretendard"; font-weight: 800; src: url("fonts/Pretendard-ExtraBold.woff2") format("woff2"); }
+  @font-face { font-family: "Pretendard"; font-weight: 700; src: url("fonts/Pretendard-Bold.woff2") format("woff2"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #DDF3CE; }
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Pretendard"; font-weight: 800; color: #10233F; }
+  .cut { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; visibility: hidden; }
+  .w { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+  img { position: absolute; display: block; max-width: none; }
+  .txt { position: absolute; left: 0; top: 0; white-space: nowrap; font-synthesis: none; letter-spacing: -0.02em; line-height: 1; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="50.0" data-fps="30" data-width="1080" data-height="1920"></div>
+<script>
+window.__timelines = window.__timelines || {};
+const S = window.SCENE, K = window.KIT, D = S.D, ROOT = document.getElementById("root");
+const tl = gsap.timeline({ paused: true });                 // 컷 전환(정확한 시각)
+const paper = gsap.timeline({ paused: true });              // 종이 조각(12fps로 끊김)
+const NS = Math.ceil(D * 12);                                // 계단 한 칸 = 정확히 1/12초
+tl.to(paper, { time: NS / 12, duration: NS / 12, ease: "steps(" + NS + ")" }, 0);
+const q = (t) => Math.max(0, Math.round(t * 12) / 12 - 0.002);   // 계단 경계보다 살짝 앞에 둔다
+// 시각 0의 상태는 처음 그릴 때 바로 적용한다(0초 지점의 set은 첫 장에 안 나온다)
+const at0 = (node, v, t) => { if (t <= 0.001) gsap.set(node, v); };
+const el = (p, tag, cls) => { const d = document.createElement(tag); if (cls) d.className = cls; p.appendChild(d); return d; };
+const px = (v) => v.toFixed(1) + "px";
+const FAM = { jua: '"Jua"', dohyeon: '"DoHyeon"', gaegu: '"Gaegu"', pre: '"Pretendard"' };   // build.py FONTS와 같은 이름
+function img(p, file, x, y, w, h) { const i = el(p, "img"); i.src = file; i.style.cssText = `left:${px(x)};top:${px(y)};width:${px(w)};height:${px(h)}`; return i; }
+function show(node, t0, t1) { if (t0 > 0.001) { node.style.visibility = "hidden"; node.style.opacity = 0; } paper.set(node, { autoAlpha: 0 }, 0); paper.set(node, { autoAlpha: 1 }, q(t0)); if (t1 != null) paper.set(node, { autoAlpha: 0 }, q(t1)); }
+function text(p, r, extra) {
+  const d = el(p, "div", "txt"); d.textContent = r.s;
+  d.style.cssText += `font-size:${r.px}px;font-weight:${r.weight || 800};left:${px(r.x)};top:${px(r.y)}`;
+  d.style.fontFamily = FAM[r.font || "pre"];
+  if (extra) Object.assign(d.dataset, extra); return d;
+}
+function stripRows(g, rows) { rows.forEach((r) => { (r.strips || []).forEach(([n, x, y, w, h]) => img(g, K[n].file, x, y, w, h)); text(g, r); }); }
+
+S.cuts.forEach((C) => {
+  const c = el(ROOT, "div", "cut"); c.dataset.cut = C.n;
+  tl.set(c, { visibility: "visible" }, C.t0); tl.set(c, { visibility: "hidden" }, C.t1); if (C.t0 === 0) c.style.visibility = "visible";
+  const b = C.bg; img(c, K[b.name].file, b.x, b.y, b.w, b.h);
+  const L = {};
+  C.layers.forEach((l) => {
+    const w = el(c, "div", "w"); w.dataset.layer = l.id; const fr = {};
+    l.frames.forEach((f, i) => {
+      let r;
+      if (l.kind === "char") r = l.pl[f];
+      else { const a = K[f]; const ww = a.w * l.k, hh = a.h * l.k; r = { x: l.x + (l.w - ww) / 2, y: l.y + l.h - hh, w: ww, h: hh }; }
+      const im = img(w, K[f].file, r.x, r.y, r.w, r.h); im.dataset.kit = f; fr[f] = im;
+      if (i) { im.style.visibility = "hidden"; im.style.opacity = 0; }
+      paper.set(im, { autoAlpha: i === 0 ? 1 : 0 }, 0);
+    });
+    if (l.grip) w.style.transformOrigin = `${px(l.anchor[0])} ${px(l.anchor[1])}`;
+    if (l.origin) w.style.transformOrigin = `${px(l.origin[0])} ${px(l.origin[1])}`;     // 9판 판 조각: 놓인 점을 중심으로 2D 회전
+    L[l.id] = { w, fr, cur: l.frames[0] };
+  });
+  // 칸 글자(상자 라벨)는 그 조각과 같이 움직인다
+  // 9판: 기록장 칸 글자는 연필 색, 한 자씩 나타나는 글자(r.t0)와 덮을 때 사라지는 글자(r.t1). 21번은 「한」 위 연필 줄(그림)이 처음부터 있다
+  C.texts.filter((x) => x.kind === "label").forEach((x) => {
+    x.rows.forEach((r) => { const d = text(L[x.layer].w, r, { box: (r.box || x.textBox).join(","), cut: C.n }); if (r.pen || x.pen) d.style.color = "#4A4E58"; if (r.t0 != null || r.t1 != null) show(d, r.t0 != null ? r.t0 : 0, r.t1 != null ? r.t1 : null); });
+    if (x.strike) { const a = K["strike-3"], h = a.h * x.strike.w / a.w; img(L[x.layer].w, a.file, x.strike.x, x.strike.yc - h / 2, x.strike.w, h); }
+  });
+  C.events.forEach(([t, id, f, dx, dy]) => {
+    const o = L[id]; if (!o) return;
+    if (f === "hide") { paper.set(o.w, { autoAlpha: 0 }, q(t)); at0(o.w, { autoAlpha: 0 }, t); return; }
+    if (f === "rot") { paper.set(o.w, { rotation: dx }, q(t)); return; }
+    if (f && o.fr[f]) { paper.set(o.w, { autoAlpha: 1 }, q(t)); Object.entries(o.fr).forEach(([n, im]) => paper.set(im, { autoAlpha: n === f ? 1 : 0 }, q(t))); }
+    if (dx != null || dy != null) { paper.set(o.w, { x: dx || 0, y: dy || 0 }, q(t)); at0(o.w, { x: dx || 0, y: dy || 0 }, t); }
+  });
+  // 글자
+  C.texts.forEach((x) => {
+    if (x.kind === "label") return;
+    const g = el(ROOT, "div", "w"); g.dataset.text = x.kind; g.dataset.cut = C.n;
+    if (x.kind === "card") {
+      img(g, K[x.img || "card"].file, x.card.x, x.card.y, x.card.w, x.card.h); img(g, K.tape.file, x.tape.x, x.tape.y, x.tape.w, x.tape.h);
+      x.rows.forEach((r) => text(g, r, { box: x.textBox.join(","), cut: C.n }));
+      const cx = x.card.x + x.card.w / 2, cy = x.card.y + x.card.h / 2; g.style.transformOrigin = `${px(cx)} ${px(cy)}`;
+      show(g, x.t0, x.t1);
+      paper.fromTo(g, { scale: 1.12, rotation: -6 }, { scale: 1, rotation: -3, duration: 1 / 6, ease: "steps(2)", immediateRender: false }, q(x.t0));
+      return;
+    }
+    if (x.kind === "ono") { x.rows.forEach((r) => text(g, r)); show(g, x.t0, x.t1); return; }
+    if (x.kind === "end") { x.rows.forEach((r) => text(g, r)); show(g, x.t0, null); return; }
+    if (x.kind === "logo") { g.style.zIndex = 50; img(g, x.file, x.x, x.y, x.w, x.h); show(g, x.t0, x.t1); return; }   // 9d 시리즈 로고(그림). 다음 컷 위로 넘어가도 보이게 맨 위
+    stripRows(g, x.rows); show(g, x.t0, x.t1);
+  });
+});
+// 아이리스 아웃(7b, iris 전용): 검정 색지에 찢긴 원 구멍. 원 밖만 남기는 evenodd 경로를 12fps 계단마다 바꾼다.
+// 도형을 그리는 게 아니라 전환 마스크다(제작자 허용). 기법: lemo-opuscar(MIT) styles/rubber-hose/demo/scenes.js shotIris 의 evenodd 구멍.
+function irisPath(I, R, j) {                                   // iris
+  let d = "M0 0H1080V1920H0Z";                                 // iris
+  if (R > 0.5) { const n = j.length; for (let i = 0; i < n; i++) { const a = (i / n) * 2 * Math.PI, rr = Math.max(0, R * (1 + 0.025 * j[i]) + 3 * j[(i * 7) % n]); d += (i ? "L" : "M") + (I.cx + rr * Math.cos(a)).toFixed(1) + " " + (I.cy + rr * Math.sin(a)).toFixed(1); } d += "Z"; }   // iris
+  return `path(evenodd, "${d}")`;                              // iris
+}
+S.cuts.filter((C) => C.iris).forEach((C) => {                  // iris
+  const I = C.iris, g = el(ROOT, "div", "w"); g.dataset.iris = C.n;   // iris
+  const rim = img(g, K["iris-rim"].file, 0, 0, 1080, 1920), blk = img(g, K["iris-black"].file, 0, 0, 1080, 1920);   // iris
+  g.style.visibility = "hidden"; g.style.opacity = 0; paper.set(g, { autoAlpha: 0 }, 0); paper.set(g, { autoAlpha: 1 }, q(I.steps[0][0])); paper.set(g, { autoAlpha: 0 }, q(I.end));   // iris
+  I.steps.forEach(([t, r]) => { paper.set(rim, { clipPath: irisPath(I, r, I.jag[0]) }, q(t)); paper.set(blk, { clipPath: irisPath(I, r > 0.5 ? r + I.rim : 0, I.jag[1]) }, q(t)); });   // iris
+});
+window.__timelines.main = tl;
+if (!location.search.includes("still")) { document.fonts.ready.then(() => tl.play()); tl.eventCallback("onComplete", () => tl.restart()); }
+</script>
+</body>
+</html>

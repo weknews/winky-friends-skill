@@ -1,0 +1,12 @@
+{
+  "name": "winky-friends-engine",
+  "private": true,
+  "description": "윙키와 친구들 렌더 엔진 의존성(hyperframes 렌더, puppeteer-core 확인 스크립트, gsap)",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "hyperframes": "^0.9.28",
+    "puppeteer-core": "^25.16.0"
+  }
+}

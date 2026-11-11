@@ -1,0 +1,9 @@
+# 스크립트·데이터는 OS와 상관없이 LF(Windows git autocrlf가 CRLF로 바꾸지 않게)
+*.sh text eol=lf
+*.py text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.txt text eol=lf

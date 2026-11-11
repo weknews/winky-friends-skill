@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>윙키와 친구들 썸네일</title>
+<style>
+  /* 9b 썸네일(첫 프레임·표지). 그림은 전부 기존 kit 조각. 9c: 곰 = 찬 잔 든 상반신 웃음 얼굴 + 땀 한 방울(기대 반 걱정 반),
+     윙키는 화면 아래 끝에 발을 둔다(떠 보이지 않게). 회차 번호는 쓰지 않는다(개인화 서빙이라 순서가 사람마다 다르다).
+     훅 글자 도현, 작은 줄 주아. 글자는 안전 여백(위 200, 아래 220) 안. shot: node thumbshot.mjs */
+  @font-face { font-family: "Jua"; font-weight: 100 900; src: url("fonts/Jua-Regular.ttf") format("truetype"); }
+  @font-face { font-family: "DoHyeon"; font-weight: 100 900; src: url("fonts/DoHyeon-Regular.ttf") format("truetype"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #DDF3CE; }
+  img { position: absolute; display: block; max-width: none; }
+  .t { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; color: #10233F; font-synthesis: none; letter-spacing: -0.02em; line-height: 1; }
+</style>
+</head>
+<body>
+<script src="scene.js"></script>
+<div id="root" style="position:relative;width:1080px;height:1920px;overflow:hidden"></div>
+<script>
+const K = window.KIT, R = document.getElementById("root");   // build.py가 쓴 scene.js(승인된 레지스트리 항목)
+function img(n, x, y, k) { const a = K[n], i = document.createElement("img"); i.src = a.file; i.style.cssText = `left:${x}px;top:${y}px;width:${a.w * k}px;height:${a.h * k}px`; R.appendChild(i); return i; }
+function strip(n, cx, cy, w, h) { const i = img(n, cx - w / 2, cy - h / 2, 1); i.style.width = w + "px"; i.style.height = h + "px"; }
+function text(s, font, px, cy, id, cx = 540) { const d = document.createElement("div"); d.className = "t"; d.id = id; d.textContent = s; d.style.cssText += `font-family:${font};font-size:${px}px;top:${cy - px * 0.5}px;left:${cx - 540}px`; R.appendChild(d); return d; }
+img("set-kitchen-cu", 0, 0, 1080 / 1152);
+// 곰 아빠: 얼굴 크게(머리 폭 약 800px), 화면 왼쪽. 잔은 화면 가운데 아래
+const kb = 1.05, bx = -200, by = 700; img("bear-상반신컵가득-웃음", bx, by, kb);
+const sw = K["bear-상반신컵가득-웃음"].anchor.sweat; if (sw && K.sweat) { const ks = 0.9; img("sweat", bx + sw[0] * kb - K.sweat.w * ks / 2, by + sw[1] * kb - K.sweat.h * ks / 2, ks); }
+// 9d: 서 있는 윙키 대신 시리즈 로고(윙키 얼굴이 들어 있다)를 오른쪽 아래에. 아래 끝 = 안전 여백 1700, 오른쪽 끝 = 1020
+const LW = 540; const lg = new Image(); lg.id = "logo"; lg.src = "kit/logo/logo-main.png"; lg.onload = () => { const h = LW * lg.naturalHeight / lg.naturalWidth; lg.style.cssText = `left:${1020 - LW}px;top:${1700 - h}px;width:${LW}px;height:${h}px`; }; R.appendChild(lg);
+// 위에서부터: 작은 띠 「당뇨 오해 바로잡기」(주아) → 훅 두 줄(도현) → 맨 아래 시리즈 로고(9d, 「모래언덕 빌라」 글자 대신)
+strip("strip-w-mid", 540, 250, 460, 84); text("당뇨 오해 바로잡기", "Jua", 52, 250, "band");
+strip("strip-w-long", 540, 390, 1010, 170); text("과일주스는 건강식이니까", "DoHyeon", 110, 390, "h1");
+strip("strip-w-mid", 540, 565, 600, 190); text("괜찮다?", "DoHyeon", 160, 565, "h2");
+</script>
+</body>
+</html>
