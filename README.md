@@ -56,6 +56,8 @@ Claude Code · Codex 플러그인
 
 중간에 에이전트가 명령을 실행해도 되는지 물으면 내용을 읽어 보고 허락하면 됩니다. 영상이 다 만들어지면 파일 위치를 알려 줍니다.
 
+**Bedrock, Claude API 키, ChatGPT, OpenAI API 키를 쓰신다면** [`docs/providers.md`](docs/providers.md)를 먼저 봐 주세요. 가진 계정에 맞춰 한 번만 설정하면 됩니다.
+
 **일반 채팅이나 ChatGPT에서 대본만 쓰려면** [`skills/winky-script/SKILL.md`](skills/winky-script/SKILL.md) 내용을 붙여 넣고 「「꿀은 설탕이 아니니까 괜찮다」는 오해로 윙키와 친구들 대본 써 줘」라고 보내면 됩니다. 만든 대본은 Code 탭을 쓰는 분께 넘기면 영상으로 만들 수 있습니다.
 
 ## 빠른 설치

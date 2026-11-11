@@ -28,3 +28,14 @@
 - 서브에이전트에게는 읽을 파일 경로와 지금까지의 사람 지적을 **전부** 넘긴다. 지적 일부만 넘기면 같은 실수가 돌아온다.
 - 제작 모델의 보고에 「기획과 다르게 한 것」이 있으면 사람이 확인한다.
 - 소리는 수치로만 맞추지 말고 사람이 들어 본다(모델은 듣지 못한다).
+
+## 계정별로 쓰는 모델
+
+| 계정 | 기획 | 제작 | 그림 |
+|---|---|---|---|
+| Claude 구독 | Fable(없으면 Opus) | Opus | Codex 내장 그림 |
+| Bedrock | 열려 있는 가장 좋은 Claude(보통 Opus) | Opus 또는 Sonnet | Codex 또는 OpenAI API |
+| Claude API 키 | Fable(없으면 Opus) | Opus | Codex 또는 OpenAI API |
+| Codex만(ChatGPT·OpenAI) | 가장 좋은 GPT 추론 모델 | 같은 모델 | Codex 내장 그림 또는 OpenAI API |
+
+어느 계정이든 대본 외부 검토는 **다른 회사 모델**에게 받습니다. Claude로 기획했으면 GPT에게, GPT로 기획했으면 Claude에게 묻습니다. 설정은 `docs/providers.md`.
