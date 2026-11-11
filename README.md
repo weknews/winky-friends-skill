@@ -72,6 +72,7 @@ weknews/winky-friends-skill 스킬을 설치해 줘.
 4. 준비물을 확인하고 없는 것만 알려 줘(설치 전 나에게 물어볼 것): Node 22+, ffmpeg, Python 3(numpy, Pillow), Codex 구독(새 그림용, 없어도 됨), Suno MCP 연결(새 음악 큐용, 없어도 됨).
 5. episodes/ep01-fruit-juice 폴더에서 engine/build.py 와 engine/check.py 를 차례로 돌려서 통과하는지 확인하고, 결과를 짧게 알려 줘.
 6. 마지막에 「대본만 쓸 때는 winky-script, 영상까지 만들 때는 winky-episode」 사용법을 세 줄로 알려 줘.
+7. 나에게 Suno를 쓸지 물어봐 줘(새 음악 큐를 만들 때만 필요, 없어도 영상은 만들어진다). 「Suno Pro 이상 구독이 있는지」와 「MCP 얼리 액세스 승인을 받았는지」를 차례로 묻고, 둘 다 예라면 `claude mcp add --transport http --scope user suno https://api.suno.com/mcp` 로 연결한 뒤, /mcp 에서 suno 인증(Authenticate)과 세션 다시 열기를 안내해 줘. 하나라도 아니면 연결하지 말고 docs/providers.md 「Suno」 절을 알려 줘.
 ```
 
 직접 설치하려면 이렇게 합니다.
