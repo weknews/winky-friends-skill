@@ -51,36 +51,38 @@ Claude Code · Codex 플러그인
 
 1. [Claude 데스크톱 앱](https://claude.ai/download)을 설치하고 로그인합니다.
 2. 왼쪽 위에서 **Code** 탭을 고릅니다. 작업할 폴더를 하나 고르라고 하면 문서 폴더처럼 아무 폴더나 고르면 됩니다.
-3. 아래 「빠른 설치」의 글을 그대로 붙여 넣습니다. 필요한 프로그램(Node, ffmpeg, Python)이 없으면 에이전트가 무엇을 설치할지 먼저 물어봅니다. 허락하면 알아서 설치합니다.
-4. 설치가 끝나면 「Quick Start」의 문장으로 바로 시작합니다.
+3. 아래 「빠른 설치」의 글을 그대로 붙여 넣습니다. 에이전트가 준비 점검(doctor)을 돌리고, 필요한 프로그램(Node, ffmpeg, Python)이 없으면 무엇을 설치할지 먼저 물어봅니다. 허락하면 알아서 설치합니다.
+4. 설치가 끝나면 세션을 한 번 다시 열고, 「Quick Start」의 문장으로 바로 시작합니다.
 
 중간에 에이전트가 명령을 실행해도 되는지 물으면 내용을 읽어 보고 허락하면 됩니다. 영상이 다 만들어지면 파일 위치를 알려 줍니다.
 
 **Bedrock, Claude API 키, ChatGPT, OpenAI API 키를 쓰신다면** [`docs/providers.md`](docs/providers.md)를 먼저 봐 주세요. 가진 계정에 맞춰 한 번만 설정하면 됩니다.
 
-**일반 채팅이나 ChatGPT에서 대본만 쓰려면** [`skills/winky-script/SKILL.md`](skills/winky-script/SKILL.md) 내용을 붙여 넣고 「「꿀은 설탕이 아니니까 괜찮다」는 오해로 윙키와 친구들 대본 써 줘」라고 보내면 됩니다. 만든 대본은 Code 탭을 쓰는 분께 넘기면 영상으로 만들 수 있습니다.
+**일반 채팅이나 ChatGPT에서 대본만 쓰려면** [`skills/winky-script/SKILL.md`](skills/winky-script/SKILL.md) 내용을 붙여 넣고 `「꿀은 설탕이 아니니까 괜찮다」는 오해로 윙키와 친구들 대본 써 줘`라고 보내면 됩니다. 만든 대본은 Code 탭을 쓰는 분께 넘기면 영상으로 만들 수 있습니다.
 
 ## 빠른 설치
 
 Claude 데스크톱 앱의 Code 탭(또는 Claude Code, Codex)에 아래 글을 그대로 붙여 넣으면 설치와 점검이 끝납니다.
 
 ```text
-weknews/winky-friends-skill 스킬을 설치해 줘.
-1. 내 OS(macOS, Windows, Linux)를 먼저 확인하고, 설치 명령은 README 「준비물」의 그 OS 명령을 써 줘. Windows는 PowerShell 기준, Python은 python3 대신 py.
-2. 레포(https://github.com/weknews/winky-friends-skill)를 내가 고른 폴더에 클론해 줘. 이미 있으면 git pull.
-3. Claude Code라면 /plugin marketplace add weknews/winky-friends-skill 과 /plugin install winky-friends@winky-friends-skill 로 플러그인을 설치해 줘. Codex라면 레포의 skills/*/SKILL.md 를 스킬로 읽게 설정해 줘.
-4. `python engine/doctor.py --json` 으로 준비 상태를 점검해 줘(Windows는 `py`). 네 도구 목록에 Suno MCP가 보이면 `--host-tools suno` 를 붙여. 「FAIL」 항목은 결과의 고치기 명령을 나에게 보여 주고 허락받은 뒤 실행하고, 다시 doctor를 돌려 FAIL이 0이 될 때까지 반복해 줘. 「MISSING」은 선택 기능이니 알려만 줘.
-5. episodes/ep01-fruit-juice 폴더에서 engine/build.py 와 engine/check.py 를 차례로 돌려서 통과하는지 확인하고, 결과를 짧게 알려 줘.
-6. 마지막에 「대본만 쓸 때는 winky-script, 영상까지 만들 때는 winky-episode」 사용법을 세 줄로 알려 줘.
-7. 나에게 Suno를 쓸지 물어봐 줘(새 음악 큐를 만들 때만 필요, 없어도 영상은 만들어진다). 「Suno Pro 이상 구독이 있는지」와 「MCP 얼리 액세스 승인을 받았는지」를 차례로 묻고, 둘 다 예라면 `claude mcp add --transport http --scope user suno https://api.suno.com/mcp` 로 연결한 뒤, /mcp 에서 suno 인증(Authenticate)과 세션 다시 열기를 안내해 줘. 하나라도 아니면 연결하지 말고 docs/providers.md 「Suno」 절을 알려 줘.
+weknews/winky-friends-skill 스킬을 설치해 줘. 명령을 실행하기 전에는 무엇을 왜 하는지 나에게 짧게 말해 줘.
+1. 레포(https://github.com/weknews/winky-friends-skill)를 내가 고른 폴더에 클론해 줘. 이미 있으면 git pull. 이후 작업은 그 폴더에서 해.
+2. 플러그인을 설치해 줘. Claude Code라면 `claude plugin marketplace add weknews/winky-friends-skill` 와 `claude plugin install winky-friends@winky-friends-skill` 를 실행하고, 다 되면 세션을 다시 열어야 스킬이 보인다고 알려 줘. Codex라면 레포의 skills/*/SKILL.md 를 스킬로 읽게 설정해 줘.
+3. `python engine/doctor.py --json` 으로 준비 상태를 점검해 줘(Windows는 python 대신 py). 네 도구 목록에 Suno MCP가 보이면 `--host-tools suno` 를 붙여. FAIL 항목은 결과에 나온 내 OS용 고치기 명령을 보여 주고 허락받은 뒤 실행해. doctor를 다시 돌려 FAIL이 0이 될 때까지 반복해 줘. MISSING은 선택 기능이니 알려만 줘.
+4. 확인으로 episodes/ep01-fruit-juice 폴더에서 `python ../../engine/setup_episode.py .`, `python ../../engine/build.py`, `python ../../engine/check.py` 를 차례로 돌려 「실패 0」이 나오는지 알려 줘.
+5. Suno를 쓸지 물어봐 줘(새 음악 큐를 만들 때만 필요하고, 없어도 영상은 만들어진다). 「Suno Pro 이상 구독이 있는지」와 「MCP 얼리 액세스 승인을 받았는지」를 차례로 묻고, 둘 다 예라면 `claude mcp add --transport http --scope user suno https://api.suno.com/mcp` 로 연결한 뒤 /mcp 에서 suno 인증(Authenticate)과 세션 다시 열기를 안내해 줘. 하나라도 아니면 연결하지 말고 docs/providers.md 「Suno」 절을 알려 줘.
+6. Bedrock, Claude API 키, OpenAI API 키를 쓰는지도 물어보고, 쓴다면 docs/providers.md 의 해당 절대로 설정을 도와줘.
+7. 마지막에 「대본은 /winky-script, 영상은 /winky-episode」 사용법을 세 줄로 알려 줘.
 ```
 
-직접 설치하려면 이렇게 합니다.
+직접 설치하려면 Claude Code 대화 창에 이렇게 입력합니다(터미널에서는 앞에 `claude`를 붙이고 `/`를 뺍니다).
 
 ```
 /plugin marketplace add weknews/winky-friends-skill
 /plugin install winky-friends@winky-friends-skill
 ```
+
+설치한 뒤에는 세션을 한 번 다시 열어야 스킬이 보입니다.
 
 정식 음원은 레포가 아니라 GitHub Release에 있습니다. 처음 영상을 만들 때 자동으로 받으니 따로 할 일은 없습니다.
 
@@ -116,9 +118,9 @@ Claude Code에서 다른 플러그인과 스킬 이름이 겹치면 `/winky-frie
 
 | 무엇 | 어디 |
 |---|---|
-| 대본 | `episodes/<회차>/script.md` (대본만 쓸 때는 대화 창에 마크다운으로) |
-| 영상 | `episodes/<회차>/out/<회차>.mp4` |
-| 썸네일 | `episodes/<회차>/out/thumb.png` |
+| 대본 | `episodes/<회차 폴더>/script.md` (대본만 쓸 때는 대화 창에 마크다운으로) |
+| 영상 | `episodes/<회차 폴더>/out/<회차 폴더 이름>.mp4` |
+| 썸네일 | `episodes/<회차 폴더>/out/thumb.png` |
 | 승인 모음(새 그림) | `review/drafts.jpg` |
 
 결과 영상과 `out/`은 git에 올리지 않습니다. 다 만든 뒤에는 아래 「사람이 꼭 할 일」 네 가지가 남습니다. 대사 소리 내 읽기, 그림 승인, 의료진 검수, 소리 듣기입니다.
@@ -139,7 +141,7 @@ Claude Code에서 다른 플러그인과 스킬 이름이 겹치면 `/winky-frie
 2. **검토**: 다른 회사 모델(ChatGPT, Codex)에게 이야기의 인과, 재미, 교육 메시지를 따로 물어봅니다. 1화는 이 단계를 다섯 번 거쳤습니다.
 3. **사람**: 대사를 소리 내 읽습니다. 번역투는 여기서 걸러집니다.
 4. **재료** (`winky-assets`): 대본에 새로 필요한 것만 만들고, 사람이 승인 모음을 보고 승인합니다.
-5. **제작** (`winky-episode`): 합성하고 자동 검사(16항목)를 통과하면 소리를 섞고 렌더합니다.
+5. **제작** (`winky-episode`): 준비 점검(doctor) 뒤 합성하고, 자동 검사(16항목)를 통과하면 소리를 섞고 렌더합니다.
 6. **사람**: 영상을 보고 소리를 듣습니다. 의료진 검수를 받고 검수자 이름(○○○)을 채운 뒤 게시합니다.
 
 어느 단계에 어떤 모델을 쓰는지는 [`rules/models.md`](rules/models.md)에 있습니다. 기획은 가장 좋은 추론 모델 하나가 맡고, 제작 모델은 기획서대로만 만듭니다.
@@ -155,15 +157,14 @@ Claude Code에서 다른 플러그인과 스킬 이름이 겹치면 `/winky-frie
 
 ## 준비물
 
-준비가 됐는지는 `python engine/doctor.py`(Windows는 `py engine/doctor.py`)로 언제든 확인할 수 있습니다. 읽기만 하는 점검이라 아무것도 바꾸지 않고, 빠진 것마다 고치는 명령을 알려 줍니다.
-
+준비가 됐는지는 `python engine/doctor.py`(Windows는 `py engine/doctor.py`)로 언제든 확인할 수 있습니다. 읽기만 하는 점검이라 아무것도 바꾸지 않고, 빠진 것마다 내 OS에 맞는 고치기 명령을 알려 줍니다. 「빠른 설치」 글을 쓰면 에이전트가 이 점검을 알아서 돌립니다.
 
 | 무엇 | 언제 필요한가 |
 |---|---|
 | Node 22 이상, ffmpeg, Python 3(numpy, Pillow) | 영상을 만들 때 |
 | PyAnimalese(MIT) | 인물 목소리. `git clone https://github.com/hwi-middle/PyAnimalese tools/PyAnimalese` |
-| Codex 구독(Images 2.6) | 새 그림을 만들 때만 |
-| Suno(상업 이용이 되는 Pro 이상 요금제)와 MCP 연결 | 새 음악 큐를 만들 때만. 정식 테마를 기준으로만 만듭니다 |
+| Codex(ChatGPT 구독) 또는 OpenAI API 키 | 새 그림을 만들 때만. 설정은 [`docs/providers.md`](docs/providers.md) |
+| Suno Pro 이상 구독, MCP 얼리 액세스 승인, MCP 연결 | 새 음악 큐를 만들 때만. 정식 테마를 기준으로만 만듭니다([`docs/providers.md`](docs/providers.md) 「Suno」) |
 
 ### OS별 설치
 
@@ -204,7 +205,7 @@ Fedora는 `sudo dnf install -y git nodejs ffmpeg python3-numpy python3-pillow` �
 어느 OS든 그다음은 같습니다. 레포 뿌리에서 `cd engine`, `npm install`을 하고, 위 표의 PyAnimalese를 클론합니다. 렌더용 크롬은 처음 쓸 때 자동으로 받습니다.
 
 **Codex가 없으면** 승인된 재료만으로 만듭니다. 코드로 그린 대체 그림은 그림체가 깨져서 쓰지 않습니다.
-**Suno가 없으면** 레포에 있는 정식 음원을 그대로 씁니다.
+**Suno가 없으면** 정식 음원 팩(GitHub Release)을 그대로 씁니다. 처음 소리 작업 때 자동으로 받습니다.
 
 ## 폴더
 
