@@ -69,7 +69,7 @@ weknews/winky-friends-skill 스킬을 설치해 줘.
 1. 내 OS(macOS, Windows, Linux)를 먼저 확인하고, 설치 명령은 README 「준비물」의 그 OS 명령을 써 줘. Windows는 PowerShell 기준, Python은 python3 대신 py.
 2. 레포(https://github.com/weknews/winky-friends-skill)를 내가 고른 폴더에 클론해 줘. 이미 있으면 git pull.
 3. Claude Code라면 /plugin marketplace add weknews/winky-friends-skill 과 /plugin install winky-friends@winky-friends-skill 로 플러그인을 설치해 줘. Codex라면 레포의 skills/*/SKILL.md 를 스킬로 읽게 설정해 줘.
-4. 준비물을 확인하고 없는 것만 알려 줘(설치 전 나에게 물어볼 것): Node 22+, ffmpeg, Python 3(numpy, Pillow), Codex 구독(새 그림용, 없어도 됨), Suno MCP 연결(새 음악 큐용, 없어도 됨).
+4. `python engine/doctor.py --json` 으로 준비 상태를 점검해 줘(Windows는 `py`). 네 도구 목록에 Suno MCP가 보이면 `--host-tools suno` 를 붙여. 「FAIL」 항목은 결과의 고치기 명령을 나에게 보여 주고 허락받은 뒤 실행하고, 다시 doctor를 돌려 FAIL이 0이 될 때까지 반복해 줘. 「MISSING」은 선택 기능이니 알려만 줘.
 5. episodes/ep01-fruit-juice 폴더에서 engine/build.py 와 engine/check.py 를 차례로 돌려서 통과하는지 확인하고, 결과를 짧게 알려 줘.
 6. 마지막에 「대본만 쓸 때는 winky-script, 영상까지 만들 때는 winky-episode」 사용법을 세 줄로 알려 줘.
 7. 나에게 Suno를 쓸지 물어봐 줘(새 음악 큐를 만들 때만 필요, 없어도 영상은 만들어진다). 「Suno Pro 이상 구독이 있는지」와 「MCP 얼리 액세스 승인을 받았는지」를 차례로 묻고, 둘 다 예라면 `claude mcp add --transport http --scope user suno https://api.suno.com/mcp` 로 연결한 뒤, /mcp 에서 suno 인증(Authenticate)과 세션 다시 열기를 안내해 줘. 하나라도 아니면 연결하지 말고 docs/providers.md 「Suno」 절을 알려 줘.
@@ -154,6 +154,9 @@ Claude Code에서 다른 플러그인과 스킬 이름이 겹치면 `/winky-frie
 - **소리 듣기.** 모델은 음량 수치만 맞출 뿐 듣지는 못합니다.
 
 ## 준비물
+
+준비가 됐는지는 `python engine/doctor.py`(Windows는 `py engine/doctor.py`)로 언제든 확인할 수 있습니다. 읽기만 하는 점검이라 아무것도 바꾸지 않고, 빠진 것마다 고치는 명령을 알려 줍니다.
+
 
 | 무엇 | 언제 필요한가 |
 |---|---|

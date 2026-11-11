@@ -10,6 +10,9 @@ description: 승인된 「윙키와 친구들」 대본(winky-script 결과)을 
 
 프리미티브(`kit/`)를 회차 컷 표로 조합한다. 좌표를 손으로 적지 않는다. 크기는 레지스트리 mm × 컷의 px/mm, 자리는 놓이는 곳 넷(바닥·가구 윗면·손·판)과 앵커에서 나온다. 기준 회차는 `episodes/ep01-fruit-juice/`(9e판, check 실패 0).
 
+
+**시작 전에 항상** `python engine/doctor.py --json` 으로 준비 상태를 본다(Suno MCP가 보이면 `--host-tools suno`). FAIL이 있으면 고치기 명령을 사람에게 보여 주고 허락받은 뒤 실행한다.
+
 ## 0. 준비 (레포 뿌리)
 
 Node 22+, ffmpeg, Python 3(numpy, Pillow)는 README 「준비물」의 OS별 명령으로 설치한다. 아래 명령은 macOS·Linux·Windows(PowerShell)에서 같다. Windows에서는 `python3` 대신 `py`를 쓴다.
