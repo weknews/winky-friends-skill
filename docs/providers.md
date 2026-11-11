@@ -94,7 +94,7 @@ claude mcp add --transport http --scope user suno https://api.suno.com/mcp
 - 연결은 **새 세션부터** 보입니다. 연결 후 앱이나 Claude Code를 한 번 다시 열어 주세요.
 - 확인: 새 세션에서 「Suno 계정 사용량 확인해 줘」라고 하면 요금제와 남은 크레딧을 알려 줍니다.
 
-얼리 액세스 승인 전이라면 정식 음원 관리자(위뉴 콘텐츠팀)에게 새 큐를 요청해 주세요.
+얼리 액세스 승인 전이라면 관리자 [@bborok1234](https://github.com/bborok1234)(임미르)에게 새 큐를 요청해 주세요(GitHub 이슈도 됩니다).
 
 ## ChatGPT나 Claude 웹에서 대본만
 
