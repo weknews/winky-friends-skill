@@ -217,11 +217,24 @@ for C in S["cuts"]:
         bad = [e for e in evs if (l["y"] + e[4] > 0.5 if up else l["y"] + l["h"] + e[4] < 1919.5)]
         ok(not bad, 14, f"컷{n} {f} 팔이 화면 {'위' if up else '아래'} 끝까지 닿음(벗어난 순간 {len(bad)})")
 # 15 (9판) 화면 글자에 혈당 숫자·판정 표현이 없다
-FORBID = ("mg", "혈당", "정상", "이상", "위험", "높아", "낮아", "좋아요", "나빠", "안 돼")
+# M1(11-12): 낱말 통째 금지(「이상하네」「좋아요!」「안 돼~」까지 막았다) → rules/non-medical-device.md가 막는 것만 패턴으로.
+# ponytail: 한 줄 안만 본다. 두 줄에 걸친 판정은 지침 대조표·사람 검토가 잡는다
+FORBID = [
+    r"\d[\d,.]*\s*(mg|㎎|mmol|kcal|g\b|그램|ml|mL|㎖|밀리)",                     # 수치 + 단위(혈당·당 그램·용량)
+    r"(혈당|당화|HbA1c|수치).{0,6}\d",                                           # 혈당·수치 + 숫자
+    r"(혈당|당화|HbA1c|수치).{0,8}(정상|이상|위험|높|낮|올랐|올라|떨어|내려)",     # 판정
+    r"(정상|위험|높은|낮은)\s*(혈당|수치)",
+    r"때문에.{0,6}(올랐|올라갔|높아졌|생겼)",                                     # 원인 단정
+    r"(먹|마시|드시)(으)?면\s*안\s*(돼요|된다|됩니다|돼\.)",                       # 금지
+    r"(줄여야|끊어야|드셔야|먹어야|마셔야)\s*(해|합|한다|돼)",                     # 지시
+]
+def forbidden(s): return [p for p in FORBID if re.search(p, s)]
+for s in ("혈당 130", "공복 혈당이 높아요", "주스 때문에 올랐다", "이건 먹으면 안 돼요", "당을 줄여야 해요", "200mL"): assert forbidden(s), s
+for s in ("이상하네~", "좋아요!", "안 돼~", "혈당에 좋대~", "계단이 위험해!", "당 0%", "주스 세 잔"): assert not forbidden(s), s
 for C in S["cuts"]:
     for x in C["texts"]:
         for r in x["rows"]:
-            ok(not any(w in r["s"] for w in FORBID), 15, f"컷{C['n']} 금지 표현 없음 「{r['s']}」")
+            ok(not forbidden(r["s"]), 15, f"컷{C['n']} 수치·판정·금지·지시 표현 없음 「{r['s']}」")
 # 12 컵
 for C in S["cuts"]:
     for l in C["layers"]:
