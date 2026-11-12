@@ -193,6 +193,7 @@ description: 「윙키와 친구들 · 모래언덕 빌라」 당뇨 오해 바�
 | `R-15-pubmed.md` | PubMed 근거(지침 밖·일치) |
 | `R-16-shortdrama-pace.md` | 숏드라마 호흡 (길이 결론은 R-20이 대체) |
 | `R-20-length.md` | 영상 길이: 한국 건강·코미디 쇼츠 실측, 내용 게이트 결정 |
+| `R-21-trends.md` | 트렌드 소재·말투(2025~2026), 피할 말투, 지침 밖 주장 |
 | `R-17-rule-based.md` | 규칙 기반 재사용 제작 |
 | `R-18-sitcom-structure.md`, `R-19-sitcom-script-analysis.md` | 시트콤 구조·대본 분석 |
 | `reviews/` | ep01 판별 외부 리뷰(무엇을 지적받았나) |
