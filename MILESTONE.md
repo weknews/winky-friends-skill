@@ -77,7 +77,8 @@
 - [x] 인물 바이블 다시 쓰기 → `rules/characters.md`(기운·웃기는 방식·입버릇·몸짓 갈라 쓰기, 「같은 일, 아홉 가지 반응」 시험, Fable 검수 2회) → HTML https://claude.ai/artifact/2kaY7FbvKgAfh9kMXZq2Jq. **미르님 2026-11-12: 생산 시드로 씀, 사람이 중간중간 보정**
 - [x] 자막·말소리 강약 문법 조사 → `rules/directing.md`에 「자막 연기」 절
 - [x] `rules/directing.md`: lemo-opuscar DIRECTOR.md를 우리 형식에 맞춰 옮김(다르게 정한 곳은 이유)
-- [ ] 대본 스킬 재구성: 벤치마크 → 잘못된 확신 하나 → 「그래서 사슬」 → 구조 후보 셋 → 트리트먼트 → 컷 표. 웃음 설계표·장치 메뉴·8안 표·말투 옮기기 삭제(Fable)
+- [x] 대본 스킬 재구성: 장면 → 잘못된 확신 하나 → 「그래서 사슬」 3안 → 사람이 고름 → 트리트먼트 → 대사(realtalk 예문 + Codex + sw-dialogue·sw-sitcom 점검 + 소리 내 읽기) → 컷 표. 로그라인 8안·13칸 표·웃음 설계표·speech.md 말투 옮기기 삭제
+- [ ] 시험 대본 한 편: 사슬 3안 `episodes/drafts/2026-11-12-chains.md` → 미르님 선택 대기
 - [x] 인물 예시 대화 카드(9명 × 상황 3) → `rules/characters.md`에 합침
 - [ ] 생성 뒤 말투 검사: `humanize-korean` 탐지기 연결
 - [ ] 공식으로 한 편 → 미르님 판정
