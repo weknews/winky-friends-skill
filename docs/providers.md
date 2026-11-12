@@ -33,7 +33,7 @@
 
 - `AWS_REGION`과 모델 ID는 회사 Bedrock에서 열려 있는 것으로 바꿉니다. 모델 목록은 AWS 콘솔 Bedrock 「모델 액세스」에서 봅니다.
 - Windows에서 파일 위치는 `%USERPROFILE%\.claude\settings.json`입니다.
-- 기획 단계에 쓰는 가장 좋은 추론 모델이 Bedrock에 없으면 Opus로 합니다(`rules/models.md`).
+- 총괄 검수·디렉팅에 쓰는 가장 똑똑한 모델(Fable 또는 사용자가 지정한 모델)이 Bedrock에 없으면 열려 있는 가장 좋은 Claude로 합니다. 집필은 Opus, 정리·조사는 Sonnet·Haiku(`rules/models.md`).
 
 ## Claude API 키 (Claude Code)
 
