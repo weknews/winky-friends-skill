@@ -15,7 +15,7 @@ description: 「윙키와 친구들 · 모래언덕 빌라」 당뇨 오해 바�
 
 ## 0. 먼저 지킬 것 (어기면 대본을 내놓지 않는다)
 
-**말투가 먼저다.** 대사·인물 설명·화면 글을 쓰기 전에 `rules/wording.md`와 인물 바이블 `rules/characters.md`를 읽고(아재 개그는 `kit/lexicon/ajae.md`, 요즘 말은 `kit/lexicon/memes.md`에서만 고른다). 대사를 쓰기 전에 `engine/realtalk.py`로 진짜 대화 예문을 뽑아 옆에 둔다(`rules/wording.md` 3-1절), 쓴 뒤에 4절 점검(`engine/voicecheck.py` → 이름 가리고 읽기 → 사람이 소리 내 읽기)을 한다. 이 프로젝트에서 가장 자주 어긴 규칙이다.
+**말투가 먼저다.** 대사·인물 설명·화면 글을 쓰기 전에 `rules/wording.md`와 인물 바이블 `rules/characters.md`를 읽고(아재 개그는 `kit/lexicon/ajae.md`, 요즘 말은 `kit/lexicon/memes.md`에서만 고른다). 대사를 쓰기 전에 `engine/realtalk.py`로 진짜 대화 예문을 뽑아 옆에 둔다(`rules/wording.md` 3-1절), 쓴 뒤에는 프로젝트 스킬 `sw-dialogue`(줄마다 「이 말로 상대에게 뭘 하려나」, 이름 가리기)와 `sw-sitcom-comedy`(12절 진단: 웃음이 설정에서 나오나, 끼워 넣었나)로 점검한다, 쓴 뒤에 4절 점검(`engine/voicecheck.py` → 이름 가리고 읽기 → 사람이 소리 내 읽기)을 한다. 이 프로젝트에서 가장 자주 어긴 규칙이다.
 
 **대본이 먼저, 그림은 따라온다.** 이 스킬은 사람의 아이디어로 최종 대본을 쓰고, 그 대본에 필요한 그림·세트·소리를 새로 만들어 붙이는 스튜디오다. 지금 `kit/`에 무엇이 있는지는 이야기·인물·장소·구도를 고르는 기준이 아니다. 없는 것은 「새로 만들 것」에 적고 winky-assets가 만든다.
 
