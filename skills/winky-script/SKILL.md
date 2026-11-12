@@ -15,7 +15,7 @@ description: 「윙키와 친구들 · 모래언덕 빌라」 당뇨 오해 바�
 
 ## 0. 먼저 지킬 것 (어기면 대본을 내놓지 않는다)
 
-**말투가 먼저다.** 대사·인물 설명·화면 글을 쓰기 전에 `rules/wording.md`를 읽고, 쓴 뒤에 4절 점검(`engine/voicecheck.py` → 이름 가리고 읽기 → 사람이 소리 내 읽기)을 한다. 이 프로젝트에서 가장 자주 어긴 규칙이다.
+**말투가 먼저다.** 대사·인물 설명·화면 글을 쓰기 전에 `rules/wording.md`와 인물 바이블 `rules/characters.md`를 읽고(아재 개그는 `kit/lexicon/ajae.md`, 요즘 말은 `kit/lexicon/memes.md`에서만 고른다), 쓴 뒤에 4절 점검(`engine/voicecheck.py` → 이름 가리고 읽기 → 사람이 소리 내 읽기)을 한다. 이 프로젝트에서 가장 자주 어긴 규칙이다.
 
 **대본이 먼저, 그림은 따라온다.** 이 스킬은 사람의 아이디어로 최종 대본을 쓰고, 그 대본에 필요한 그림·세트·소리를 새로 만들어 붙이는 스튜디오다. 지금 `kit/`에 무엇이 있는지는 이야기·인물·장소·구도를 고르는 기준이 아니다. 없는 것은 「새로 만들 것」에 적고 winky-assets가 만든다.
 
@@ -220,6 +220,7 @@ description: 「윙키와 친구들 · 모래언덕 빌라」 당뇨 오해 바�
 | `R-22-laugh.md` | 사람은 어디서 웃나: 다시 본 구간 실측(현실 고증·말투 62%), 웃음 작법, 웃긴 정보 콘텐츠 사례 |
 | `R-23-formula-research.md` | 공식 근거: 장삐쭈 실측·발언, 밈, 캐릭터챗(예시 대화·잘못된 확신), lemo-opuscar DIRECTOR.md 요점 |
 | `R-24-korean-voice.md` | 한국어 말투: 진짜 입말의 특징, AI 티 나는 대사·인물 설명(규칙은 `rules/wording.md`) |
+| `R-25-ajae-raw.md`, `R-25-memes-raw.md` | 아재 개그 176개·밈 82개 원료와 출처(2026-11-12). 걸러 쓴 사전은 `kit/lexicon/` |
 | `R-17-rule-based.md` | 규칙 기반 재사용 제작 |
 | `R-18-sitcom-structure.md`, `R-19-sitcom-script-analysis.md` | 시트콤 구조·대본 분석 |
 | `reviews/` | ep01 판별 외부 리뷰(무엇을 지적받았나) |
