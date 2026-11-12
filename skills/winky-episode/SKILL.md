@@ -1,6 +1,6 @@
 ---
 name: winky-episode
-description: 승인된 「윙키와 친구들」 대본(winky-script 결과)을 50초 세로 숏폼 영상(1080×1920 mp4)으로 만든다. 컷 표 → episode.py → 새 프리미티브(winky-assets) → 승인 모음 → 합성(build) → 자동 검사(check·textcheck) → 숏폼 소리(sound) → 썸네일 → 렌더 → 썸네일 0.4초+표지 붙이기 → Stream 썸네일 지정 안내. 「영상 만들어」, 「회차 렌더」, 「윙키 에피소드 제작」 요청에 쓴다. Claude Code·Codex 전용.
+description: 승인된 「윙키와 친구들」 대본(winky-script 결과)을 1분 안팎 세로 숏폼 영상(1080×1920 mp4)으로 만든다. 컷 표 → episode.py → 새 프리미티브(winky-assets) → 승인 모음 → 합성(build) → 자동 검사(check·textcheck) → 숏폼 소리(sound) → 썸네일 → 렌더 → 썸네일 0.4초+표지 붙이기 → Stream 썸네일 지정 안내. 「영상 만들어」, 「회차 렌더」, 「윙키 에피소드 제작」 요청에 쓴다. Claude Code·Codex 전용.
 ---
 
 # 회차 영상 만들기
