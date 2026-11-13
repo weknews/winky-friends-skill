@@ -4301,6 +4301,20 @@
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "bear",
    "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+  },
+  "set-table-teal": {
+   "kind": "set",
+   "file": "kit/sets/table/board/set-table-teal.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "approved",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "set-table 종이결을 그대로 두고 rules/color.md 판 색(짙은 청록 #1F5F5B)으로 코드 재채색",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(색 대본 승인 2026-11-13: 판은 짙은 청록 깔판, rules/color.md)"
   }
  },
  "music": {
