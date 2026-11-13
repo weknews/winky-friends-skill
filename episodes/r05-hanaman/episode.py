@@ -95,11 +95,11 @@ CUTS = [
  dict(n=10, t=(16.3, 18.3), set="door", cam="M", bg=DOOR_E, chars=[("bear", "좌2", [(0, "서기쪽지-당황")]), ("panda", "우2", [(0, "서기-말")])],
       line=("panda", 16.4, "다음엔 나도 같이 가.")),
  # S3 회사
- dict(n=11, t=(18.3, 22.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", "우2", [(0, "앉기-평온")], dict(mag=1.35))],
+ dict(n=11, t=(18.3, 22.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", 815, [(0, "앉기-평온")], dict(mag=1.35))],
       title=(18.3, 19.5, "다음 날"), tag=("hedgehog", "우하"), line=("panda", 18.4, "실장님, 반차 좀 쓸게요./아빠 병원 따라가려고요.")),
  dict(n=12, t=(22.4, 25.0), set="company", cam="CU", chars=[("hedgehog", "중", [(0, "상반신-당황")])],
       line=("hedgehog", 22.5, "(많이 편찮으신가… 묻지 말자)", {0: "속마음"})),
- dict(n=13, t=(25.0, 26.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", "우2", [(0, "앉기-말")], dict(mag=1.35))],
+ dict(n=13, t=(25.0, 26.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", 815, [(0, "앉기-말")], dict(mag=1.35))],
       line=("hedgehog", 25.1, "네. 다녀와요."), sfx=[("톡", 26.0)]),
  # S4 분리수거장(밤)
  dict(n=14, t=(26.4, 28.0), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "양손들기-놀람")])],
@@ -124,11 +124,11 @@ CUTS = [
       line=("bear", 53.0, "…너 안 받았어?", {0: "시무룩"})),
  dict(n=29, t=(54.3, 55.7), set="recycle", cam="CU", bg=CU_B, chars=[("panda", "중", [(0, "상반신-시무룩")])], line=("panda", 54.4, "아직.", {0: "속삭임"})),
  # S5 회사
- dict(n=30, t=(55.7, 60.2), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", "우2", [(0, "앉기-평온")], dict(mag=1.35))],
+ dict(n=30, t=(55.7, 60.2), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", 815, [(0, "앉기-평온")], dict(mag=1.35))],
       title=(55.7, 56.9, "다음 날"), line=("panda", 56.0, "실장님, 반차 하나만 더요./이번엔 제 검사 받으려고요.")),
  dict(n=31, t=(60.2, 62.3), set="company", cam="CU", chars=[("hedgehog", "중", [(0, "상반신-당황"), (60.8, "상반신-가시")])],
       line=("hedgehog", 60.3, "(…무슨 검사지? 묻지 말자)", {0: "속마음"})),
- dict(n=32, t=(62.3, 63.8), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", "우2", [(0, "앉기-말")], dict(mag=1.35))],
+ dict(n=32, t=(62.3, 63.8), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", 815, [(0, "앉기-말")], dict(mag=1.35))],
       line=("hedgehog", 62.4, "네. 잘 받고 와요."), sfx=[("톡", 63.4)]),
  # S6 대기실
  dict(n=33, t=(63.8, 65.9), set="clinic", cam="M", chars=[("bear", "좌2", [(0, "앉기쪽지-평온")]), ("panda", "우2", [(0, "앉기-평온")])],   # 3차: 판다 쪽으로 쪽지를 내민 그림을 구웠다
@@ -160,6 +160,7 @@ CUES = [(n, SH(a), SH(b)) for n, a, b in CUES if n != "Q-TIME" or a < 55]
 CUES.insert(3, ("Q-TIME", 56.6, 57.2))           # 29번 「아직.」 꼬리를 덮지 않게 30번 경계 0.1초 앞에서
 CUE_SHEET = set(CUES); D = SH(D)
 
+# 회사 M: 도치는 의자 등받이 가운데(화면 x 815, set-company-m에서 잰 값)에 앉힌다(미르님 「의자와 캐릭터 위치가 어긋나」)
 # 2) 컷마다 카메라·연기·효과·자막 연기(새 시각). 자세 바꾸기는 레지스트리에 있는 그림만
 C_ = {c["n"]: c for c in CUTS}
 def SEQ(n, who, seq):
