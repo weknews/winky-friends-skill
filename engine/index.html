@@ -41,9 +41,10 @@ const px = (v) => v.toFixed(1) + "px";
 const FAM = { jua: '"Jua"', dohyeon: '"DoHyeon"', gaegu: '"Gaegu"', pre: '"Pretendard"' };   // build.py FONTS와 같은 이름
 function img(p, file, x, y, w, h) { const i = el(p, "img"); i.src = file; i.style.cssText = `left:${px(x)};top:${px(y)};width:${px(w)};height:${px(h)}`; return i; }
 function show(node, t0, t1) { if (t0 > 0.001) { node.style.visibility = "hidden"; node.style.opacity = 0; } paper.set(node, { autoAlpha: 0 }, 0); paper.set(node, { autoAlpha: 1 }, q(t0)); if (t1 != null) paper.set(node, { autoAlpha: 0 }, q(t1)); }
+const EMCSS = "display:inline-block;font-size:1.25em;line-height:1;vertical-align:-0.11em;color:#C2410C";   // M2 강조: 줄 가운데에 맞춰 키우고 색으로 짚는다(build.py EM)
 function text(p, r, extra) {
   const d = el(p, "div", "txt"); d.textContent = r.s;
-  if (r.em) { const [a, b] = r.em; d.textContent = r.s.slice(0, a); const sp = el(d, "span"); sp.textContent = r.s.slice(a, b); sp.style.cssText = "font-size:1.4em;line-height:0"; d.appendChild(document.createTextNode(r.s.slice(b))); }   // M2 강조 낱말
+  if (r.em) { const [a, b] = r.em; d.textContent = r.s.slice(0, a); const sp = el(d, "span"); sp.textContent = r.s.slice(a, b); sp.style.cssText = EMCSS; d.appendChild(document.createTextNode(r.s.slice(b))); }   // M2 강조 낱말
   if (r.stroke) d.style.cssText += ";-webkit-text-stroke:14px #10233F;paint-order:stroke fill";   // M2 의성어
   d.style.cssText += `font-size:${r.px}px;font-weight:${r.weight || 800};left:${px(r.x)};top:${px(r.y)}`;
   d.style.fontFamily = FAM[r.font || "pre"]; if (r.color) d.style.color = r.color;
@@ -60,7 +61,7 @@ S.cuts.forEach((C) => {
   C.layers.forEach((l) => {
     const w = el(cam, "div", "w"); w.dataset.layer = l.id; w.style.zIndex = l.z; const fr = {};
     if (l.kind === "front") {                                 // M2: 책상 앞판 = 배경 그림의 그 상자만 다시(앉은 인물 위). 넘치는 부분은 상자 밖이라 안 보인다
-      const [x0, y0, x1, y1] = l.box; w.style.cssText = `left:${px(x0)};top:${px(y0)};width:${px(x1 - x0)};height:${px(y1 - y0)};overflow:hidden`;
+      const [x0, y0, x1, y1] = l.box; w.style.cssText += `;left:${px(x0)};top:${px(y0)};width:${px(x1 - x0)};height:${px(y1 - y0)};overflow:hidden`;
       img(w, K[b.name].file, b.x - x0, b.y - y0, b.w, b.h); L[l.id] = { w, fr, cur: null }; return;
     }
     const a = l.kind === "char" ? el(w, "div", "w") : w;     // M2 연기 틀: 말할 때 까딱(dx,dy)과 겹치지 않게 안쪽에서 움직인다
@@ -121,7 +122,7 @@ S.cuts.forEach((C) => {
     if (x.kind === "end") { x.rows.forEach((r) => text(g, r)); show(g, x.t0, null); return; }
     if (x.kind === "logo") { g.style.zIndex = 50; img(g, x.file, x.x, x.y, x.w, x.h); show(g, x.t0, x.t1); return; }   // 9d 시리즈 로고(그림). 다음 컷 위로 넘어가도 보이게 맨 위
     stripRows(g, x.rows); show(g, x.t0, x.t1);
-    x.rows.forEach((r, i) => { if (!r.kin) return; const d = g.querySelectorAll(".txt")[i]; d.textContent = ""; let ci = 0; r.kin.forEach(([dx, wd, t]) => { const sp = el(d, "span"); sp.textContent = wd + " "; if (r.em && r.em[0] < ci + wd.length && r.em[1] > ci) { sp.textContent = ""; sp.append(wd.slice(0, r.em[0] - ci)); const e = el(sp, "span"); e.textContent = wd.slice(Math.max(0, r.em[0] - ci), r.em[1] - ci); e.style.cssText = "font-size:1.4em;line-height:0"; sp.append(wd.slice(r.em[1] - ci) + " "); } ci += wd.length + 1; show(sp, Math.max(t, x.t0), x.t1); }); });   // M2 키네틱: 낱말이 음절에 맞춰 하나씩
+    x.rows.forEach((r, i) => { if (!r.kin) return; const d = g.querySelectorAll(".txt")[i]; d.textContent = ""; let ci = 0; r.kin.forEach(([dx, wd, t]) => { const sp = el(d, "span"); sp.textContent = wd + " "; if (r.em && r.em[0] < ci + wd.length && r.em[1] > ci) { sp.textContent = ""; sp.append(wd.slice(0, r.em[0] - ci)); const e = el(sp, "span"); e.textContent = wd.slice(Math.max(0, r.em[0] - ci), r.em[1] - ci); e.style.cssText = EMCSS; sp.append(wd.slice(r.em[1] - ci) + " "); } ci += wd.length + 1; show(sp, Math.max(t, x.t0), x.t1); }); });   // M2 키네틱: 낱말이 음절에 맞춰 하나씩
     if (x.think) g.querySelectorAll(".txt").forEach((d) => { d.style.fontStyle = "italic"; d.style.fontSynthesis = "style"; });   // M2: 속마음 = 괄호 + 기울임(띠·글씨는 대사와 같게 읽히게)
   });
 });

@@ -194,7 +194,7 @@ def build():
                 ppm = bg["ppm"]; x = PRESET[cam]["pos"].get(at, at); foot = bg["floor"]     # M2: 자리 이름 대신 x(px)도 된다(큰 인물 셋)
             sit = seq[0][1].startswith("앉기") and bg.get("seat") is not None       # M2: 앉기 조각은 발끝을 세트의 좌판선(seat)에
             if sit: foot = bg["seat"]
-            ppm *= ex.get("mag", 1)     # 2026-11-13: 시트콤식 속임 — 책상 뒤에 앉아 작아지는 인물을 키운다(발·좌판선은 그대로)
+            ppm *= ex.get("mag", 1)     # 2026-11-13: 시트콤식 속임 — 책상 뒤에 앉아 작아지는 인물을 키운다
             chair = who == "winky" and (cam == "M" or (cam == "CU" and c["set"] != "door"))
             holds = any("held" in K[fam_frame(who, p)]["anchor"] for _, p in seq) or any(pr[1] == "hand" and pr[2] == who for pr in c.get("props", []))
             chars[who] = dict(who=who, at=at, x=x, ppm=ppm, foot=foot, chair=chair, seq=seq, ex=ex, z=8 if sit and bg.get("front") else 20 if at == "중" else 22 if holds else 10)
@@ -340,7 +340,7 @@ def strips(cx, cy, need, h):
     return [(a, x0, cy - h / 2, W[a], h), (b, x0 + W[a] - ov, cy - h / 2, W[b], h)]
 
 PROT = []
-EM = 1.4                                       # rules/directing.md 8절: *낱말* 강조 1.4배(한 대사에 하나)
+EM = 1.25                                      # rules/directing.md 8절: *낱말* 강조 1.25배 + 색(한 대사에 하나). 1.4배는 띠 위로 넘쳤다(미르님)
 def sub_mark(s):
     """자막 연기 표기 → (보이는 글, 꾸밈). !!외침 ..속삭임 ^키네틱(줄 앞), *낱말* 강조. 말소리는 이 기호를 읽지 않는다(syllables가 한글만 센다)"""
     m = {}
