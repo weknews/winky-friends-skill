@@ -3264,7 +3264,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-평온.webp",
    "created": "2026-11-13",
@@ -3297,7 +3297,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-말하기.webp",
    "created": "2026-11-13",
@@ -3331,7 +3331,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-웃음.webp",
    "created": "2026-11-13",
@@ -3365,7 +3365,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-놀람.webp",
    "created": "2026-11-13",
@@ -3399,7 +3399,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-당황.webp",
    "created": "2026-11-13",
@@ -3433,7 +3433,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-시무룩.webp",
    "created": "2026-11-13",
@@ -3467,7 +3467,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-눈감음.webp",
    "created": "2026-11-13",
@@ -3535,7 +3535,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog with spines bristled: cobalt suit jacket, white shirt, blue tie continue down.",
    "ref": "kit/actors/hedgehog/hedgehog-상반신-가시.webp",
    "created": "2026-11-13",
@@ -3568,7 +3568,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
    "ref": "kit/actors/panda/panda-상반신-평온.webp",
    "created": "2026-11-13",
@@ -3601,7 +3601,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
    "ref": "kit/actors/panda/panda-상반신-말하기.webp",
    "created": "2026-11-13",
@@ -3635,7 +3635,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
    "ref": "kit/actors/panda/panda-상반신-웃음.webp",
    "created": "2026-11-13",
@@ -3669,7 +3669,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
    "ref": "kit/actors/panda/panda-상반신-놀람.webp",
    "created": "2026-11-13",
@@ -3703,7 +3703,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
    "ref": "kit/actors/panda/panda-상반신-당황.webp",
    "created": "2026-11-13",
@@ -3737,7 +3737,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
    "ref": "kit/actors/panda/panda-상반신-시무룩.webp",
    "created": "2026-11-13",
@@ -3771,7 +3771,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
    "ref": "kit/actors/panda/panda-상반신-눈감음.webp",
    "created": "2026-11-13",
@@ -3908,7 +3908,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Penguin off-duty: gray zip hoodie with white drawstrings, hoodie hem at the bottom edge.",
    "ref": "kit/actors/penguin/penguin-퇴근-상반신-평온.webp",
    "created": "2026-11-13",
@@ -3941,7 +3941,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Penguin off-duty: gray zip hoodie with white drawstrings, hoodie hem at the bottom edge.",
    "ref": "kit/actors/penguin/penguin-퇴근-상반신-말하기.webp",
    "created": "2026-11-13",
@@ -3975,7 +3975,7 @@
     "scale": "head"
    },
    "status": "draft",
-   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "source": "Codex image_gen(gpt-image-2) 몸 한 장 + 원본 얼굴 칸 굽기(2026-11-13)",
    "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Penguin off-duty: gray zip hoodie with white drawstrings, hoodie hem at the bottom edge.",
    "ref": "kit/actors/penguin/penguin-퇴근-상반신-눈감음.webp",
    "created": "2026-11-13",

@@ -1,7 +1,7 @@
 {
  "id": "2026-11-13-r05-video3",
  "title": "「하나만요」 3차 — 쪽지 쥔 손·상반신·걱정 얼굴",
- "question": "쪽지를 주고받는 장면을 손에 쥔 그림으로 바꾸고, 떠 있던 상반신을 화면 아래까지 늘렸습니다. 새 그림 31장은 아직 승인 전(draft)이라, 승인하시면 정식으로 다시 렌더합니다.",
+ "question": "쪽지를 주고받는 장면을 손에 쥔 그림으로 바꾸고, 떠 있던 상반신을 화면 아래까지 늘렸습니다. 새 그림 31장은 아직 승인 전(draft)이라, 승인하시면 정식으로 다시 렌더합니다. (상반신 겹침을 고친 판입니다.)",
  "source": "episodes/r05-hanaman/episode.py",
  "body": "#### 미리 보기 영상 (74초, 승인 전 그림으로 렌더)\n\n![「하나만요」 3차 미리 보기](kit/gen/out/r05-frames/v3/r05-hanaman-v3.mp4)\n\n#### 보신 뒤 바로 아래에서 골라 주세요",
  "options": [
@@ -16,5 +16,5 @@
    "body": "그림 이름이나 초와 함께 아래 칸에 적어 주세요."
   }
  ],
- "after": "#### 전 → 후 (누르면 크게)\n\n![전후 1](kit/gen/out/r05-frames/v3/ba-00.jpg)\n\n![전후 2](kit/gen/out/r05-frames/v3/ba-01.jpg)\n\n![전후 3](kit/gen/out/r05-frames/v3/ba-02.jpg)\n\n![전후 4](kit/gen/out/r05-frames/v3/ba-03.jpg)\n\n![전후 5](kit/gen/out/r05-frames/v3/ba-04.jpg)\n\n![전후 6](kit/gen/out/r05-frames/v3/ba-05.jpg)\n\n![전후 7](kit/gen/out/r05-frames/v3/ba-06.jpg)\n\n![전후 8](kit/gen/out/r05-frames/v3/ba-07.jpg)\n\n![전후 9](kit/gen/out/r05-frames/v3/ba-08.jpg)\n\n![전후 10](kit/gen/out/r05-frames/v3/ba-09.jpg)\n\n![전후 11](kit/gen/out/r05-frames/v3/ba-10.jpg)\n\n![전후 12](kit/gen/out/r05-frames/v3/ba-11.jpg)\n\n#### 영상에서 뽑은 장면\n\n![주요 장면 12컷](kit/gen/out/r05-frames/v3/frames.jpg)\n\n#### 만든 방법\n\n- 생성은 Codex와 Azure sunburst 두 가지로 해 보고 더 나은 쪽(이번엔 Codex)을 골랐습니다.\n- 몸은 원래 그림 그대로 두고, 바뀐 칸(손 · 주머니 · 얼굴 · 몸 아래)만 잘라 붙였습니다(`kit/gen/bake.py`). 그래서 표정이 바뀌어도 몸이 떨리지 않습니다."
+ "after": "#### 전 → 후 (누르면 크게)\n\n![전후 1](kit/gen/out/r05-frames/v3/ba-00.jpg)\n\n![전후 2](kit/gen/out/r05-frames/v3/ba-01.jpg)\n\n![전후 3](kit/gen/out/r05-frames/v3/ba-02.jpg)\n\n![전후 4](kit/gen/out/r05-frames/v3/ba-03.jpg)\n\n![전후 5](kit/gen/out/r05-frames/v3/ba-04.jpg)\n\n![전후 6](kit/gen/out/r05-frames/v3/ba-05.jpg)\n\n![전후 7](kit/gen/out/r05-frames/v3/ba-06.jpg)\n\n![전후 8](kit/gen/out/r05-frames/v3/ba-07.jpg)\n\n![전후 9](kit/gen/out/r05-frames/v3/ba-08.jpg)\n\n![전후 10](kit/gen/out/r05-frames/v3/ba-09.jpg)\n\n![전후 11](kit/gen/out/r05-frames/v3/ba-10.jpg)\n\n![전후 12](kit/gen/out/r05-frames/v3/ba-11.jpg)\n\n#### 영상에서 뽑은 장면\n\n![주요 장면 12컷](kit/gen/out/r05-frames/v3/frames.jpg)\n\n#### 만든 방법\n\n- 생성은 Codex와 Azure sunburst 두 가지로 해 보고 더 나은 쪽(이번엔 Codex)을 골랐습니다.\n- 손 · 주머니 · 걱정 얼굴: 원래 몸에 바뀐 칸만 잘라 붙였습니다(`kit/gen/bake.py`).\n- 상반신(판다 · 펭귄 · 도치): 처음엔 원래 그림 위쪽에 아래만 이어 붙였더니 옷이 두 겹으로 겹쳐 보였습니다(미르님 지적). 몸은 새로 그린 한 장을 그대로 쓰고, 표정마다 원래 얼굴 칸만 붙이도록 다시 만들었습니다."
 }
