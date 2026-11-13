@@ -109,7 +109,7 @@
   },
   "note": {
    "w": 125,
-   "h": 105
+   "h": 210
   },
   "ticket": {
    "w": 60,
@@ -3575,13 +3575,14 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The PANDA from the first attached image, CHEST-UP bust crop (head and upper chest, cut at mid-chest), facing the viewer, calm neutral face with relaxed brows and a gently closed mouth. Same sky-blue cardigan, white shirt collar. One character centered, large in frame.",
    "ref": "kit/actors/panda/panda-reach-smile.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "panda"
+   "actor": "panda",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-상반신-말하기": {
    "kind": "actor",
@@ -3608,14 +3609,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/panda-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온"
+   "family": "panda-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-상반신-웃음": {
    "kind": "actor",
@@ -3642,14 +3644,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/panda-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온"
+   "family": "panda-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-상반신-놀람": {
    "kind": "actor",
@@ -3676,14 +3679,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/panda-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온"
+   "family": "panda-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-상반신-당황": {
    "kind": "actor",
@@ -3710,14 +3714,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/panda-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온"
+   "family": "panda-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-상반신-시무룩": {
    "kind": "actor",
@@ -3744,14 +3749,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/panda-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온"
+   "family": "panda-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-상반신-눈감음": {
    "kind": "actor",
@@ -3778,14 +3784,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/panda-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온"
+   "family": "panda-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-서기-평온": {
    "kind": "actor",
@@ -3812,13 +3819,14 @@
     ],
     "scale": "h"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Edit the attached image: add the PANDA's thin white earphones exactly like the second attached image (two white earbuds at the ears, white cords hanging down to the chest). Keep EVERYTHING else pixel-identical.",
    "ref": "kit/actors/panda/panda-reach-smile.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "panda"
+   "actor": "panda",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-서기-말하기": {
    "kind": "actor",
@@ -3845,14 +3853,15 @@
     ],
     "scale": "h"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/panda-서기-평온-v2.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-서기-평온"
+   "family": "panda-서기-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-앉기-평온": {
    "kind": "actor",
@@ -3879,13 +3888,14 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The PANDA from the first attached image, SITTING on an invisible chair, front view, hands resting on her lap, calm neutral face with relaxed brows and a gently closed mouth. Same sky-blue cardigan, white shirt, cobalt trousers. No chair drawn. One character centered.",
    "ref": "kit/actors/panda/panda-reach-smile.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "panda"
+   "actor": "panda",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "penguin-퇴근-상반신-평온": {
    "kind": "actor",
@@ -3912,13 +3922,14 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The PENGUIN DOCTOR from the first attached image, OFF DUTY: navy baseball cap pulled low, plain gray zip hoodie, no coat, no stethoscope, no lanyard; CHEST-UP bust crop facing the viewer, calm neutral face with relaxed brows and a gently closed mouth, slightly tired eyes. One character centered, large in frame.",
    "ref": "kit/actors/penguin/penguin-stand-calm.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "penguin"
+   "actor": "penguin",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "penguin-퇴근-상반신-말하기": {
    "kind": "actor",
@@ -3945,14 +3956,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/penguin-퇴근-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "penguin",
-   "family": "penguin-퇴근-상반신-평온"
+   "family": "penguin-퇴근-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "penguin-퇴근-상반신-눈감음": {
    "kind": "actor",
@@ -3979,14 +3991,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/penguin-퇴근-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "penguin",
-   "family": "penguin-퇴근-상반신-평온"
+   "family": "penguin-퇴근-상반신-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "penguin-퇴근-서기-평온": {
    "kind": "actor",
@@ -4013,13 +4026,14 @@
     ],
     "scale": "h"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The PENGUIN DOCTOR from the first attached image, OFF DUTY after work: no white coat, no stethoscope, no lanyard; wears a navy baseball cap pulled low and a plain gray zip hoodie; standing, front view, empty hands, calm neutral face with relaxed brows and a gently closed mouth, tired eyes. Same body shape and beak. One character centered.",
    "ref": "kit/actors/penguin/penguin-stand-calm.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "penguin"
+   "actor": "penguin",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "bear-앉기-평온": {
    "kind": "actor",
@@ -4046,13 +4060,14 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The BEAR DAD from the first attached image, SITTING on an invisible waiting-room chair, front view, hands on his knees, calm neutral face with relaxed brows and a gently closed mouth. Same gray cap, sky-blue jacket, cargo shorts, boots. No backpack, no phone. No chair drawn. One character centered.",
    "ref": "kit/actors/bear/bear-stand-smile.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "bear"
+   "actor": "bear",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "bear-걷기-웃음": {
    "kind": "actor",
@@ -4079,13 +4094,14 @@
     ],
     "scale": "h"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The BEAR DAD from the first attached image, standing and leaning slightly to step into his boot, one foot lifted, front three-quarter view, cheerful face. Same gray cap, sky-blue jacket, cargo shorts, boots. Empty hands. One character centered.",
    "ref": "kit/actors/bear/bear-stand-smile.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "bear"
+   "actor": "bear",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "hedgehog-앉기-말하기": {
    "kind": "actor",
@@ -4112,14 +4128,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/hedgehog-앉기-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-앉기-평온"
+   "family": "hedgehog-앉기-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "hedgehog-앉기-당황": {
    "kind": "actor",
@@ -4146,14 +4163,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
    "ref": "kit/gen/out/hedgehog-앉기-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-앉기-평온"
+   "family": "hedgehog-앉기-평온",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "note-list": {
    "kind": "prop",
@@ -4161,7 +4179,7 @@
    "w": 821,
    "h": 1377,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "PROP ONLY, top-down flat, no perspective: one sheet of vivid golden-yellow (#F5C518) note paper, portrait, exactly 148:210 proportions, laid flat. A CHECKLIST: twelve rows, each row has a small empty square checkbox on the left and a short dark-gray scribble line (no real letters, no numbers); a small blank title band at the top; an empty blank band at the bottom. Paper-cut style, thin soft layer shadow. No characters, no hands.",
    "ref": null,
@@ -4170,7 +4188,8 @@
    "mm": {
     "w": 125,
     "h": 210
-   }
+   },
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "note-list-folded": {
    "kind": "prop",
@@ -4178,7 +4197,7 @@
    "w": 823,
    "h": 688,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "PROP ONLY, top-down flat: the same golden-yellow checklist paper as the attached image, folded in half once (now 148:105), lying flat, only the blank back side visible, small crease shadow. Paper-cut style. No characters, no hands.",
    "ref": null,
@@ -4187,7 +4206,8 @@
    "mm": {
     "w": 125,
     "h": 105
-   }
+   },
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "note-list-crossed": {
    "kind": "prop",
@@ -4197,7 +4217,7 @@
    "anchor": {},
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: draw ONE BOLD thick black marker stroke straight across each of the twelve scribble lines, clearly visible from far away, slightly hand-drawn and uneven; leave the checkboxes empty; keep the bottom band blank. Keep the paper, size, position, color and magenta background pixel-identical.",
+   "prompt": "note-check.png 위에 코드로 지그재그 지움 줄(kit/gen 대화 2026-11-13, 그림 모델이 그은 줄은 티가 안 났다)",
    "ref": null,
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
@@ -4212,7 +4232,7 @@
    "w": 649,
    "h": 768,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "PROP ONLY, flat front view: a small hospital waiting-number ticket slip of white paper with a blank golden-yellow band (no numbers, no letters). Paper-cut style. No characters, no hands.",
    "ref": null,
@@ -4221,7 +4241,8 @@
    "mm": {
     "w": 60,
     "h": 90
-   }
+   },
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "panda-hand": {
    "kind": "hand",
@@ -4237,13 +4258,14 @@
     ],
     "scale": "paw"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "PART ONLY: the PANDA's black paw and forearm in a sky-blue knit cardigan sleeve, entering from the bottom edge, the arm long enough to reach the bottom edge of the frame, palm down, relaxed fingers, top-down view as if reaching onto a table. Same paper-cut style as the attached panda. Nothing else.",
    "ref": "kit/actors/panda/panda-reach-smile.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "panda"
+   "actor": "panda",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   },
   "bear-신발신기-웃음": {
    "kind": "actor",
@@ -4270,13 +4292,14 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The BEAR DAD from the first attached image, PUTTING ON HIS BOOT at the front door: he bends forward at the waist, lifts his left foot, and pulls the back of the left boot onto his heel with both hands; his weight on the right foot; cheerful face looking down at the boot. Side three-quarter view so the bent pose reads clearly. Same gray cap, sky-blue jacket, cargo shorts, beige boots. No backpack, no phone. One character centered.",
    "ref": "kit/actors/bear/bear-stand-smile.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "bear"
+   "actor": "bear",
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
   }
  },
  "music": {
