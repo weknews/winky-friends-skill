@@ -4215,7 +4215,7 @@
    "w": 821,
    "h": 1377,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "note-check.png 위에 코드로 지그재그 지움 줄(kit/gen 대화 2026-11-13, 그림 모델이 그은 줄은 티가 안 났다)",
    "ref": null,
@@ -4224,7 +4224,8 @@
    "mm": {
     "w": 125,
     "h": 210
-   }
+   },
+   "approved": "2026-11-13 미르님(채팅 2026-11-13 「전부 승인」)"
   },
   "queue-ticket": {
    "kind": "prop",
