@@ -78,7 +78,8 @@
 - [x] 자막·말소리 강약 문법 조사 → `rules/directing.md`에 「자막 연기」 절
 - [x] `rules/directing.md`: lemo-opuscar DIRECTOR.md를 우리 형식에 맞춰 옮김(다르게 정한 곳은 이유)
 - [x] 대본 스킬 재구성: 장면 → 잘못된 확신 하나 → 「그래서 사슬」 3안 → 사람이 고름 → 트리트먼트 → 대사(realtalk 예문 + Codex + sw-dialogue·sw-sitcom 점검 + 소리 내 읽기) → 컷 표. 로그라인 8안·13칸 표·웃음 설계표·speech.md 말투 옮기기 삭제
-- [ ] 시험 대본 한 편: 사슬 3안 `episodes/drafts/2026-11-12-chains.md` → 미르님 선택 대기
+- [x] 시험 대본 한 편: 실제 사연 r05 → 「하나만요」 대본 2판 승인(2026-11-13, `episodes/drafts/2026-11-13-r05-hanaman-script.md`). 사슬 3안은 폐기
+- [ ] 「하나만요」 그림: 세트 4(현관 2인·회사·분리수거장 밤·병원 대기실), 도치 실장, 판다 자세, 쪽지 소품(winky-assets)
 - [x] 인물 예시 대화 카드(9명 × 상황 3) → `rules/characters.md`에 합침
 - [ ] 생성 뒤 말투 검사: `humanize-korean` 탐지기 연결
 - [ ] 공식으로 한 편 → 미르님 판정
