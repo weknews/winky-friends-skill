@@ -11,7 +11,7 @@ studio/answers/<id>.json 이 생기고, 백그라운드로 돌던 `wait` 가 그
    "body": "마크다운(보기 자료, 안 위에)", "after": "마크다운(긴 자료, 보내기 아래)", "options": [{"id": "1", "title": "...", "body": "마크다운"}], "reason": true}
 표준 라이브러리만 쓴다. localhost 에만 붙는다.
 """
-import html, json, re, sys, time, os, urllib.parse
+import subprocess, html, json, re, sys, time, os, urllib.parse
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
@@ -173,6 +173,34 @@ def assets_tab():
         out.append(f'<h2>{E(KIND.get(kind, kind))} <span class="meta">{len(lst)}</span></h2><div class="grid">{grid}</div>')
     return "".join(out)
 
+def decide_tab(reqs):
+    """열린 요청만 크게. 답한 요청은 날짜별 한 줄 기록(누르면 원래 화면) — 2026-11-13 미르님 「결정에 쌓인다」."""
+    opn = "".join(req_html(r) for r in reqs if not r["answer"]) or '<p class="meta">지금 기다리는 결정이 없습니다.</p>'
+    done = sorted((r for r in reqs if r["answer"]), key=lambda r: r["answer"].get("at", ""), reverse=True)
+    rows, day = [], None
+    for r in done:
+        a = r["answer"]; d = a.get("at", "")[:10]
+        if d != day: rows.append(f'<h3 class="day">{E(d)}</h3>'); day = d
+        pick = next((o["title"] for o in r.get("options", []) if o["id"] == a.get("choice")), a.get("choice") or "의견만")
+        rows.append(f'<details class="log"><summary><span class="t">{E(a.get("at", "")[11:])}</span><b>{E(r["title"])}</b><span class="chose">→ {E(pick)}</span>'
+                    f'{("<q>" + E(a["reason"]) + "</q>") if a.get("reason") else ""}</summary>{req_html(r)}</details>')
+    return f'<h2>기다리는 결정</h2>{opn}<h2>지난 결정 <span class="meta">{len(done)}</span></h2><div class="logs">{"".join(rows)}</div>'
+
+def recent_html(reg):
+    """최근 바뀐 그림(파일 시각 순)과 최근 고친 것(커밋) — 한눈에 탭."""
+    its = [(k, it) for k, it in reg.get("items", {}).items() if (ROOT / it.get("file", "")).exists() and it["file"].endswith((".webp", ".png", ".jpg"))]
+    its.sort(key=lambda kv: (ROOT / kv[1]["file"]).stat().st_mtime, reverse=True)
+    wait = [kv for kv in its if kv[1].get("status") != "approved"]
+    fig = lambda k, it: (f'<figure class="{"draft" if it.get("status") != "approved" else ""}"><img loading="lazy" src="/{E(it["file"])}" alt="">'
+                         f'<figcaption>{E(k)}<small>{"승인 기다림" if it.get("status") != "approved" else time.strftime("%m-%d %H:%M", time.localtime((ROOT / it["file"]).stat().st_mtime))}</small></figcaption></figure>')
+    try: log = subprocess.run(["git", "log", "-12", "--format=%ad\t%s", "--date=format:%m-%d %H:%M"], cwd=ROOT, capture_output=True, text=True).stdout.splitlines()
+    except OSError: log = []
+    tidy = lambda m: (lambda t: t if len(t) <= 90 else t[:88] + "…")(re.sub(r"^\w+\([^)]*\):\s*", "", m))
+    commits = "".join(f"<li><span class=\"t\">{E(l.split(chr(9))[0])}</span>{E(tidy(l.split(chr(9), 1)[-1]))}</li>" for l in log)
+    return (f'<section class="panel wide"><p class="eyebrow">최근 바뀐 그림{f" · 승인 기다림 {len(wait)}장" if wait else ""}</p>'
+            f'<div class="grid recent">{"".join(fig(k, it) for k, it in (wait + [kv for kv in its if kv not in wait])[:max(16, len(wait))])}</div><a class="more-link" href="#assets">그림 전체</a></section>'
+            f'<section class="panel wide"><p class="eyebrow">최근 고친 것</p><ul class="changes">{commits}</ul></section>')
+
 def overview(reqs):
     reg = registry()
     open_r = [r for r in reqs if not r["answer"]]
@@ -188,7 +216,7 @@ def overview(reqs):
     eps = sorted(p.name for p in (ROOT / "episodes").glob("ep*") if p.is_dir())
     drafts = sorted(p.name for p in (ROOT / "episodes/drafts").glob("*.md")) if (ROOT / "episodes/drafts").exists() else []
     return f"""<div class="home">
-      <section class="panel wide"><p class="eyebrow">지금 할 일</p>{todo}</section>
+      <section class="panel wide"><p class="eyebrow">지금 할 일</p>{todo}</section>{recent_html(reg)}
       <section class="panel"><p class="eyebrow">인물 9명</p><div class="minis">{cast}</div><p class="meta">그림 있는 인물 {drawn}명 · 없는 인물 {9-drawn}명</p><a class="more-link" href="#people">인물 바이블</a></section>
       <section class="panel"><p class="eyebrow">진행</p><div class="bar"><i style="width:{pct}%"></i></div><p class="big">{pct}%</p><p class="meta">끝낸 일 {done} · 남은 일 {len(left)}</p><p class="sub">다음 할 일</p><ul class="next">{nxt}</ul><a class="more-link" href="#milestone">마일스톤 전체</a></section>
       <section class="panel"><p class="eyebrow">회차</p><p class="big">{len(eps)}<small>편 완성</small></p><p class="meta">초안 {len(drafts)}개</p><a class="more-link" href="#scripts">대본 보기</a></section>
@@ -197,7 +225,7 @@ def overview(reqs):
 def page():
     reqs = requests(); n_open = sum(1 for r in reqs if not r["answer"])
     tabs = [("home", "한눈에", overview(reqs)),
-            ("decide", "결정" + (f' <em>{n_open}</em>' if n_open else ""), "".join(req_html(r) for r in reqs) or "<p>올라온 결정 요청이 없습니다.</p>"),
+            ("decide", "결정" + (f' <em>{n_open}</em>' if n_open else ""), decide_tab(reqs)),
             ("people", "인물", '<iframe src="/characters" title="인물 바이블"></iframe>'),
             ("scripts", "대본", scripts_tab()),
             ("assets", "그림", assets_tab())]
@@ -268,6 +296,10 @@ details>summary{cursor:pointer}.choice details summary{min-height:44px;display:f
 .picked{grid-column:1/-1;margin:0;font-size:16px}.send label{grid-column:1/-1;font-size:14px;font-weight:600}
 .send textarea{min-height:56px;font:inherit;padding:12px;border:1px solid var(--mute);border-radius:12px;background:var(--bg);color:var(--ink);resize:vertical}
 .go{min-height:48px;padding:0 32px;border:0;border-radius:12px;background:var(--accent);color:var(--surface);font:600 16px var(--f-b);cursor:pointer}
+.day{font-size:14px;margin:20px 0 6px;color:var(--muted,#777)}.log{border-top:1px solid #0001}.log>summary{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:12px 4px;cursor:pointer;list-style:none}
+.log>summary .t,.changes .t{font-variant-numeric:tabular-nums;color:#888;font-size:13px;min-width:44px}.log>summary .chose{color:var(--accent);font-weight:600}.log>summary q{flex-basis:100%;color:#555;font-size:14px;margin-left:56px}
+.log[open]>summary{background:#0000000a}.changes{list-style:none;padding:0;margin:0}.changes li{display:flex;gap:12px;padding:6px 0;border-top:1px solid #0001;font-size:15px}
+.recent figure.draft{outline:3px solid var(--accent);border-radius:8px}.recent figcaption small{display:block;color:#888;font-size:12px}
 .done{color:var(--accent);font-weight:600;margin-top:16px}.req.answered .choice:not(.chosen){opacity:.6}
 @media (max-width:600px){.send{grid-template-columns:1fr}.go{width:100%}}
 /* 문서 */

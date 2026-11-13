@@ -15,7 +15,7 @@ import setup_episode; setup_episode.link(EP)                             # 회�
 REGISTRY = json.load(open(os.path.join(ROOT, "kit/registry.json"), encoding="utf-8"))
 # 승인된 그림만 쓴다(draft는 엔진에 보이지 않는다 → check 1번 「이름」에서 걸린다)
 K = {n: {k: v for k, v in e.items() if k not in ("kind", "status", "approved", "source", "prompt", "ref", "actor")}
-     for n, e in REGISTRY["items"].items() if e.get("status") == "approved"}
+     for n, e in REGISTRY["items"].items() if e.get("status") == "approved" or (os.environ.get("WINKY_PREVIEW_DRAFTS") and e.get("status") == "draft")}   # 미리 보기: 승인 화면에 붙일 영상만. check 16이 draft를 계속 잡는다
 FPS, TICK = 30, 1 / 12
 q = lambda t: round(round(t * 12) / 12, 4)
 # 9b 글꼴(그림체에 맞춤, 모두 OFL): jua = 대사 자막·이름표·근거·표지·끝 화면 큰 줄, dohyeon = 제목·「다음 날」·「그날 저녁」,
@@ -194,6 +194,7 @@ def build():
                 ppm = bg["ppm"]; x = PRESET[cam]["pos"].get(at, at); foot = bg["floor"]     # M2: 자리 이름 대신 x(px)도 된다(큰 인물 셋)
             sit = seq[0][1].startswith("앉기") and bg.get("seat") is not None       # M2: 앉기 조각은 발끝을 세트의 좌판선(seat)에
             if sit: foot = bg["seat"]
+            ppm *= ex.get("mag", 1)     # 2026-11-13: 시트콤식 속임 — 책상 뒤에 앉아 작아지는 인물을 키운다(발·좌판선은 그대로)
             chair = who == "winky" and (cam == "M" or (cam == "CU" and c["set"] != "door"))
             holds = any("held" in K[fam_frame(who, p)]["anchor"] for _, p in seq) or any(pr[1] == "hand" and pr[2] == who for pr in c.get("props", []))
             chars[who] = dict(who=who, at=at, x=x, ppm=ppm, foot=foot, chair=chair, seq=seq, ex=ex, z=8 if sit and bg.get("front") else 20 if at == "중" else 22 if holds else 10)

@@ -3241,8 +3241,8 @@
   "hedgehog-상반신-평온": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-평온.webp",
-   "w": 974,
-   "h": 1469,
+   "w": 970,
+   "h": 1899,
    "anchor": {
     "cx": 487,
     "head": [
@@ -3263,20 +3263,19 @@
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "The HEDGEHOG from the first attached image, CHEST-UP bust crop (head and upper chest, cut off at mid-chest), facing the viewer, calm neutral face with relaxed brows and a gently CLOSED mouth, no sweat drop. Same glasses, cobalt suit, white shirt, blue tie, brown spines with cream tips. Empty hands not visible. One character centered, large in frame.",
-   "ref": "kit/actors/hedgehog/hedgehog-서기-평온.webp",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-평온.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "hedgehog",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "actor": "hedgehog"
   },
   "hedgehog-상반신-말하기": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-말하기.webp",
-   "w": 974,
-   "h": 1469,
+   "w": 970,
+   "h": 1899,
    "anchor": {
     "cx": 487,
     "head": [
@@ -3297,21 +3296,20 @@
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to talking: mouth open mid-word, calm brows. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
-   "ref": "kit/gen/out/hedgehog-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-말하기.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "family": "hedgehog-상반신-평온"
   },
   "hedgehog-상반신-웃음": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-웃음.webp",
-   "w": 974,
-   "h": 1469,
+   "w": 970,
+   "h": 1899,
    "anchor": {
     "cx": 487,
     "head": [
@@ -3332,21 +3330,20 @@
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to a warm smile with the mouth open, happy eyes. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
-   "ref": "kit/gen/out/hedgehog-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-웃음.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "family": "hedgehog-상반신-평온"
   },
   "hedgehog-상반신-놀람": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-놀람.webp",
-   "w": 974,
-   "h": 1469,
+   "w": 970,
+   "h": 1899,
    "anchor": {
     "cx": 487,
     "head": [
@@ -3367,21 +3364,20 @@
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to surprised: eyes wide, brows raised high, small round open mouth. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
-   "ref": "kit/gen/out/hedgehog-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-놀람.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "family": "hedgehog-상반신-평온"
   },
   "hedgehog-상반신-당황": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-당황.webp",
-   "w": 974,
-   "h": 1469,
+   "w": 970,
+   "h": 1899,
    "anchor": {
     "cx": 487,
     "head": [
@@ -3402,21 +3398,20 @@
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to flustered: worried furrowed brows, awkward wavy mouth, one tiny pale-blue sweat drop. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
-   "ref": "kit/gen/out/hedgehog-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-당황.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "family": "hedgehog-상반신-평온"
   },
   "hedgehog-상반신-시무룩": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-시무룩.webp",
-   "w": 974,
-   "h": 1469,
+   "w": 970,
+   "h": 1899,
    "anchor": {
     "cx": 487,
     "head": [
@@ -3437,21 +3432,20 @@
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to glum: drooping brows, eyes looking down, small downturned mouth. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
-   "ref": "kit/gen/out/hedgehog-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-시무룩.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "family": "hedgehog-상반신-평온"
   },
   "hedgehog-상반신-눈감음": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-눈감음.webp",
-   "w": 974,
-   "h": 1469,
+   "w": 970,
+   "h": 1899,
    "anchor": {
     "cx": 487,
     "head": [
@@ -3472,15 +3466,14 @@
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to eyes gently closed (blink), calm closed mouth. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
-   "ref": "kit/gen/out/hedgehog-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog: cobalt suit jacket, white shirt, blue tie continue down; spines stay on the back.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-눈감음.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "family": "hedgehog-상반신-평온"
   },
   "hedgehog-앉기-평온": {
    "kind": "actor",
@@ -3519,280 +3512,272 @@
   "hedgehog-상반신-가시": {
    "kind": "actor",
    "file": "kit/actors/hedgehog/hedgehog-상반신-가시.webp",
-   "w": 984,
-   "h": 1172,
+   "w": 991,
+   "h": 1649,
    "anchor": {
-    "cx": 493,
+    "cx": 499,
     "head": [
-     186,
+     192,
      427,
-     826,
+     832,
      939
     ],
     "face": [
-     199,
+     205,
      555,
-     787,
+     793,
      837
     ],
     "torso": [
-     0,
-     985
+     6,
+     991
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "The HEDGEHOG from the first attached image, CHEST-UP bust crop, facing the viewer, STARTLED: all his spines stand straight up and bristle outward, eyes wide behind the glasses, small tight mouth, one tiny pale-blue sweat drop. Same glasses, cobalt suit, white shirt, blue tie. One character centered, large in frame.",
-   "ref": "kit/actors/hedgehog/hedgehog-서기-평온.webp",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Hedgehog with spines bristled: cobalt suit jacket, white shirt, blue tie continue down.",
+   "ref": "kit/actors/hedgehog/hedgehog-상반신-가시.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "hedgehog",
-   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+   "actor": "hedgehog"
   },
   "panda-상반신-평온": {
    "kind": "actor",
    "file": "kit/actors/panda/panda-상반신-평온.webp",
-   "w": 804,
-   "h": 981,
+   "w": 1134,
+   "h": 1760,
    "anchor": {
-    "cx": 405,
+    "cx": 570,
     "head": [
-     5,
+     170,
      -6,
-     805,
+     970,
      714
     ],
     "face": [
-     125,
+     290,
      94,
-     725,
+     890,
      544
     ],
     "torso": [
-     0,
-     865
+     165,
+     1030
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "The PANDA from the first attached image, CHEST-UP bust crop (head and upper chest, cut at mid-chest), facing the viewer, calm neutral face with relaxed brows and a gently closed mouth. Same sky-blue cardigan, white shirt collar. One character centered, large in frame.",
-   "ref": "kit/actors/panda/panda-reach-smile.webp",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
+   "ref": "kit/actors/panda/panda-상반신-평온.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "panda",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "actor": "panda"
   },
   "panda-상반신-말하기": {
    "kind": "actor",
    "file": "kit/actors/panda/panda-상반신-말하기.webp",
-   "w": 804,
-   "h": 981,
+   "w": 1134,
+   "h": 1760,
    "anchor": {
-    "cx": 405,
+    "cx": 570,
     "head": [
-     5,
+     170,
      -6,
-     805,
+     970,
      714
     ],
     "face": [
-     125,
+     290,
      94,
-     725,
+     890,
      544
     ],
     "torso": [
-     0,
-     865
+     165,
+     1030
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
+   "ref": "kit/actors/panda/panda-상반신-말하기.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "panda-상반신-평온"
   },
   "panda-상반신-웃음": {
    "kind": "actor",
    "file": "kit/actors/panda/panda-상반신-웃음.webp",
-   "w": 804,
-   "h": 981,
+   "w": 1134,
+   "h": 1760,
    "anchor": {
-    "cx": 405,
+    "cx": 570,
     "head": [
-     5,
+     170,
      -6,
-     805,
+     970,
      714
     ],
     "face": [
-     125,
+     290,
      94,
-     725,
+     890,
      544
     ],
     "torso": [
-     0,
-     865
+     165,
+     1030
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
+   "ref": "kit/actors/panda/panda-상반신-웃음.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "panda-상반신-평온"
   },
   "panda-상반신-놀람": {
    "kind": "actor",
    "file": "kit/actors/panda/panda-상반신-놀람.webp",
-   "w": 804,
-   "h": 981,
+   "w": 1134,
+   "h": 1760,
    "anchor": {
-    "cx": 405,
+    "cx": 570,
     "head": [
-     5,
+     170,
      -6,
-     805,
+     970,
      714
     ],
     "face": [
-     125,
+     290,
      94,
-     725,
+     890,
      544
     ],
     "torso": [
-     0,
-     865
+     165,
+     1030
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
+   "ref": "kit/actors/panda/panda-상반신-놀람.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "panda-상반신-평온"
   },
   "panda-상반신-당황": {
    "kind": "actor",
    "file": "kit/actors/panda/panda-상반신-당황.webp",
-   "w": 804,
-   "h": 981,
+   "w": 1134,
+   "h": 1760,
    "anchor": {
-    "cx": 405,
+    "cx": 570,
     "head": [
-     5,
+     170,
      -6,
-     805,
+     970,
      714
     ],
     "face": [
-     125,
+     290,
      94,
-     725,
+     890,
      544
     ],
     "torso": [
-     0,
-     865
+     165,
+     1030
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
+   "ref": "kit/actors/panda/panda-상반신-당황.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "panda-상반신-평온"
   },
   "panda-상반신-시무룩": {
    "kind": "actor",
    "file": "kit/actors/panda/panda-상반신-시무룩.webp",
-   "w": 804,
-   "h": 981,
+   "w": 1134,
+   "h": 1760,
    "anchor": {
-    "cx": 405,
+    "cx": 570,
     "head": [
-     5,
+     170,
      -6,
-     805,
+     970,
      714
     ],
     "face": [
-     125,
+     290,
      94,
-     725,
+     890,
      544
     ],
     "torso": [
-     0,
-     865
+     165,
+     1030
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
+   "ref": "kit/actors/panda/panda-상반신-시무룩.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "panda-상반신-평온"
   },
   "panda-상반신-눈감음": {
    "kind": "actor",
    "file": "kit/actors/panda/panda-상반신-눈감음.webp",
-   "w": 804,
-   "h": 981,
+   "w": 1134,
+   "h": 1760,
    "anchor": {
-    "cx": 405,
+    "cx": 570,
     "head": [
-     5,
+     170,
      -6,
-     805,
+     970,
      714
     ],
     "face": [
-     125,
+     290,
      94,
-     725,
+     890,
      544
     ],
     "torso": [
-     0,
-     865
+     165,
+     1030
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Panda: sky-blue knit cardigan over white shirt, white earphone cord hanging down.",
+   "ref": "kit/actors/panda/panda-상반신-눈감음.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda",
-   "family": "panda-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "panda-상반신-평온"
   },
   "panda-서기-평온": {
    "kind": "actor",
@@ -3900,106 +3885,103 @@
   "penguin-퇴근-상반신-평온": {
    "kind": "actor",
    "file": "kit/actors/penguin/penguin-퇴근-상반신-평온.webp",
-   "w": 976,
-   "h": 1274,
+   "w": 1115,
+   "h": 1700,
    "anchor": {
-    "cx": 502,
+    "cx": 572,
     "head": [
-     127,
+     197,
      85,
-     877,
+     947,
      835
     ],
     "face": [
-     177,
+     247,
      435,
-     807,
+     877,
      795
     ],
     "torso": [
-     67,
-     937
+     137,
+     1007
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "The PENGUIN DOCTOR from the first attached image, OFF DUTY: navy baseball cap pulled low, plain gray zip hoodie, no coat, no stethoscope, no lanyard; CHEST-UP bust crop facing the viewer, calm neutral face with relaxed brows and a gently closed mouth, slightly tired eyes. One character centered, large in frame.",
-   "ref": "kit/actors/penguin/penguin-stand-calm.webp",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Penguin off-duty: gray zip hoodie with white drawstrings, hoodie hem at the bottom edge.",
+   "ref": "kit/actors/penguin/penguin-퇴근-상반신-평온.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "penguin",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "actor": "penguin"
   },
   "penguin-퇴근-상반신-말하기": {
    "kind": "actor",
    "file": "kit/actors/penguin/penguin-퇴근-상반신-말하기.webp",
-   "w": 976,
-   "h": 1274,
+   "w": 1115,
+   "h": 1700,
    "anchor": {
-    "cx": 502,
+    "cx": 572,
     "head": [
-     127,
+     197,
      85,
-     877,
+     947,
      835
     ],
     "face": [
-     177,
+     247,
      435,
-     807,
+     877,
      795
     ],
     "torso": [
-     67,
-     937
+     137,
+     1007
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/penguin-퇴근-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Penguin off-duty: gray zip hoodie with white drawstrings, hoodie hem at the bottom edge.",
+   "ref": "kit/actors/penguin/penguin-퇴근-상반신-말하기.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "penguin",
-   "family": "penguin-퇴근-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "penguin-퇴근-상반신-평온"
   },
   "penguin-퇴근-상반신-눈감음": {
    "kind": "actor",
    "file": "kit/actors/penguin/penguin-퇴근-상반신-눈감음.webp",
-   "w": 976,
-   "h": 1274,
+   "w": 1115,
+   "h": 1700,
    "anchor": {
-    "cx": 502,
+    "cx": 572,
     "head": [
-     127,
+     197,
      85,
-     877,
+     947,
      835
     ],
     "face": [
-     177,
+     247,
      435,
-     807,
+     877,
      795
     ],
     "torso": [
-     67,
-     937
+     137,
+     1007
     ],
     "scale": "head"
    },
-   "status": "approved",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
-   "ref": "kit/gen/out/penguin-퇴근-상반신-평온.png",
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) 몸 아래 늘리기 + 원본 위쪽 그대로(2026-11-13)",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body DOWNWARD into the empty magenta area so the torso reaches the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge, no legs, no feet, no floor). Arms relaxed at the sides, cropped by the bottom edge, empty hands not visible. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Do not change anything in the existing upper part. Penguin off-duty: gray zip hoodie with white drawstrings, hoodie hem at the bottom edge.",
+   "ref": "kit/actors/penguin/penguin-퇴근-상반신-눈감음.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "penguin",
-   "family": "penguin-퇴근-상반신-평온",
-   "approved": "2026-11-13 미르님(채팅 2026-11-13 「다 좋아」)"
+   "family": "penguin-퇴근-상반신-평온"
   },
   "penguin-퇴근-서기-평온": {
    "kind": "actor",
@@ -4315,6 +4297,505 @@
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "approved": "2026-11-13 미르님(색 대본 승인 2026-11-13: 판은 짙은 청록 깔판, rules/color.md)"
+  },
+  "bear-들기쪽지-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-들기쪽지-웃음.webp",
+   "w": 946,
+   "h": 1533,
+   "anchor": {
+    "face": [
+     312,
+     282,
+     675,
+     564
+    ],
+    "cx": 494,
+    "head": [
+     137,
+     10,
+     832,
+     604
+    ],
+    "torso": [
+     101,
+     826
+    ],
+    "hand": [
+     872,
+     655
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached guide image: a yellow paper note is pasted roughly near the paw and looks like a floating sticker. Redraw ONLY the paw and the note so the paw naturally GRIPS the note: fingers wrap over the front of the note, thumb behind, the note slightly bent by the grip, a soft same-color shadow where paw and note touch, the note in the same paper-craft felt texture with a thin darker yellow edge and faint pencil lines, no readable text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. The note is a small folded yellow memo held up in the raised paw.",
+   "ref": "kit/actors/bear/bear-lift-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear"
+  },
+  "bear-상반신쪽지-걱정": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-상반신쪽지-걱정.webp",
+   "w": 967,
+   "h": 1497,
+   "anchor": {
+    "face": [
+     320,
+     459,
+     690,
+     904
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     119,
+     820,
+     939
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     999
+    ],
+    "sweat": [
+     745,
+     469
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to quietly worried: inner brows raised and drawn together, mouth closed in a small flat line, no smile, eyes looking slightly down. Keep EVERYTHING else pixel-identical: same head size and position, same cap, same hoodie, same framing, same magenta background. Do not move, scale or redraw the body.",
+   "ref": "kit/actors/bear/bear-bust-calm.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear",
+   "family": "bear-상반신쪽지-평온"
+  },
+  "bear-상반신쪽지-눈감음": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-상반신쪽지-눈감음.webp",
+   "w": 967,
+   "h": 1497,
+   "anchor": {
+    "face": [
+     320,
+     459,
+     690,
+     904
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     119,
+     820,
+     939
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     999
+    ],
+    "sweat": [
+     745,
+     469
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-bust-blink.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear",
+   "family": "bear-상반신쪽지-평온"
+  },
+  "bear-상반신쪽지-당황": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-상반신쪽지-당황.webp",
+   "w": 967,
+   "h": 1498,
+   "anchor": {
+    "face": [
+     320,
+     460,
+     690,
+     905
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     120,
+     820,
+     940
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     1000
+    ],
+    "sweat": [
+     745,
+     470
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-bust-fluster.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear",
+   "family": "bear-상반신쪽지-평온"
+  },
+  "bear-상반신쪽지-말하기": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-상반신쪽지-말하기.webp",
+   "w": 967,
+   "h": 1497,
+   "anchor": {
+    "face": [
+     320,
+     459,
+     690,
+     904
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     119,
+     820,
+     939
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     999
+    ],
+    "sweat": [
+     745,
+     469
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-bust-talk.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear",
+   "family": "bear-상반신쪽지-평온"
+  },
+  "bear-상반신쪽지-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-상반신쪽지-웃음.webp",
+   "w": 967,
+   "h": 1498,
+   "anchor": {
+    "face": [
+     320,
+     460,
+     690,
+     905
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     120,
+     820,
+     940
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     1000
+    ],
+    "sweat": [
+     745,
+     470
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-bust-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear",
+   "family": "bear-상반신쪽지-평온"
+  },
+  "bear-상반신쪽지-평온": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-상반신쪽지-평온.webp",
+   "w": 967,
+   "h": 1497,
+   "anchor": {
+    "face": [
+     320,
+     459,
+     690,
+     904
+    ],
+    "cx": 483,
+    "head": [
+     110,
+     119,
+     820,
+     939
+    ],
+    "torso": [
+     0,
+     967
+    ],
+    "hand": [
+     790,
+     999
+    ],
+    "sweat": [
+     745,
+     469
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-bust-calm.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear",
+   "family": "bear-상반신쪽지-평온"
+  },
+  "bear-서기쪽지-당황": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-서기쪽지-당황.webp",
+   "w": 958,
+   "h": 1520,
+   "anchor": {
+    "face": [
+     330,
+     280,
+     700,
+     560
+    ],
+    "cx": 486,
+    "head": [
+     130,
+     10,
+     820,
+     600
+    ],
+    "torso": [
+     120,
+     850
+    ],
+    "sweat": [
+     230,
+     310
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-stand-fluster.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear"
+  },
+  "bear-서기쪽지-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-서기쪽지-웃음.webp",
+   "w": 1010,
+   "h": 1521,
+   "anchor": {
+    "face": [
+     320,
+     290,
+     680,
+     560
+    ],
+    "cx": 500,
+    "head": [
+     140,
+     10,
+     850,
+     600
+    ],
+    "torso": [
+     130,
+     870
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-stand-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear"
+  },
+  "bear-신발신기쪽지-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-신발신기쪽지-웃음.webp",
+   "w": 759,
+   "h": 1070,
+   "anchor": {
+    "cx": 391,
+    "head": [
+     280,
+     35,
+     758,
+     478
+    ],
+    "face": [
+     382,
+     239,
+     672,
+     478
+    ],
+    "torso": [
+     0,
+     760
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached image: tuck a small folded yellow paper memo into the bear's sky-blue hoodie chest pocket on the viewer's right side, about one third of the memo sticking up out of the pocket, slightly tilted, the pocket fabric bulging a little over it, soft same-color shadow. Felt paper-craft texture, no text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Change nothing else.",
+   "ref": "kit/actors/bear/bear-신발신기-웃음.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear"
+  },
+  "bear-앉기쪽지-평온": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-앉기쪽지-평온.webp",
+   "w": 912,
+   "h": 1536,
+   "anchor": {
+    "cx": 434,
+    "head": [
+     46,
+     -34,
+     824,
+     602
+    ],
+    "face": [
+     223,
+     214,
+     647,
+     532
+    ],
+    "torso": [
+     0,
+     886
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached guide image: a yellow paper note is pasted roughly near the paw and looks like a floating sticker. Redraw ONLY the paw and the note so the paw naturally GRIPS the note: fingers wrap over the front of the note, thumb behind, the note slightly bent by the grip, a soft same-color shadow where paw and note touch, the note in the same paper-craft felt texture with a thin darker yellow edge and faint pencil lines, no readable text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. The seated bear raises his right paw (viewer's right) from the knee and holds the small folded yellow memo out to the right, elbow bent, as if showing it to someone beside him. Redraw only that arm, paw and note.",
+   "ref": "kit/actors/bear/bear-앉기-평온.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear"
+  },
+  "panda-내밀기쪽지-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-내밀기쪽지-웃음.webp",
+   "w": 820,
+   "h": 1535,
+   "anchor": {
+    "face": [
+     252,
+     226,
+     714,
+     482
+    ],
+    "cx": 509,
+    "head": [
+     73,
+     62,
+     740,
+     595
+    ],
+    "torso": [
+     201,
+     734
+    ],
+    "hand": [
+     78,
+     698
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached guide image: a yellow paper note is pasted roughly near the paw and looks like a floating sticker. Redraw ONLY the paw and the note so the paw naturally GRIPS the note: fingers wrap over the front of the note, thumb behind, the note slightly bent by the grip, a soft same-color shadow where paw and note touch, the note in the same paper-craft felt texture with a thin darker yellow edge and faint pencil lines, no readable text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. The note is a small folded yellow memo held out toward the left.",
+   "ref": "kit/actors/panda/panda-reach-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda"
+  },
+  "panda-내밀기쪽지펼침-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-내밀기쪽지펼침-웃음.webp",
+   "w": 845,
+   "h": 1535,
+   "anchor": {
+    "face": [
+     277,
+     226,
+     739,
+     482
+    ],
+    "cx": 534,
+    "head": [
+     98,
+     62,
+     765,
+     595
+    ],
+    "torso": [
+     226,
+     759
+    ],
+    "hand": [
+     103,
+     698
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex image_gen(gpt-image-2) + kit/gen/bake.py 굽기(2026-11-13)",
+   "prompt": "Edit the attached guide image: a yellow paper note is pasted roughly near the paw and looks like a floating sticker. Redraw ONLY the paw and the note so the paw naturally GRIPS the note: fingers wrap over the front of the note, thumb behind, the note slightly bent by the grip, a soft same-color shadow where paw and note touch, the note in the same paper-craft felt texture with a thin darker yellow edge and faint pencil lines, no readable text. Keep the character's head, face, clothes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. The note is one tall unfolded yellow checklist memo held up by its top edge, toward the left, facing the viewer.",
+   "ref": "kit/actors/panda/panda-reach-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda"
   }
  },
  "music": {

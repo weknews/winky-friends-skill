@@ -73,54 +73,45 @@ def extra_texts(c, L):
     return out
 
 # ── 컷 표(대본 2판). 자리: 두 사람 컷은 좌2·우2. 판다 「내밀기」는 그림이 왼쪽으로만 내밀어서, 판다가 건네는 컷은 받는 사람이 판다 왼쪽(README)
-# 주머니 쪽지: 주머니 선에 밑을 대고 15° 기울여 꽂는다. 넓은 컷 배율에서 67px라 1.5배(mag)로 키웠다(README)
-NOTE_POCKET = lambda vis=None, at=(0.66, 0.55): ("note-list-folded", "on", "bear", dict(at=at, grip="bottom", mag=1.5, rot=15, **({"vis": vis} if vis else {})))
 DOOR_E = "set-door-m-evening"
 CU_G, CU_A, CU_B = "set-door-cu-g", "set-recycle-cu-a", "set-recycle-cu-b"
 TALK = lambda pose, t, emo_end=None: [(0, pose + "-웃음" if emo_end == "웃음" else pose + "-평온"), (t, pose + "-말"), ("끝", pose + ("-웃음" if emo_end == "웃음" else "-평온"))]
 CUTS = [
  # S1 아침
  dict(n=1, t=(0.0, 2.0), set="table", cam="판", ppm="big", bg=TEAL, title=(0.0, 2.0, "아빠 진료 날 아침"), sfx=[("스윽", 1.4)]),
- dict(n=2, t=(2.0, 4.4), set="door", cam="M", chars=[("bear", "좌2", [(0, "신발신기-웃음")]), ("panda", "우2", [(0, "내밀기-웃음")])],
-      props=[("note-list-folded", "hand", "panda", dict(vis=(2.0, 3.3))), NOTE_POCKET((3.3, None), (0.6, 0.48))],
+ dict(n=2, t=(2.0, 4.4), set="door", cam="M", chars=[("bear", "좌2", [(0, "신발신기-웃음"), (3.3, "신발신기쪽지-웃음")]), ("panda", "우2", [(0, "내밀기쪽지-웃음"), (3.3, "내밀기-웃음")])],
       line=("panda", 2.1, "아빠, 오늘 이거 꼭 물어봐."), sfx=[("스윽", 3.2)]),
- dict(n=3, t=(4.4, 6.5), set="door", cam="CU", bg=CU_G, chars=[("bear", "중", TALK("상반신", 4.5, "웃음"))],
+ dict(n=3, t=(4.4, 6.5), set="door", cam="CU", bg=CU_G, chars=[("bear", "중", TALK("상반신쪽지", 4.5, "웃음"))],
       line=("bear", 4.5, "허허허! 시험 보러 가냐?"), tag=("bear", "좌하")),
  # S2 저녁
- dict(n=4, t=(6.5, 7.9), set="door", cam="M", bg=DOOR_E, chars=[("bear", "좌2", [(0, "서기-웃음")], dict(move=[(6.5, -160), (6.9, 0)])), ("panda", "우2", [(0, "서기-말")])],
-      props=[NOTE_POCKET()], title=(6.5, 7.7, "그날 저녁"), line=("panda", 6.6, "아빠, 뭐래?"), sfx=[("탁", 6.5)]),
- dict(n=5, t=(7.9, 9.9), set="door", cam="CU", bg=CU_G, chars=[("bear", "중", TALK("상반신", 8.0, "웃음"))],
-      props=[NOTE_POCKET(at=(0.68, 0.74))], line=("bear", 8.0, "허허허! 젊어 보인대.")),
- dict(n=6, t=(9.9, 11.3), set="door", cam="M", bg=DOOR_E, chars=[("bear", "좌2", [(0, "서기-웃음")]), ("panda", "우2", [(0, "서기-말")])],
-      props=[NOTE_POCKET()], line=("panda", 10.0, "그거 말고.")),
- dict(n=7, t=(11.3, 13.3), set="door", cam="CU", bg=CU_G, chars=[("bear", "중", [(0, "상반신-말"), ("끝", "상반신-당황")])],
-      props=[NOTE_POCKET(at=(0.68, 0.74))], line=("bear", 11.4, "그 말밖에 안 하던데.")),
+ dict(n=4, t=(6.5, 7.9), set="door", cam="M", bg=DOOR_E, chars=[("bear", "좌2", [(0, "서기쪽지-웃음")], dict(move=[(6.5, -160), (6.9, 0)])), ("panda", "우2", [(0, "서기-말")])],
+      title=(6.5, 7.7, "그날 저녁"), line=("panda", 6.6, "아빠, 뭐래?"), sfx=[("탁", 6.5)]),
+ dict(n=5, t=(7.9, 9.9), set="door", cam="CU", bg=CU_G, chars=[("bear", "중", TALK("상반신쪽지", 8.0, "웃음"))], line=("bear", 8.0, "허허허! 젊어 보인대.")),
+ dict(n=6, t=(9.9, 11.3), set="door", cam="M", bg=DOOR_E, chars=[("bear", "좌2", [(0, "서기쪽지-웃음")]), ("panda", "우2", [(0, "서기-말")])], line=("panda", 10.0, "그거 말고.")),
+ dict(n=7, t=(11.3, 13.3), set="door", cam="CU", bg=CU_G, chars=[("bear", "중", [(0, "상반신쪽지-말"), ("끝", "상반신쪽지-당황")])], line=("bear", 11.4, "그 말밖에 안 하던데.")),
  dict(n=8, t=(13.3, 14.9), set="table", cam="판", ppm="big", bg=TEAL, sfx=[("스윽", 13.4)]),   # 2차: 펼친 쪽지를 크게(표시 하나 없다)
  dict(n=9, t=(14.9, 16.3), set="door", cam="CU", bg=CU_G, chars=[("panda", "중", [(0, "상반신-시무룩")])],
       line=("panda", 15.0, "아 진짜…", {0: "시무룩"})),
- dict(n=10, t=(16.3, 18.3), set="door", cam="M", bg=DOOR_E, chars=[("bear", "좌2", [(0, "서기-당황")]), ("panda", "우2", [(0, "서기-말")])],
+ dict(n=10, t=(16.3, 18.3), set="door", cam="M", bg=DOOR_E, chars=[("bear", "좌2", [(0, "서기쪽지-당황")]), ("panda", "우2", [(0, "서기-말")])],
       line=("panda", 16.4, "다음엔 나도 같이 가.")),
  # S3 회사
- dict(n=11, t=(18.3, 22.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", "우2", [(0, "앉기-평온")])],
+ dict(n=11, t=(18.3, 22.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", "우2", [(0, "앉기-평온")], dict(mag=1.35))],
       title=(18.3, 19.5, "다음 날"), tag=("hedgehog", "우하"), line=("panda", 18.4, "실장님, 반차 좀 쓸게요./아빠 병원 따라가려고요.")),
  dict(n=12, t=(22.4, 25.0), set="company", cam="CU", chars=[("hedgehog", "중", [(0, "상반신-당황")])],
       line=("hedgehog", 22.5, "(많이 편찮으신가… 묻지 말자)", {0: "속마음"})),
- dict(n=13, t=(25.0, 26.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", "우2", [(0, "앉기-말")])],
+ dict(n=13, t=(25.0, 26.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", "우2", [(0, "앉기-말")], dict(mag=1.35))],
       line=("hedgehog", 25.1, "네. 다녀와요."), sfx=[("톡", 26.0)]),
  # S4 분리수거장(밤)
  dict(n=14, t=(26.4, 28.0), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "양손들기-놀람")])],
       title=(26.4, 27.6, "진료 이틀 전 밤"), tag=("penguin", "좌상"), line=("panda", 26.5, "선생님!"), sfx=[("탁", 26.4)]),
  dict(n=15, t=(28.0, 29.5), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", [(0, "퇴근-상반신-눈감음")])],
       tag=("penguin", "좌상", True), line=("penguin", 28.1, "…퇴근했는데요.")),
- dict(n=16, t=(29.5, 31.5), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기-웃음")])],
-      props=[("note-list-folded", "hand", "panda")], line=("panda", 29.6, "모레 아빠 병원 가요.")),
- dict(n=17, t=(31.5, 33.6), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기-웃음")])],
-      props=[("note-list", "hand", "panda", dict(grip="top", mag=1.8))] + [("note-list", "hand", "panda", dict(grip="top", mag=1.8, off=(0, 190 * 1.8 * i), vis=(31.6 + 0.6 * i, None))) for i in (1,)],
+ dict(n=16, t=(29.5, 31.5), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기쪽지-웃음")])], line=("panda", 29.6, "모레 아빠 병원 가요.")),
+ dict(n=17, t=(31.5, 33.6), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기쪽지펼침-웃음")])],
       line=("panda", 31.6, "이거 다 물어봐도 돼요?"), sfx=[("스윽", 31.7)]),
  dict(n=18, t=(33.6, 35.4), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 33.7))], line=("penguin", 33.7, "진료 3분이에요.")),
  dict(n=19, t=(35.4, 37.2), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 35.5))], line=("penguin", 35.5, "…하나만 고르세요.")),
- dict(n=20, t=(37.2, 39.0), set="recycle", cam="M", chars=[("bear", "좌2", [(0, "들기-웃음")], dict(move=[(37.2, -620), (37.75, 0)])), ("panda", "우2", [(0, "내밀기-웃음")])],   # 2차: 곰 아빠가 걸어 들어온다, 펭귄 뺌
-      props=[("note-list-folded", "hand", "panda", dict(vis=(37.2, 38.6))), ("note-list-folded", "hand", "bear", dict(vis=(38.6, None), grip="top"))],
+ dict(n=20, t=(37.2, 39.0), set="recycle", cam="M", chars=[("bear", "좌2", [(0, "들기-웃음"), (38.6, "들기쪽지-웃음")], dict(move=[(37.2, -620), (37.75, 0)])), ("panda", "우2", [(0, "내밀기쪽지-웃음"), (38.6, "내밀기-웃음")])],   # 3차: 쪽지를 쥔 손을 그림에 구웠다(떠 있는 스티커 대신)
       line=("panda", 37.3, "아빠, 하나만 골라.")),
  dict(n=21, t=(39.0, 41.8), set="recycle", cam="CU", bg=CU_B, chars=[("bear", "중", TALK("상반신", 39.1, "웃음"))], line=("bear", 39.1, "허허허! 원 플러스 원은 안 되냐?")),
  dict(n=22, t=(41.8, 43.6), set="table", cam="판", ppm="note", bg=TEAL, line=("bear", 41.9, "이건 아빠도 알아."), sfx=[("사각", 41.95), ("사각", 42.45), ("사각", 42.95)]),
@@ -129,19 +120,18 @@ CUTS = [
  dict(n=25, t=(47.8, 49.2), set="recycle", cam="CU", bg=CU_B, chars=[("panda", "중", TALK("상반신", 47.9))], line=("panda", 47.9, "네?")),
  dict(n=26, t=(49.2, 51.6), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 49.3))], line=("penguin", 49.3, "아버님이 당뇨시잖아요.")),
  dict(n=27, t=(51.6, 52.9), set="recycle", cam="CU", bg=CU_B, chars=[("panda", "중", [(0, "상반신-놀람")])], still=True),
- dict(n=28, t=(52.9, 54.3), set="recycle", cam="CU", bg=CU_B, chars=[("bear", "중", TALK("상반신", 53.0))],   # 2차: 웃음 없는 곰 아빠 = 상반신 평온(평온 전신 든 그림 없음)
-      props=[("note-list-folded", "on", "bear", dict(at=(0.74, 0.66), grip="bottom", mag=1.5, rot=15))], line=("bear", 53.0, "…너 안 받았어?", {0: "시무룩"})),
+ dict(n=28, t=(52.9, 54.3), set="recycle", cam="CU", bg=CU_B, chars=[("bear", "중", [(0, "상반신쪽지-걱정")])],   # 3차: 걱정 얼굴판(웃음기 없음)
+      line=("bear", 53.0, "…너 안 받았어?", {0: "시무룩"})),
  dict(n=29, t=(54.3, 55.7), set="recycle", cam="CU", bg=CU_B, chars=[("panda", "중", [(0, "상반신-시무룩")])], line=("panda", 54.4, "아직.", {0: "속삭임"})),
  # S5 회사
- dict(n=30, t=(55.7, 60.2), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", "우2", [(0, "앉기-평온")])],
+ dict(n=30, t=(55.7, 60.2), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-말")]), ("hedgehog", "우2", [(0, "앉기-평온")], dict(mag=1.35))],
       title=(55.7, 56.9, "다음 날"), line=("panda", 56.0, "실장님, 반차 하나만 더요./이번엔 제 검사 받으려고요.")),
  dict(n=31, t=(60.2, 62.3), set="company", cam="CU", chars=[("hedgehog", "중", [(0, "상반신-당황"), (60.8, "상반신-가시")])],
       line=("hedgehog", 60.3, "(…무슨 검사지? 묻지 말자)", {0: "속마음"})),
- dict(n=32, t=(62.3, 63.8), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", "우2", [(0, "앉기-말")])],
+ dict(n=32, t=(62.3, 63.8), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", "우2", [(0, "앉기-말")], dict(mag=1.35))],
       line=("hedgehog", 62.4, "네. 잘 받고 와요."), sfx=[("톡", 63.4)]),
  # S6 대기실
- dict(n=33, t=(63.8, 65.9), set="clinic", cam="M", chars=[("bear", "좌2", [(0, "앉기-평온")]), ("panda", "우2", [(0, "앉기-평온")])],
-      props=[("note-list-folded", "on", "bear", dict(at=(0.9, 0.5), mag=1.5, rot=-12))],   # 2차: 판다 쪽으로 내민 쪽지. 번호표는 스티커처럼 보여 뺐다
+ dict(n=33, t=(63.8, 65.9), set="clinic", cam="M", chars=[("bear", "좌2", [(0, "앉기쪽지-평온")]), ("panda", "우2", [(0, "앉기-평온")])],   # 3차: 판다 쪽으로 쪽지를 내민 그림을 구웠다
       title=(63.8, 65.0, "아빠 진료 날"), line=("panda", 63.9, "그거 아직 갖고 있었어?")),
  dict(n=34, t=(65.9, 67.7), set="clinic", cam="CU", chars=[("bear", "중", TALK("상반신", 66.0))], line=("bear", 66.0, "하나만 물으라며.")),
  dict(n=35, t=(67.7, 70.7), set="table", cam="판", ppm="end", bg=TEAL, sfx=[("스윽", 68.2)]),
