@@ -261,6 +261,18 @@ for n_, e_ in B.REGISTRY["items"].items():
     if e_.get("status") == "approved": ok(os.path.exists(os.path.join(B.ROOT, e_["file"])), 16, f"레지스트리 {n_} 파일 {e_['file']}")
 used = {f for C in S["cuts"] for l in C["layers"] for f in l["frames"]} | {C["bg"]["name"] for C in S["cuts"]}
 for f in sorted(used): ok(B.REGISTRY["items"].get(f, {}).get("status") == "approved", 16, f"장면이 쓰는 {f} 승인됨")
+# 17 연출 한도(rules/directing.md 8절, 40~60대 시청자): 흔들기·번쩍임 회차에 한 번씩, 키네틱 두 곳까지, 컷마다 효과 자막 셋까지, 연출 그림 draft 없음
+fxs = [(C["n"], f[0]) for C in S["cuts"] for f in next((c.get("fx", []) for c in B.CUTS if c["n"] == C["n"]), [])]
+for k in ("shake", "flash"): ok(sum(1 for _, x in fxs if x == k) <= 1, 17, f"{k} 회차에 {sum(1 for _, x in fxs if x == k)}번(한 번까지)")
+kin = sum(1 for C in S["cuts"] for x in C["texts"] if x["kind"] == "sub" for r in x["rows"] if r.get("kin")); ok(kin <= 2, 17, f"키네틱 자막 {kin}곳(두 곳까지)")
+for C in S["cuts"]:
+    eff = sum(1 for x in C["texts"] if x["kind"] == "ono") + sum(1 for x in C["texts"] if x["kind"] == "sub" for r in x["rows"] if r.get("em") or r.get("kin") or any(st[0] in ("strip-shout", "strip-whisper") for st in r["strips"])) + sum(1 for o in C.get("ov", []) if o["kind"] == "mark")
+    ok(eff <= 3, 17, f"컷{C['n']} 효과 자막 {eff}개(셋까지)")
+    for o in C.get("ov", []):
+        if o["kind"] == "lines": ok(B.K.get("fx-lines") is not None and B.REGISTRY["items"]["fx-lines"]["status"] == "approved", 16, f"컷{C['n']} 집중선 fx-lines 승인됨")
+    for x in C["texts"]:
+        for r in x.get("rows", []):
+            for st in r.get("strips", []): ok(B.REGISTRY["items"].get(st[0], {}).get("status") == "approved", 16, f"컷{C['n']} 띠 {st[0]} 승인됨")
 os.makedirs(os.path.join(HERE, "out"), exist_ok=True)
 by = {}
 for s in LOG + FAIL: by.setdefault(s.split("]")[0] + "]", []).append(s)

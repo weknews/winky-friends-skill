@@ -137,3 +137,81 @@ CUTS = [
  dict(n=35, t=(67.7, 70.7), set="table", cam="판", ppm="end", bg=TEAL, sfx=[("스윽", 68.2)]),
  dict(n=36, t=(70.7, 73.7), set="end", cam="board", bg=TEAL, chars=[], end=True),
 ]
+
+# ── 3차 연출(Fable 디렉터 연출 패스 2026-11-13, 미르님 「48·52초 밋밋, 29초 펭귄이 멈춰 있다」)
+# 1) 시간 늘리기: 15번 +0.3(빤히 보는 한 박), 27번 +0.5(늦게 깨닫는 정지), 29번 +0.2(「아직.」 뒤 정적). 아래 값은 옛 시각, SH가 새 시각으로 옮긴다
+RETIME = [(29.5, 0.3), (52.9, 0.5), (55.7, 0.2)]
+def SH(t): return round(t + sum(d for b, d in RETIME if t >= b - 1e-6), 3) if isinstance(t, (int, float)) else t
+for _c in CUTS:
+    _c["t"] = tuple(SH(v) for v in _c["t"])
+    if _c.get("line"): _c["line"] = (_c["line"][0], SH(_c["line"][1]), *_c["line"][2:])
+    if _c.get("title"): _c["title"] = (SH(_c["title"][0]), SH(_c["title"][1]), _c["title"][2])
+    _c["sfx"] = [(n, SH(t)) for n, t in _c.get("sfx", [])]
+    _c["chars"] = [(ch[0], ch[1], [(SH(t), p) for t, p in ch[2]], *([dict(ch[3], **({"move": [(SH(a), b) for a, b in ch[3]["move"]]} if "move" in ch[3] else {}))] if len(ch) > 3 else [])) for ch in _c.get("chars", [])]
+    _c["props"] = [(*pr[:3], dict(pr[3], vis=tuple(SH(v) if v is not None else None for v in pr[3]["vis"])) if len(pr) > 3 and "vis" in pr[3] else (pr[3] if len(pr) > 3 else {})) for pr in _c.get("props", [])]
+_board_cut0 = board_cut
+def board_cut(n):
+    P = _board_cut0(n)
+    for p in P:
+        p["keys"] = [(SH(k[0]), *k[1:]) for k in p["keys"]]
+        if p["vis"]: p["vis"] = tuple(SH(v) if v is not None else None for v in p["vis"])
+    return P
+CUES = [(n, SH(a), SH(b)) for n, a, b in CUES if n != "Q-TIME" or a < 55]
+CUES.insert(3, ("Q-TIME", 56.6, 57.2))           # 29번 「아직.」 꼬리를 덮지 않게 30번 경계 0.1초 앞에서
+CUE_SHEET = set(CUES); D = SH(D)
+
+# 2) 컷마다 카메라·연기·효과·자막 연기(새 시각). 자세 바꾸기는 레지스트리에 있는 그림만
+C_ = {c["n"]: c for c in CUTS}
+def SEQ(n, who, seq):
+    c = C_[n]; c["chars"] = [(ch[0], ch[1], seq if ch[0] == who else ch[2], *ch[3:]) for ch in c["chars"]]
+def LINE(n, text=None, t=None):
+    l = C_[n]["line"]; C_[n]["line"] = (l[0], t if t is not None else l[1], text or l[2], *l[3:])
+DIRECT = {
+ 1:  dict(fx=[("push", 1.0, 1.04, 0.0, 1.4)], sfx_add=[("톡", 1.5)]),
+ 2:  dict(fx=[("act", "panda", "lean", 2.1), ("act", "bear", "pop", 3.3)], text="아빠, 오늘 이거 *꼭* 물어봐."),
+ 3:  dict(fx=[("act", "bear", "hop", 4.5)]),
+ 4:  dict(fx=[("push", 1.0, 1.05, 6.9, 7.9), ("act", "bear", "pop", 6.9), ("act", "panda", "lean", 6.6)]),
+ 5:  dict(fx=[("act", "bear", "hop", 8.0)], text="허허허! *젊어* 보인대."),
+ 6:  dict(fx=[("act", "bear", "pop", 10.4)], seq=("bear", [(0, "서기쪽지-웃음"), (10.4, "서기쪽지-당황")])),
+ 7:  dict(fx=[("push", 1.0, 1.05, 11.4, 13.3), ("act", "bear", "slump", 12.7)], seq=("bear", [(0, "상반신쪽지-말"), (12.6, "상반신쪽지-당황")]), sfx_add=[("삐질", 12.8)]),
+ 8:  dict(fx=[("push", 1.0, 1.06, 13.6, 14.9)]),
+ 9:  dict(fx=[("act", "panda", "slump", 15.0)], seq=("panda", [(0, "상반신-눈감음"), (15.0, "상반신-시무룩")])),
+ 10: dict(fx=[("act", "panda", "hop", 16.4), ("act", "bear", "recoil", 16.9, 0.5)], text="다음엔 나도 *같이* 가."),
+ 11: dict(fx=[("act", "panda", "pop", 18.4), ("act", "panda", "lean", 20.4), ("act", "hedgehog", "pop", 20.6)], seq=("hedgehog", [(0, "앉기-평온"), (20.6, "앉기-당황")])),
+ 12: dict(fx=[("push", 1.0, 1.08, 22.5, 25.0), ("act", "hedgehog", "shiver", 23.9)], seq=("hedgehog", [(0, "상반신-당황"), (24.0, "상반신-눈감음")]), sfx_add=[("꿀꺽", 24.0)]),
+ 13: dict(fx=[("act", "hedgehog", "pop", 26.0), ("act", "panda", "hop", 26.1)], ono=("톡", 26.0)),
+ 14: dict(fx=[("act", "panda", "hop", 26.5), ("act", "penguin", "recoil", 26.7), ("mark", "!", "penguin", 26.7, 28.0)], text="!!선생님!"),
+ 15: dict(fx=[("push", 1.0, 1.07, 28.0, 28.4), ("act", "penguin", "slump", 28.4), ("mark", "…", "penguin", 28.1, 28.8)],   # 목소리가 컷 안에서 끝나게 대사를 28.45로(디렉터 28.55)
+          seq=("penguin", [(0, "퇴근-상반신-평온"), (28.4, "퇴근-상반신-눈감음"), (28.45, "퇴근-상반신-말"), (29.6, "퇴근-상반신-눈감음")]), t=28.45),
+ 16: dict(fx=[("act", "panda", "lean", 29.9), ("act", "penguin", "slump", 30.2)]),
+ 17: dict(fx=[("pull", 1.06, 1.0, 32.0, 32.6), ("act", "penguin", "recoil", 32.1)], seq=("panda", [(0, "내밀기쪽지-웃음"), (32.0, "내밀기쪽지펼침-웃음")]), ono=("스윽", 32.0)),
+ 18: dict(fx=[("act", "penguin", "pop", 34.6)], text="진료 *3분*이에요."),
+ 19: dict(fx=[("push", 1.0, 1.06, 35.8, 37.5)], seq=("penguin", [(0, "퇴근-상반신-눈감음"), (36.0, "퇴근-상반신-말"), ("끝", "퇴근-상반신-평온")]), text="…*하나만* 고르세요."),
+ 20: dict(fx=[("act", "bear", "pop", 38.05), ("act", "bear", "pop", 38.9), ("act", "panda", "lean", 37.6)], sfx_add=[("스윽", 38.9)]),
+ 21: dict(fx=[("act", "bear", "hop", 39.4)]),   # 강조하면 줄이 안전 여백을 넘는다(check 7)
+ 22: dict(fx=[("push", 1.0, 1.05, 42.2, 43.9)], ono=("사각", 42.25)),
+ 23: dict(fx=[("shake", 44.0, 0.25, 6), ("act", "panda", "recoil", 44.0), ("lines", 44.0, 45.3)], text="!!그걸 왜 지워!"),
+ 24: dict(fx=[("push", 1.0, 1.06, 46.6, 48.1), ("act", "penguin", "lean", 45.5, 0.5)], cam_on="panda", text="^근데 *따님*은 검사 받아 봤어요?"),
+ 25: dict(fx=[("act", "panda", "recoil", 48.3, 0.5), ("mark", "?", "panda", 48.3, 49.5)], seq=("panda", [(0, "상반신-평온"), (48.3, "상반신-말"), (48.6, "상반신-당황")]), t=48.3),
+ 26: dict(text="*아버님*이 당뇨시잖아요."),
+ 27: dict(fx=[("snap", 1.22, 52.3), ("dim", 52.3, 53.7), ("act", "panda", "shiver", 53.1)], seq=("panda", [(0, "상반신-당황"), (52.3, "상반신-놀람")]), ono=("쿵", 52.3, 1.0), sfx_add=[("쿵", 52.3)]),
+ 28: dict(fx=[("push", 1.0, 1.05, 53.7, 55.1), ("act", "bear", "lean", 53.8, 0.5)]),
+ 29: dict(fx=[("pull", 1.05, 1.0, 55.2, 56.7), ("act", "panda", "slump", 55.2)], seq=("panda", [(0, "상반신-눈감음"), (55.2, "상반신-시무룩")]), text="..아직."),
+ 30: dict(fx=[("act", "panda", "pop", 57.0), ("act", "hedgehog", "pop", 59.3)], seq=("hedgehog", [(0, "앉기-평온"), (59.3, "앉기-당황")]), text="실장님, 반차 하나만 더요./이번엔 *제* 검사 받으려고요."),
+ 31: dict(fx=[("push", 1.0, 1.08, 61.3, 63.3), ("act", "hedgehog", "pop", 61.8), ("act", "hedgehog", "shiver", 62.0), ("lines", 61.8, 63.3)],
+          seq=("hedgehog", [(0, "상반신-당황"), (61.8, "상반신-가시"), (62.6, "상반신-눈감음")]), ono=("뿅", 61.8), sfx_add=[("뿅", 61.8), ("꿀꺽", 62.6)]),
+ 32: dict(fx=[("act", "hedgehog", "pop", 64.4)], ono=("톡", 64.4)),
+ 33: dict(fx=[("act", "bear", "lean", 64.9), ("act", "panda", "recoil", 65.0, 0.5)]),
+ 34: dict(fx=[("push", 1.0, 1.05, 67.0, 68.7)], seq=("bear", [(0, "상반신-평온"), (67.0, "상반신-말"), (68.3, "상반신-웃음")]), text="*하나만* 물으라며."),
+ 35: dict(fx=[("push", 1.0, 1.10, 69.9, 71.2)]),
+}
+if "penguin-퇴근-서기-말하기" in K:                # 24번 반전 대사: 펭귄 입이 움직여야 누가 묻는지 보인다(디렉터 새 그림 요청)
+    DIRECT[24]["seq"] = ("penguin", [(0, "퇴근-서기-평온"), (C_[24]["line"][1], "퇴근-서기-말"), ("끝", "퇴근-서기-평온")])
+for n, d in DIRECT.items():
+    c = C_[n]
+    if "fx" in d: c["fx"] = d["fx"]
+    if "seq" in d: SEQ(n, *d["seq"])
+    if "text" in d or "t" in d: LINE(n, d.get("text"), d.get("t"))
+    if "ono" in d: c["ono"] = d["ono"]
+    if "cam_on" in d: c["cam_on"] = d["cam_on"]
+    c["sfx"] = sorted(c.get("sfx", []) + d.get("sfx_add", []), key=lambda x: x[1])

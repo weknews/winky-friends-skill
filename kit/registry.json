@@ -4796,6 +4796,78 @@
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "panda"
+  },
+  "fx-lines": {
+   "kind": "fx",
+   "file": "kit/fx/fx-lines.webp",
+   "w": 2800,
+   "h": 2800,
+   "anchor": {},
+   "status": "draft",
+   "source": "코드(PIL) — 승인된 strip-w-long 결로 가장자리만 바꿈 / 집중선 쐐기(2026-11-13)",
+   "prompt": null,
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strip-shout": {
+   "kind": "ui",
+   "file": "kit/ui/strip-shout.webp",
+   "w": 1995,
+   "h": 237,
+   "anchor": {},
+   "status": "draft",
+   "source": "코드(PIL) — 승인된 strip-w-long 결로 가장자리만 바꿈 / 집중선 쐐기(2026-11-13)",
+   "prompt": null,
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "strip-whisper": {
+   "kind": "ui",
+   "file": "kit/ui/strip-whisper.webp",
+   "w": 1995,
+   "h": 240,
+   "anchor": {},
+   "status": "draft",
+   "source": "코드(PIL) — 승인된 strip-w-long 결로 가장자리만 바꿈 / 집중선 쐐기(2026-11-13)",
+   "prompt": null,
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "penguin-퇴근-서기-말하기": {
+   "kind": "actor",
+   "file": "kit/actors/penguin/penguin-퇴근-서기-말하기.webp",
+   "w": 670,
+   "h": 1064,
+   "anchor": {
+    "cx": 367,
+    "head": [
+     26,
+     9,
+     708,
+     486
+    ],
+    "face": [
+     111,
+     179,
+     588,
+     452
+    ],
+    "torso": [
+     0,
+     768
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Azure gpt-image-2.5-sunburst + kit/gen/bake.py 얼굴 칸(2026-11-13)",
+   "prompt": "Edit: talking beak, same deadpan eyes. Azure sunburst + bake.py face box (2026-11-13)",
+   "ref": "kit/actors/penguin/penguin-퇴근-서기-평온.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin"
   }
  },
  "music": {

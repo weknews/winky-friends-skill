@@ -274,6 +274,12 @@ def build():
             if c.get("iris"): s1 = IRIS["t0"]
             PROT[:] = prot; texts.append(sub_layout(c, lines, s0, s1))
             if opt.get(0) == "속마음": texts[-1]["think"] = True     # M2: 속마음 = 흐린 띠·흐린 글씨·괄호(rules/directing.md 8절). 말풍선 그림은 아직 없다
+        if line and any(r.get("kin") for r in texts[-1].get("rows", [])) and texts[-1]["kind"] == "sub":   # 키네틱: 낱말 첫 음절이 나오는 시각
+            hang = [x["t"] for x in syl]; k_ = 0
+            for r in texts[-1]["rows"]:
+                if not r.get("kin"): k_ += sum(1 for ch in r["s"] if "가" <= ch <= "힣"); continue
+                for wd in r["kin"]: wd.append(hang[min(k_, len(hang) - 1)] if hang else s0); k_ += sum(1 for ch in wd[1] if "가" <= ch <= "힣")
+        if c.get("ono"): texts.append(ono_layout(c["ono"][0], c["ono"][1], c["ono"][1] + (c["ono"][2] if len(c["ono"]) > 2 else 0.8), prot))
         if c.get("title"): texts.append(caption(c["title"][2], c["title"][0], c["title"][1], "title"))
         if c.get("source"): texts.append(caption(c["source"], t0, t1, "source"))
         if c.get("tag"):
@@ -290,6 +296,7 @@ def build():
                   line=dict(who=line[0], t0=line[1], text=line[2], syl=syl, end=vend) if line else None,
                   sfx=c.get("sfx", []), freeze=None, prot=prot, still=c.get("still", False))
         if c.get("iris"): C2["iris"] = iris(L)
+        fx_build(c, C2, L)
         C2["events"] = sorted(events(C2, chars, c) + bev, key=lambda e: e[0])
         scene["cuts"].append(C2)
     return scene
@@ -333,17 +340,113 @@ def strips(cx, cy, need, h):
     return [(a, x0, cy - h / 2, W[a], h), (b, x0 + W[a] - ov, cy - h / 2, W[b], h)]
 
 PROT = []
+EM = 1.4                                       # rules/directing.md 8절: *낱말* 강조 1.4배(한 대사에 하나)
+def sub_mark(s):
+    """자막 연기 표기 → (보이는 글, 꾸밈). !!외침 ..속삭임 ^키네틱(줄 앞), *낱말* 강조. 말소리는 이 기호를 읽지 않는다(syllables가 한글만 센다)"""
+    m = {}
+    for k, pre in (("shout", "!!"), ("whisper", ".."), ("kin", "^")):
+        if s.startswith(pre): m[k] = True; s = s[len(pre):]
+    if s.count("*") == 2:
+        a = s.index("*"); b = s.index("*", a + 1); m["em"] = (a, b - 1); s = s[:a] + s[a + 1:b] + s[b + 1:]
+    return s, m
+def mark_w(s, px, m):
+    if "em" not in m: return tw(s, px, "jua")
+    a, b = m["em"]; return tw(s[:a], px, "jua") + tw(s[a:b], px * EM, "jua") + tw(s[b:], px, "jua")
+STRIP_OF = {"shout": "strip-shout", "whisper": "strip-whisper"}
 def sub_layout(c, lines, s0, s1):
-    px, lh = SUB["px"], SUB["lineh"]; n = len(lines)
+    px0, lh = SUB["px"], SUB["lineh"]; n = len(lines)
     ys = [SUB["y0"] + (SUB["y1"] - SUB["y0"]) / 2 + (i - (n - 1) / 2) * lh for i in range(n)]
     rows = []
-    for s, y in zip(lines, ys):
-        w = tw(s, px, "jua")
+    for raw, y in zip(lines, ys):
+        s, m = sub_mark(raw); px = round(px0 * 1.15) if m.get("shout") else px0     # 외침: 큰 글씨. 속삭임은 크기 그대로(68px 하한), 띠 모양만 다르게
+        w = mark_w(s, px, m); sn = next((STRIP_OF[k] for k in STRIP_OF if m.get(k) and STRIP_OF[k] in K), None)
         for dx in [0] + [d * sg for d in range(10, 310, 10) for sg in (-1, 1)]:     # 9판: 줄이 손에 든 소품(보호 상자)에 닿으면 그 줄만 옆으로 민다
-            st = strips(540 + dx, y, w + 80, lh); R = (st[0][1], y - lh / 2, st[-1][1] + st[-1][3], y + lh / 2)
+            if sn: sh = lh * (1.25 if m.get("shout") else 1); sw = w + 140; st = [(sn, 540 + dx - sw / 2, y - sh / 2, sw, sh)]
+            else: st = strips(540 + dx, y, w + 80, lh)
+            R = (st[0][1], y - lh / 2, st[-1][1] + st[-1][3], y + lh / 2)
             if R[0] >= SAFE["l"] and R[2] <= SAFE["r"] and not any(hit(R, p["box"]) for p in PROT): break
-        rows.append(dict(s=s, px=px, x=540 + dx - w / 2, y=y - px * 0.5, w=w, font="jua", strips=st, sx=st[0][1], sy=y - lh / 2, sw=st[-1][1] + st[-1][3] - st[0][1], sh=lh, dx=dx))
+        r = dict(s=s, px=px, x=540 + dx - w / 2, y=y - px * 0.5, w=w, font="jua", strips=st, sx=st[0][1], sy=y - lh / 2, sw=st[-1][1] + st[-1][3] - st[0][1], sh=lh, dx=dx)
+        if "em" in m: r["em"] = m["em"]
+        if m.get("whisper"): r["color"] = "#3A4F63"
+        if m.get("kin"):                          # 키네틱: 낱말마다 x 자리(시각은 build가 음절에 맞춰 넣는다)
+            ws, x = [], 0
+            for wd in s.split(" "): ws.append([round(x, 1), wd]); x += tw(wd + " ", px, "jua")
+            r["kin"] = ws
+        rows.append(r)
     return dict(kind="sub", t0=s0, t1=s1, rows=rows)
+
+# ── M2 연출(rules/directing.md 6·7절): 카메라·연기·효과. 컷 dict의 fx 목록 → 12fps 계단 키(animation 없이 종이 인형 그대로)
+ACT = {   # 연기: 틱마다 (dx, dy, scale, rot). 기준점 = 인물 발밑 가운데
+ "hop":    [(0, 10, .97, 0), (0, -26, 1.02, 0), (0, -34, 1.03, 0), (0, -14, 1.01, 0), (0, 2, .99, 0), (0, 0, 1, 0)],
+ "recoil": [(-18, -6, 1.0, -3), (-40, -14, 1.02, -6), (-38, -10, 1.01, -5), (-36, -8, 1, -5)],     # 뒤로 물러나 기울인 채 머문다(되돌리기는 back)
+ "back":   [(-24, -4, 1, -3), (-10, 0, 1, -1), (0, 0, 1, 0)],
+ "slump":  [(0, 6, .995, 0), (0, 12, .99, 0), (0, 18, .985, 0), (0, 24, .98, 0), (0, 28, .978, 0)],
+ "pop":    [(0, 0, .92, 0), (0, 0, 1.06, 0), (0, 0, 1.0, 0)],
+ "shiver": [(5, 0, 1, 0), (-5, 0, 1, 0)] * 4 + [(0, 0, 1, 0)],
+ "lean":   [(8, 0, 1, 1), (16, 0, 1, 2), (20, 0, 1, 2)],      # 상대 쪽으로 기울여 머문다
+}
+def fx_build(c, C2, L):
+    """c["fx"]: ("push",a,b,t0,t1) ("pull",a,b,t0,t1) ("snap",s,t) ("shake",t,dur,px) ("act",who,kind,t[,dx]) ("lines",t0,t1) ("dim",t0,t1) ("flash",t) ("mark",ch,who,t0,t1)"""
+    fx = c.get("fx", [])
+    if not fx: return
+    t0, t1 = C2["t0"], C2["t1"]; ticks = lambda a, b: [q(a + i * TICK) for i in range(max(1, int(round((b - a) * 12))) + 1)]
+    chs = {l["who"]: l for l in L if l["kind"] == "char"}
+    def face_c(l):
+        f = l["frames"][0]; p = l["pl"][f]; fa = K[f]["anchor"].get("face", K[f]["anchor"]["head"])
+        return (p["x"] + (fa[0] + fa[2]) / 2 * p["k"], p["y"] + (fa[1] + fa[3]) / 2 * p["k"]), (p["x"] + fa[2] * p["k"], p["y"] + fa[1] * p["k"])
+    def foot_c(l):
+        f = l["frames"][0]; p = l["pl"][f]; return (p["x"] + K[f]["anchor"]["cx"] * p["k"], min(p["y"] + p["h"], 1920))
+    main = chs.get(c.get("cam_on")) or next(iter(chs.values()), None); org = face_c(main)[0] if main else (540, 900)   # cam_on: 카메라가 다가갈 인물(기본 첫 인물)
+    scale, cx, cy = {}, {}, {}
+    for f in fx:
+        k = f[0]
+        if k in ("push", "pull"):
+            a, b, u0, u1 = f[1:5]; T = ticks(u0, u1)
+            for i, t in enumerate(T): scale[t] = a + (b - a) * i / max(1, len(T) - 1)
+            for t in ticks(u1, t1): scale.setdefault(t, b)
+        elif k == "snap":
+            s_, t = f[1:3]; scale[q(t)] = 1 + (s_ - 1) * 0.6
+            for tt in ticks(t + TICK, t1): scale[tt] = s_
+        elif k == "shake":
+            t, dur, amp = f[1:4]; rnd = random.Random(int(t * 100))
+            for tt in ticks(t, t + dur)[:-1]: cx[tt] = rnd.choice((-1, 1)) * amp; cy[tt] = rnd.choice((-1, 1)) * amp * .6
+            cx[q(t + dur)] = 0; cy[q(t + dur)] = 0
+    anim = []
+    if scale or cx:
+        keys, prev, cur = [], None, 1.0
+        for t in sorted(set(scale) | set(cx) | {q(t0)}):
+            if t < t0 - 1e-6 or t >= t1: continue
+            cur = scale.get(t, cur); v = dict(scale=round(cur, 4), x=cx.get(t, 0), y=cy.get(t, 0))
+            if v != prev: keys.append((t, v)); prev = v
+        anim.append(dict(node="cam", origin=[round(org[0], 1), round(org[1], 1)], keys=keys))
+    ov = []
+    for i, f in enumerate(fx):
+        k = f[0]
+        if k == "act":
+            who, kind, t = f[1:4]; l = chs[who]; amt = f[4] if len(f) > 4 else 1.0     # amt: 크기(0.5 = 작게)
+            sgn = -1 if foot_c(l)[0] > 541 else 1          # 화면 가운데(상대) 쪽 = +. recoil은 값이 음수라 상대 반대쪽으로 물러난다
+            keys = [(q(t + j * TICK), dict(x=round(dx * sgn * amt, 1), y=round(dy * amt, 1), scale=round(1 + (sc - 1) * amt, 4), rotation=round(rot * sgn * amt, 2))) for j, (dx, dy, sc, rot) in enumerate(ACT[kind])]
+            anim.append(dict(node=l["id"], origin=[round(v, 1) for v in foot_c(l)], keys=keys))
+        elif k in ("lines", "dim"):
+            ov.append(dict(id=f"ov{i}", kind=k, t0=f[1], t1=f[2], z=5 if k == "lines" else 4, c=[round(v, 1) for v in org]))
+            if k == "lines": anim.append(dict(node=f"ov{i}", origin=[round(org[0], 1), round(org[1], 1)], keys=[(t, dict(rotation=(1.5 if j % 4 < 2 else -1.5))) for j, t in enumerate(ticks(f[1], f[2])[:-1])]))
+        elif k == "flash":
+            ov.append(dict(id=f"ov{i}", kind="flash", t0=f[1], t1=f[1] + TICK, z=60))
+        elif k == "mark":
+            ch, who, u0, u1 = f[1:5]; (fx_, fy_) = face_c(chs[who])[1]
+            ov.append(dict(id=f"ov{i}", kind="mark", s=ch, t0=u0, t1=u1, z=55, x=round(min(fx_ + 10, 960), 1), y=round(max(fy_ - 170, 210), 1)))
+            anim.append(dict(node=f"ov{i}", origin=[round(min(fx_ + 60, 1010), 1), round(max(fy_ - 80, 290), 1)], keys=[(q(u0), dict(scale=.5)), (q(u0 + TICK), dict(scale=1.25)), (q(u0 + 2 * TICK), dict(scale=1))]))
+    C2["anim"], C2["ov"] = anim, ov
+
+ONO_SPOTS = [(280, 300), (800, 300), (200, 760), (880, 760), (230, 1250), (850, 1250)]   # KIT-SPEC 6절 넷 + 클로즈업용 아래 양옆 둘(얼굴이 위 넷을 다 덮는다)
+def ono_layout(s, t0, t1, prot):
+    for px in (110, 88, 72):
+        w = tw(s, px, "jua")
+        for x, y in ONO_SPOTS:
+            R = (x - w / 2, y - px / 2, x + w / 2, y + px / 2)
+            if R[0] >= SAFE["l"] and R[2] <= SAFE["r"] and not any(hit(R, p["box"]) for p in prot):
+                return dict(kind="ono", t0=t0, t1=t1, rows=[dict(s=s, px=px, x=R[0], y=R[1], w=w, font="jua", color="#FFF3C9", stroke=True)], box=R)
+    raise SystemExit(f"의성어 「{s}」 자리 없음(KIT-SPEC 6절: 보호 상자와 다 겹친다)")
 
 CAP_STEP = 80                                   # 9c: 두 줄 근거 자막의 둘째 줄 간격
 def caption(s, t0, t1, kind):
