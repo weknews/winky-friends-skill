@@ -106,6 +106,14 @@
   },
   "pencil": {
    "l": 175
+  },
+  "note": {
+   "w": 148,
+   "h": 210
+  },
+  "ticket": {
+   "w": 60,
+   "h": 90
   }
  },
  "items": {
@@ -3255,13 +3263,14 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The HEDGEHOG from the first attached image, CHEST-UP bust crop (head and upper chest, cut off at mid-chest), facing the viewer, calm neutral face with relaxed brows and a gently CLOSED mouth, no sweat drop. Same glasses, cobalt suit, white shirt, blue tie, brown spines with cream tips. Empty hands not visible. One character centered, large in frame.",
    "ref": "kit/actors/hedgehog/hedgehog-서기-평온.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "hedgehog"
+   "actor": "hedgehog",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-상반신-말하기": {
    "kind": "actor",
@@ -3288,14 +3297,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to talking: mouth open mid-word, calm brows. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
    "ref": "kit/gen/out/hedgehog-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온"
+   "family": "hedgehog-상반신-평온",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-상반신-웃음": {
    "kind": "actor",
@@ -3322,14 +3332,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to a warm smile with the mouth open, happy eyes. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
    "ref": "kit/gen/out/hedgehog-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온"
+   "family": "hedgehog-상반신-평온",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-상반신-놀람": {
    "kind": "actor",
@@ -3356,14 +3367,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to surprised: eyes wide, brows raised high, small round open mouth. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
    "ref": "kit/gen/out/hedgehog-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온"
+   "family": "hedgehog-상반신-평온",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-상반신-당황": {
    "kind": "actor",
@@ -3390,14 +3402,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to flustered: worried furrowed brows, awkward wavy mouth, one tiny pale-blue sweat drop. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
    "ref": "kit/gen/out/hedgehog-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온"
+   "family": "hedgehog-상반신-평온",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-상반신-시무룩": {
    "kind": "actor",
@@ -3424,14 +3437,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to glum: drooping brows, eyes looking down, small downturned mouth. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
    "ref": "kit/gen/out/hedgehog-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온"
+   "family": "hedgehog-상반신-평온",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-상반신-눈감음": {
    "kind": "actor",
@@ -3458,14 +3472,15 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth) to eyes gently closed (blink), calm closed mouth. Keep EVERYTHING else pixel-identical: same head size and position, same glasses, same spines, same suit, same framing, same magenta background. Do not move, scale or redraw the body.",
    "ref": "kit/gen/out/hedgehog-상반신-평온.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog",
-   "family": "hedgehog-상반신-평온"
+   "family": "hedgehog-상반신-평온",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-앉기-평온": {
    "kind": "actor",
@@ -3492,13 +3507,14 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The HEDGEHOG from the first attached image, SITTING on an invisible office chair, seen from the front, hands resting on his lap, calm neutral face with a gently closed mouth. Same glasses, cobalt suit, white shirt, blue tie, brown spines with cream tips. No chair drawn. One character centered.",
    "ref": "kit/actors/hedgehog/hedgehog-서기-평온.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "hedgehog"
+   "actor": "hedgehog",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
   },
   "hedgehog-상반신-가시": {
    "kind": "actor",
@@ -3525,13 +3541,709 @@
     ],
     "scale": "head"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "The HEDGEHOG from the first attached image, CHEST-UP bust crop, facing the viewer, STARTLED: all his spines stand straight up and bristle outward, eyes wide behind the glasses, small tight mouth, one tiny pale-blue sweat drop. Same glasses, cobalt suit, white shirt, blue tie. One character centered, large in frame.",
    "ref": "kit/actors/hedgehog/hedgehog-서기-평온.webp",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "hedgehog"
+   "actor": "hedgehog",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-hedgehog-faces)"
+  },
+  "panda-상반신-평온": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-상반신-평온.webp",
+   "w": 804,
+   "h": 981,
+   "anchor": {
+    "cx": 405,
+    "head": [
+     5,
+     -6,
+     805,
+     714
+    ],
+    "face": [
+     125,
+     94,
+     725,
+     544
+    ],
+    "torso": [
+     0,
+     865
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "The PANDA from the first attached image, CHEST-UP bust crop (head and upper chest, cut at mid-chest), facing the viewer, calm neutral face with relaxed brows and a gently closed mouth. Same sky-blue cardigan, white shirt collar. One character centered, large in frame.",
+   "ref": "kit/actors/panda/panda-reach-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda"
+  },
+  "panda-상반신-말하기": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-상반신-말하기.webp",
+   "w": 804,
+   "h": 981,
+   "anchor": {
+    "cx": 405,
+    "head": [
+     5,
+     -6,
+     805,
+     714
+    ],
+    "face": [
+     125,
+     94,
+     725,
+     544
+    ],
+    "torso": [
+     0,
+     865
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda",
+   "family": "panda-상반신-평온"
+  },
+  "panda-상반신-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-상반신-웃음.webp",
+   "w": 804,
+   "h": 981,
+   "anchor": {
+    "cx": 405,
+    "head": [
+     5,
+     -6,
+     805,
+     714
+    ],
+    "face": [
+     125,
+     94,
+     725,
+     544
+    ],
+    "torso": [
+     0,
+     865
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda",
+   "family": "panda-상반신-평온"
+  },
+  "panda-상반신-놀람": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-상반신-놀람.webp",
+   "w": 804,
+   "h": 981,
+   "anchor": {
+    "cx": 405,
+    "head": [
+     5,
+     -6,
+     805,
+     714
+    ],
+    "face": [
+     125,
+     94,
+     725,
+     544
+    ],
+    "torso": [
+     0,
+     865
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda",
+   "family": "panda-상반신-평온"
+  },
+  "panda-상반신-당황": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-상반신-당황.webp",
+   "w": 804,
+   "h": 981,
+   "anchor": {
+    "cx": 405,
+    "head": [
+     5,
+     -6,
+     805,
+     714
+    ],
+    "face": [
+     125,
+     94,
+     725,
+     544
+    ],
+    "torso": [
+     0,
+     865
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda",
+   "family": "panda-상반신-평온"
+  },
+  "panda-상반신-시무룩": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-상반신-시무룩.webp",
+   "w": 804,
+   "h": 981,
+   "anchor": {
+    "cx": 405,
+    "head": [
+     5,
+     -6,
+     805,
+     714
+    ],
+    "face": [
+     125,
+     94,
+     725,
+     544
+    ],
+    "torso": [
+     0,
+     865
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda",
+   "family": "panda-상반신-평온"
+  },
+  "panda-상반신-눈감음": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-상반신-눈감음.webp",
+   "w": 804,
+   "h": 981,
+   "anchor": {
+    "cx": 405,
+    "head": [
+     5,
+     -6,
+     805,
+     714
+    ],
+    "face": [
+     125,
+     94,
+     725,
+     544
+    ],
+    "torso": [
+     0,
+     865
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/panda-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda",
+   "family": "panda-상반신-평온"
+  },
+  "panda-서기-평온": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-서기-평온.webp",
+   "w": 611,
+   "h": 1324,
+   "anchor": {
+    "cx": 313,
+    "head": [
+     -2,
+     -22,
+     628,
+     518
+    ],
+    "face": [
+     48,
+     108,
+     578,
+     478
+    ],
+    "torso": [
+     0,
+     688
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "The PANDA from the first attached image, standing straight, front view, both arms relaxed down at her sides, EMPTY hands, calm neutral face with relaxed brows and a gently closed mouth. Same sky-blue knit cardigan over white shirt, cobalt trousers. No tote bag, no earphones. One character centered.",
+   "ref": "kit/actors/panda/panda-reach-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda"
+  },
+  "panda-서기-말하기": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-서기-말하기.webp",
+   "w": 611,
+   "h": 1324,
+   "anchor": {
+    "cx": 313,
+    "head": [
+     -2,
+     -22,
+     628,
+     518
+    ],
+    "face": [
+     48,
+     108,
+     578,
+     478
+    ],
+    "torso": [
+     0,
+     688
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/panda-서기-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda",
+   "family": "panda-서기-평온"
+  },
+  "panda-앉기-평온": {
+   "kind": "actor",
+   "file": "kit/actors/panda/panda-앉기-평온.webp",
+   "w": 471,
+   "h": 934,
+   "anchor": {
+    "cx": 232,
+    "head": [
+     2,
+     -2,
+     462,
+     424
+    ],
+    "face": [
+     70,
+     100,
+     394,
+     373
+    ],
+    "torso": [
+     0,
+     522
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "The PANDA from the first attached image, SITTING on an invisible chair, front view, hands resting on her lap, calm neutral face with relaxed brows and a gently closed mouth. Same sky-blue cardigan, white shirt, cobalt trousers. No chair drawn. One character centered.",
+   "ref": "kit/actors/panda/panda-reach-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda"
+  },
+  "penguin-퇴근-상반신-평온": {
+   "kind": "actor",
+   "file": "kit/actors/penguin/penguin-퇴근-상반신-평온.webp",
+   "w": 976,
+   "h": 1274,
+   "anchor": {
+    "cx": 502,
+    "head": [
+     127,
+     85,
+     877,
+     835
+    ],
+    "face": [
+     177,
+     435,
+     807,
+     795
+    ],
+    "torso": [
+     67,
+     937
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "The PENGUIN DOCTOR from the first attached image, OFF DUTY: navy baseball cap pulled low, plain gray zip hoodie, no coat, no stethoscope, no lanyard; CHEST-UP bust crop facing the viewer, calm neutral face with relaxed brows and a gently closed mouth, slightly tired eyes. One character centered, large in frame.",
+   "ref": "kit/actors/penguin/penguin-stand-calm.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin"
+  },
+  "penguin-퇴근-상반신-말하기": {
+   "kind": "actor",
+   "file": "kit/actors/penguin/penguin-퇴근-상반신-말하기.webp",
+   "w": 976,
+   "h": 1274,
+   "anchor": {
+    "cx": 502,
+    "head": [
+     127,
+     85,
+     877,
+     835
+    ],
+    "face": [
+     177,
+     435,
+     807,
+     795
+    ],
+    "torso": [
+     67,
+     937
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/penguin-퇴근-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin",
+   "family": "penguin-퇴근-상반신-평온"
+  },
+  "penguin-퇴근-상반신-눈감음": {
+   "kind": "actor",
+   "file": "kit/actors/penguin/penguin-퇴근-상반신-눈감음.webp",
+   "w": 976,
+   "h": 1274,
+   "anchor": {
+    "cx": 502,
+    "head": [
+     127,
+     85,
+     877,
+     835
+    ],
+    "face": [
+     177,
+     435,
+     807,
+     795
+    ],
+    "torso": [
+     67,
+     937
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/penguin-퇴근-상반신-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin",
+   "family": "penguin-퇴근-상반신-평온"
+  },
+  "penguin-퇴근-서기-평온": {
+   "kind": "actor",
+   "file": "kit/actors/penguin/penguin-퇴근-서기-평온.webp",
+   "w": 670,
+   "h": 1066,
+   "anchor": {
+    "cx": 367,
+    "head": [
+     26,
+     9,
+     708,
+     486
+    ],
+    "face": [
+     111,
+     179,
+     588,
+     452
+    ],
+    "torso": [
+     0,
+     768
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "The PENGUIN DOCTOR from the first attached image, OFF DUTY after work: no white coat, no stethoscope, no lanyard; wears a navy baseball cap pulled low and a plain gray zip hoodie; standing, front view, empty hands, calm neutral face with relaxed brows and a gently closed mouth, tired eyes. Same body shape and beak. One character centered.",
+   "ref": "kit/actors/penguin/penguin-stand-calm.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin"
+  },
+  "bear-앉기-평온": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-앉기-평온.webp",
+   "w": 836,
+   "h": 1482,
+   "anchor": {
+    "cx": 419,
+    "head": [
+     44,
+     -33,
+     795,
+     581
+    ],
+    "face": [
+     215,
+     206,
+     624,
+     513
+    ],
+    "torso": [
+     0,
+     855
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "The BEAR DAD from the first attached image, SITTING on an invisible waiting-room chair, front view, hands on his knees, calm neutral face with relaxed brows and a gently closed mouth. Same gray cap, sky-blue jacket, cargo shorts, boots. No backpack, no phone. No chair drawn. One character centered.",
+   "ref": "kit/actors/bear/bear-stand-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear"
+  },
+  "bear-걷기-웃음": {
+   "kind": "actor",
+   "file": "kit/actors/bear/bear-걷기-웃음.webp",
+   "w": 887,
+   "h": 1400,
+   "anchor": {
+    "cx": 367,
+    "head": [
+     60,
+     37,
+     674,
+     617
+    ],
+    "face": [
+     197,
+     242,
+     606,
+     549
+    ],
+    "torso": [
+     0,
+     734
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "The BEAR DAD from the first attached image, standing and leaning slightly to step into his boot, one foot lifted, front three-quarter view, cheerful face. Same gray cap, sky-blue jacket, cargo shorts, boots. Empty hands. One character centered.",
+   "ref": "kit/actors/bear/bear-stand-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "bear"
+  },
+  "hedgehog-앉기-말하기": {
+   "kind": "actor",
+   "file": "kit/actors/hedgehog/hedgehog-앉기-말하기.webp",
+   "w": 709,
+   "h": 1064,
+   "anchor": {
+    "cx": 350,
+    "head": [
+     5,
+     17,
+     696,
+     555
+    ],
+    "face": [
+     171,
+     324,
+     542,
+     503
+    ],
+    "torso": [
+     0,
+     756
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/hedgehog-앉기-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "hedgehog",
+   "family": "hedgehog-앉기-평온"
+  },
+  "hedgehog-앉기-당황": {
+   "kind": "actor",
+   "file": "kit/actors/hedgehog/hedgehog-앉기-당황.webp",
+   "w": 709,
+   "h": 1064,
+   "anchor": {
+    "cx": 350,
+    "head": [
+     5,
+     17,
+     696,
+     555
+    ],
+    "face": [
+     171,
+     324,
+     542,
+     503
+    ],
+    "torso": [
+     0,
+     756
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "얼굴판 굽기(kit/gen/bake.py): 기준 몸 + 표정 편집본 얼굴 칸",
+   "ref": "kit/gen/out/hedgehog-앉기-평온.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "hedgehog",
+   "family": "hedgehog-앉기-평온"
+  },
+  "note-list": {
+   "kind": "prop",
+   "file": "kit/props/note-list.webp",
+   "w": 800,
+   "h": 1350,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "PROP ONLY, top-down flat, no perspective: one sheet of vivid golden-yellow (#F5C518) note paper, unfolded, with twelve short dark-gray scribble lines as a list (no real letters, no numbers), a small blank title band at the top. Paper-cut style. No characters, no hands.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "mm": {
+    "w": 148,
+    "h": 210
+   }
+  },
+  "note-list-folded": {
+   "kind": "prop",
+   "file": "kit/props/note-list-folded.webp",
+   "w": 795,
+   "h": 481,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "PROP ONLY, top-down flat: the same vivid golden-yellow (#F5C518) note paper folded in half once, small crease shadow, no writing visible. Paper-cut style. No characters, no hands.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "mm": {
+    "w": 148,
+    "h": 105
+   }
+  },
+  "note-list-crossed": {
+   "kind": "prop",
+   "file": "kit/props/note-list-crossed.webp",
+   "w": 834,
+   "h": 1254,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "PROP ONLY, top-down flat, no perspective: one sheet of vivid golden-yellow (#F5C518) note paper with twelve short dark-gray scribble lines, every line struck through with a single pencil stroke, and an empty blank band at the bottom for one more handwritten line (leave it empty, no letters). Paper-cut style. No characters, no hands.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "mm": {
+    "w": 148,
+    "h": 210
+   }
+  },
+  "queue-ticket": {
+   "kind": "prop",
+   "file": "kit/props/queue-ticket.webp",
+   "w": 649,
+   "h": 768,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "PROP ONLY, flat front view: a small hospital waiting-number ticket slip of white paper with a blank golden-yellow band (no numbers, no letters). Paper-cut style. No characters, no hands.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "mm": {
+    "w": 60,
+    "h": 90
+   }
+  },
+  "panda-hand": {
+   "kind": "hand",
+   "file": "kit/actors/panda/panda-hand.webp",
+   "w": 360,
+   "h": 989,
+   "anchor": {
+    "paw": [
+     0,
+     0,
+     360,
+     296
+    ],
+    "scale": "paw"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "PART ONLY: the PANDA's black paw and forearm in a sky-blue knit cardigan sleeve, entering from the bottom edge, the arm long enough to reach the bottom edge of the frame, palm down, relaxed fingers, top-down view as if reaching onto a table. Same paper-cut style as the attached panda. Nothing else.",
+   "ref": "kit/actors/panda/panda-reach-smile.webp",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "panda"
   }
  },
  "music": {
