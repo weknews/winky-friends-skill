@@ -37,7 +37,9 @@ def md(text):
             n = len(m.group(1)) + 1; out.append(f"<h{n}>{inline(m.group(2))}</h{n}>"); i += 1; continue
         imgs = re.findall(r"!\[([^\]]*)\]\((kit/[^)\s]+)\)", s)
         if imgs and re.fullmatch(r"(\s*!\[[^\]]*\]\(kit/[^)\s]+\))+\s*", s):  # 그림 줄 → 그림판(kit 안만)
-            out.append(f'<div class="shots{" many" if len(imgs) >= 4 else ""}">' + "".join(f'<figure class="shot"><img loading="lazy" src="/{E(f)}" alt="{E(a)}"><figcaption>{E(a)}</figcaption></figure>' for a, f in imgs) + "</div>"); i += 1; continue
+            fig = lambda a, f: (f'<figure class="shot"><video controls preload="metadata" playsinline src="/{E(f)}"></video><figcaption>{E(a)}</figcaption></figure>' if f.endswith(".mp4")
+                               else f'<figure class="shot"><img loading="lazy" src="/{E(f)}" alt="{E(a)}"><figcaption>{E(a)}</figcaption></figure>')
+            out.append(f'<div class="shots{" many" if len(imgs) >= 4 else ""}">' + "".join(fig(a, f) for a, f in imgs) + "</div>"); i += 1; continue
         if s.startswith("|"):
             rows = []
             while i < len(lines) and lines[i].strip().startswith("|"):
@@ -69,7 +71,7 @@ def md(text):
         out.append(f"<p>{inline(' '.join(para))}</p>")
     return "\n".join(out)
 
-assert "<h2>가</h2>" in md("# 가") and 'class="strip"' in md("> **윙키** 넵!") and "<td>2</td>" in md("|a|b|\n|-|-|\n|1|2|") and 'class="shot"' in md("![a](kit/x.jpg)") and "<img" not in md("![a](../x.jpg)")
+assert "<h2>가</h2>" in md("# 가") and 'class="strip"' in md("> **윙키** 넵!") and "<td>2</td>" in md("|a|b|\n|-|-|\n|1|2|") and 'class="shot"' in md("![a](kit/x.jpg)") and "<video" in md("![v](kit/x.mp4)") and "<img" not in md("![a](../x.jpg)")
 
 # ---------- 결정 요청 ----------
 def requests():
@@ -285,7 +287,7 @@ iframe{width:100%;height:calc(100vh - 140px);border:1px solid var(--line);border
 .person details summary{min-height:44px;display:flex;align-items:center;color:var(--accent);font-weight:600}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin-top:8px}figure{margin:0;background:var(--bg);border-radius:8px;padding:8px}
 figure img{width:100%;height:112px;object-fit:contain;cursor:zoom-in}
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;margin:12px 0}.shot img{height:auto;max-height:78vh}.choices:has(.shots){grid-template-columns:1fr}.shots.many{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;margin:12px 0}.shot img{height:auto;max-height:78vh}.shot video{width:100%;max-height:82vh;background:#000;border-radius:8px}.choices:has(.shots){grid-template-columns:1fr}.shots.many{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
 #lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}#lb::backdrop{background:rgba(0,0,0,.85)}#lb img{display:block;max-width:96vw;max-height:92vh;object-fit:contain;cursor:zoom-out}#lb p{color:#fff;text-align:center;margin:6px 0 0;font-size:15px}figcaption{font-size:14px;color:var(--mute);text-align:center;word-break:break-all}
 @media (max-width:860px){.home{grid-template-columns:1fr}.more>div{right:auto;left:0}}
 @media (max-width:600px){main{padding-top:24px}.req h2,.doc h2{font-size:22px}.lead{font-size:16px}nav a,nav summary{padding:0 10px}.brand small{display:none}}
@@ -335,8 +337,13 @@ class H(BaseHTTPRequestHandler):
         if p.startswith("/kit/"):
             f = (ROOT / p.lstrip("/")).resolve()
             if f.is_file() and (ROOT / "kit") in f.parents:  # kit 밖은 안 내준다
-                ct = {".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg"}.get(f.suffix, "application/octet-stream")
-                return self.send(200, f.read_bytes(), ct)
+                ct = {".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg", ".mp4": "video/mp4"}.get(f.suffix, "application/octet-stream")
+                data = f.read_bytes(); rg = re.match(r"bytes=(\d+)-(\d*)", self.headers.get("Range", ""))
+                if rg:  # 영상 넘기기(Range)
+                    a0 = int(rg.group(1)); a1 = int(rg.group(2) or len(data) - 1); part = data[a0:a1 + 1]
+                    self.send_response(206); self.send_header("Content-Type", ct); self.send_header("Accept-Ranges", "bytes")
+                    self.send_header("Content-Range", f"bytes {a0}-{a1}/{len(data)}"); self.send_header("Content-Length", str(len(part))); self.end_headers(); self.wfile.write(part); return
+                return self.send(200, data, ct)
         self.send(404, "없음", "text/plain; charset=utf-8")
     def do_POST(self):
         if self.path != "/answer": return self.send(404, "없음", "text/plain; charset=utf-8")
