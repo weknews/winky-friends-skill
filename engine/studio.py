@@ -37,7 +37,7 @@ def md(text):
             n = len(m.group(1)) + 1; out.append(f"<h{n}>{inline(m.group(2))}</h{n}>"); i += 1; continue
         imgs = re.findall(r"!\[([^\]]*)\]\((kit/[^)\s]+)\)", s)
         if imgs and re.fullmatch(r"(\s*!\[[^\]]*\]\(kit/[^)\s]+\))+\s*", s):  # 그림 줄 → 그림판(kit 안만)
-            out.append('<div class="grid">' + "".join(f'<figure><img loading="lazy" src="/{E(f)}" alt=""><figcaption>{E(a)}</figcaption></figure>' for a, f in imgs) + "</div>"); i += 1; continue
+            out.append('<div class="shots">' + "".join(f'<figure class="shot"><img loading="lazy" src="/{E(f)}" alt="{E(a)}"><figcaption>{E(a)}</figcaption></figure>' for a, f in imgs) + "</div>"); i += 1; continue
         if s.startswith("|"):
             rows = []
             while i < len(lines) and lines[i].strip().startswith("|"):
@@ -69,7 +69,7 @@ def md(text):
         out.append(f"<p>{inline(' '.join(para))}</p>")
     return "\n".join(out)
 
-assert "<h2>가</h2>" in md("# 가") and 'class="strip"' in md("> **윙키** 넵!") and "<td>2</td>" in md("|a|b|\n|-|-|\n|1|2|") and "<img" in md("![a](kit/x.jpg)") and "<img" not in md("![a](../x.jpg)")
+assert "<h2>가</h2>" in md("# 가") and 'class="strip"' in md("> **윙키** 넵!") and "<td>2</td>" in md("|a|b|\n|-|-|\n|1|2|") and 'class="shot"' in md("![a](kit/x.jpg)") and "<img" not in md("![a](../x.jpg)")
 
 # ---------- 결정 요청 ----------
 def requests():
@@ -207,7 +207,7 @@ def page():
     return f"""<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>윙키 스튜디오</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap"><style>{CSS}</style></head><body>
 <header><div class="bar-in"><a class="brand" href="#home">윙키 스튜디오<small>모래언덕 빌라</small></a><nav>{nav}</nav></div></header><main>{secs}</main>
-<script>{JS}</script></body></html>"""
+<dialog id="lb"><img alt=""><p></p></dialog><script>{JS}</script></body></html>"""
 
 CSS = """
 /* 토큰: 색 5개, 글자 14/16/18/22/30, 간격 4·8·12·16·24·32·48 */
@@ -282,13 +282,16 @@ iframe{width:100%;height:calc(100vh - 140px);border:1px solid var(--line);border
 .person>div{min-width:0;flex:1}.person h3{font-size:22px}.person .face{width:72px;height:72px}.person.empty{border-style:dashed}
 .person details summary{min-height:44px;display:flex;align-items:center;color:var(--accent);font-weight:600}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin-top:8px}figure{margin:0;background:var(--bg);border-radius:8px;padding:8px}
-figure img{width:100%;height:112px;object-fit:contain}.req figure img,.card figure img{height:320px}figcaption{font-size:14px;color:var(--mute);text-align:center;word-break:break-all}
+figure img{width:100%;height:112px;object-fit:contain;cursor:zoom-in}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;margin:12px 0}.shot img{height:auto;max-height:78vh}.choices:has(.shots){grid-template-columns:1fr}
+#lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}#lb::backdrop{background:rgba(0,0,0,.85)}#lb img{display:block;max-width:96vw;max-height:92vh;object-fit:contain;cursor:zoom-out}#lb p{color:#fff;text-align:center;margin:6px 0 0;font-size:15px}figcaption{font-size:14px;color:var(--mute);text-align:center;word-break:break-all}
 @media (max-width:860px){.home{grid-template-columns:1fr}.more>div{right:auto;left:0}}
 @media (max-width:600px){main{padding-top:24px}.req h2,.doc h2{font-size:22px}.lead{font-size:16px}nav a,nav summary{padding:0 10px}.brand small{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """
 
 JS = """
+const lb=document.getElementById('lb');document.addEventListener('click',e=>{const i=e.target.closest('figure img');if(i){lb.querySelector('img').src=i.src;lb.querySelector('p').textContent=i.alt||i.closest('figure').querySelector('figcaption')?.textContent||'';lb.showModal();return}if(e.target.closest('#lb'))lb.close()});
 function show(){const t=(location.hash||'#home').slice(1);const tab=document.getElementById(t)?.closest('.tab')||document.getElementById('home');
 document.querySelectorAll('.tab').forEach(s=>s.hidden=s!==tab);
 document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.t===tab.id));const m=document.querySelector('.more');m.removeAttribute('open');m.querySelector('summary').classList.toggle('on',!!m.querySelector('a.on'));
