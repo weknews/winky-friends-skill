@@ -1,0 +1,18 @@
+{
+ "id": "2026-11-13-r05-hedgehog-faces",
+ "title": "도치 얼굴판 시험 — 몸 하나에 얼굴만 바꿔 굽기",
+ "question": "디렉터가 권한 「빈손 몸 + 얼굴판」 방식으로 도치를 만들어 봤습니다. 이 방식으로 계속 갈까요? 이음매·표정이 어색한 장이 있으면 이름을 적어 주세요.",
+ "source": "episodes/drafts/2026-11-13-r05-assets-plan.md",
+ "options": [
+  {
+   "id": "go",
+   "title": "통과: 이 방식으로 판다·펭귄도",
+   "body": "#### 얼굴판 7장 — 몸은 한 장, 얼굴만 바꿔 구움 (누르면 크게)\n\n![평온](kit/actors/hedgehog/hedgehog-상반신-평온.webp) ![말하기](kit/actors/hedgehog/hedgehog-상반신-말하기.webp) ![웃음](kit/actors/hedgehog/hedgehog-상반신-웃음.webp) ![놀람](kit/actors/hedgehog/hedgehog-상반신-놀람.webp) ![당황](kit/actors/hedgehog/hedgehog-상반신-당황.webp) ![시무룩](kit/actors/hedgehog/hedgehog-상반신-시무룩.webp) ![눈감음](kit/actors/hedgehog/hedgehog-상반신-눈감음.webp)\n\n#### 몸 3장\n\n![앉기](kit/actors/hedgehog/hedgehog-앉기-평온.webp) ![가시 선 상반신(놀람 큰 반응)](kit/actors/hedgehog/hedgehog-상반신-가시.webp) ![서기(기준)](kit/actors/hedgehog/hedgehog-서기-평온.webp)\n\n#### 어떻게 만들었나\n\n- 다문 입 상반신 한 장을 기준으로, Codex에게 「표정만 바꾸고 나머지는 그대로」 편집을 6번 시켰습니다.\n- 편집본에서 얼굴 칸(눈썹~입)만 잘라 기준 몸에 붙였습니다(`kit/gen/bake.py`). 몸·가시·안경테는 기준 그대로라 표정을 바꿔도 몸이 떨리지 않습니다. 이음매는 10px로 녹였고, 크게 봐도 안 보이는지 확인해 주세요.\n- 결과: 상반신 표정 7가지가 같은 크기(974×1469)·같은 자리로 맞습니다.\n\n#### 아직 안 된 것\n\n- **앉기의 말하기 얼굴:** 앉은 몸은 얼굴이 작아서 상반신 얼굴판을 그대로 못 씁니다. 대본 11·30번(회사 M)에 앉아 말하는 컷이 있어 앉기용 얼굴판 2장(말하기·당황)이 더 필요합니다.\n- 통과하면 판다(얼굴판)·퇴근 차림 펭귄을 같은 방식으로, 쪽지 소품 5장과 함께 만듭니다."
+  },
+  {
+   "id": "back",
+   "title": "어색함: 예전처럼 통짜로",
+   "body": "표정마다 몸까지 통째로 다시 뽑는 예전 방식으로 돌아갑니다(장 수가 늘고 몸이 조금씩 달라질 수 있음)."
+  }
+ ]
+}

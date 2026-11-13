@@ -37,7 +37,7 @@ def md(text):
             n = len(m.group(1)) + 1; out.append(f"<h{n}>{inline(m.group(2))}</h{n}>"); i += 1; continue
         imgs = re.findall(r"!\[([^\]]*)\]\((kit/[^)\s]+)\)", s)
         if imgs and re.fullmatch(r"(\s*!\[[^\]]*\]\(kit/[^)\s]+\))+\s*", s):  # 그림 줄 → 그림판(kit 안만)
-            out.append('<div class="shots">' + "".join(f'<figure class="shot"><img loading="lazy" src="/{E(f)}" alt="{E(a)}"><figcaption>{E(a)}</figcaption></figure>' for a, f in imgs) + "</div>"); i += 1; continue
+            out.append(f'<div class="shots{" many" if len(imgs) >= 4 else ""}">' + "".join(f'<figure class="shot"><img loading="lazy" src="/{E(f)}" alt="{E(a)}"><figcaption>{E(a)}</figcaption></figure>' for a, f in imgs) + "</div>"); i += 1; continue
         if s.startswith("|"):
             rows = []
             while i < len(lines) and lines[i].strip().startswith("|"):
@@ -283,7 +283,7 @@ iframe{width:100%;height:calc(100vh - 140px);border:1px solid var(--line);border
 .person details summary{min-height:44px;display:flex;align-items:center;color:var(--accent);font-weight:600}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin-top:8px}figure{margin:0;background:var(--bg);border-radius:8px;padding:8px}
 figure img{width:100%;height:112px;object-fit:contain;cursor:zoom-in}
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;margin:12px 0}.shot img{height:auto;max-height:78vh}.choices:has(.shots){grid-template-columns:1fr}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;margin:12px 0}.shot img{height:auto;max-height:78vh}.choices:has(.shots){grid-template-columns:1fr}.shots.many{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
 #lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}#lb::backdrop{background:rgba(0,0,0,.85)}#lb img{display:block;max-width:96vw;max-height:92vh;object-fit:contain;cursor:zoom-out}#lb p{color:#fff;text-align:center;margin:6px 0 0;font-size:15px}figcaption{font-size:14px;color:var(--mute);text-align:center;word-break:break-all}
 @media (max-width:860px){.home{grid-template-columns:1fr}.more>div{right:auto;left:0}}
 @media (max-width:600px){main{padding-top:24px}.req h2,.doc h2{font-size:22px}.lead{font-size:16px}nav a,nav summary{padding:0 10px}.brand small{display:none}}
