@@ -135,13 +135,13 @@ for C in S["cuts"]:
     if not L: continue
     who = L["who"]; v = VOICE[who]; r = random.Random(L["text"])          # 같은 대사는 늘 같은 소리
     lay_ = next((l for l in C["layers"] if l.get("who") == who), None); pan = PAN.get(lay_["at"], 0) if lay_ and C["cam"] != "CU" else 0
+    if L["syl"] and L["syl"][0].get("emo") == "속마음": continue      # M2: 속마음은 말소리 없음(rules/directing.md 8절)
     for s in L["syl"]:
         emo = s.get("emo", ""); semi = v["semi"] + s["semi"] + r.uniform(-v["jit"], v["jit"]); db = s["db"]
         dur = min(0.09, 0.8 / RATE[who]) + (0.16 if s.get("long") else 0)      # 9판: 「~」 앞 음절은 늘인다
         if emo == "놀람": semi += 2
         if emo == "시무룩": semi -= 2; db -= 4
         if emo == "당황": semi += r.uniform(-2, 2); dur *= 0.7
-        if emo == "속마음": db -= 9                       # M2: 속마음 말풍선은 작게(대본 「(…)」)
         if emo == "속삭임": db -= 6                       # M2: 「..」 속삭임
         add(vox, s["t"], syl_sound(s["ch"], semi, max(dur, 0.06)), 10 ** (db / 20), pan)
     speech.append((L["syl"][0]["t"], L["end"]))

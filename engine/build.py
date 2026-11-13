@@ -47,7 +47,7 @@ SETS = {
              "M": dict(bg="set-door-m", floor=1560)},                     # M2 두 사람 현관. 저녁은 컷의 bg="set-door-m-evening"
  # M2 새 세트(배경이 1080 폭에 z 1.0). floor = 발끝 y(앞쪽 바닥), seat = 앉기 조각 발끝 y(의자·벤치 높이), front = 앉은 인물 앞에 다시 그리는 배경 상자(책상)
  # ponytail: floor·seat·front는 그림을 보고 잰 값이다. 세트 그림이 바뀌면 다시 잰다
- "company": {"M": dict(bg="set-company-m", floor=1330, seat=1110, front=(400, 966, 1080, 1330)), "CU": dict(bg="set-company-cu", z=1.0)},
+ "company": {"M": dict(bg="set-company-m", floor=1330, seat=1110, front=(400, 966, 1080, 1330), z=1.15, ppm=0.62), "CU": dict(bg="set-company-cu", z=1.0)},   # company M은 당겨 찍기(빈 바닥을 줄이고 두 사람을 크게)
  "recycle": {"M": dict(bg="set-recycle-m", floor=1560), "CU": dict(bg="set-recycle-cu-a", z=1.0)},
  "clinic":  {"M": dict(bg="set-clinic-m", floor=1580, seat=1575), "CU": dict(bg="set-clinic-cu", z=1.0)},
  "kitchen": {"M": dict(bg="set-kitchen-w", ref="조리대 윗면 905·밑선 1310 (850mm)", ppm0=405 / 850, base=1310),
@@ -64,7 +64,7 @@ PRESET = {
 }
 SAFE = dict(l=60, r=1020, t=200, b=1700)
 SUB = dict(y0=1500, y1=1700, px=68, lineh=100)
-TAG_AT = {"좌하": (350, 1340), "우하": (730, 1340)}      # 9판: 자막 띠 바로 위(사양 1250에서 시작하면 3인 컷 가운데 윙키를 가린다)
+TAG_AT = {"좌하": (350, 1340), "우하": (730, 1340), "좌상": (350, 420)}   # M2 좌상: 몸이 화면 아래를 채우는 컷(밤 분리수거장)      # 9판: 자막 띠 바로 위(사양 1250에서 시작하면 3인 컷 가운데 윙키를 가린다)
 CAPTION = dict(y0=220, y1=290, px=56)
 FURN = {"table": 750, "counter": 850}           # 세트 고정물 높이(mm). 윗면 = 바닥선 − 80mm − 높이
 
@@ -102,8 +102,8 @@ def split_lines(text): return [s.strip() for s in text.split("/")]
 def bg_layer(c):
     S = SETS[c["set"]][c["cam"]]; name = c.get("bg", S["bg"]); a = K[name]     # M2: 컷마다 배경을 바꿀 수 있다(저녁·맞은편 CU)
     base = 1080 / a["w"]
-    if c["cam"] == "M" and "floor" in S:                                     # M2: 바닥선을 잰 세트(배경 확대 없음)
-        ppm = PRESET["M"]["ppm"]; z = 1.0; floor = S["floor"]
+    if c["cam"] == "M" and "floor" in S:                                     # M2: 바닥선을 잰 세트. z>1이면 위 끝·가운데 기준으로 당겨 찍는다(인물 ppm도 같이)
+        z = S.get("z", 1.0); ppm = S.get("ppm", PRESET["M"]["ppm"]); floor = S["floor"] * z
     elif c["cam"] == "M":
         ppm = PRESET["M"]["ppm"]; z = ppm / S["ppm0"]                     # 배경을 프리셋 px/mm에 맞춰 한 값으로 키운다
         floor = S["base"] * z + 80 * ppm                                   # 뒷벽 가구 밑선 = 바닥선 − 80mm
@@ -111,7 +111,7 @@ def bg_layer(c):
         z = S.get("z", 1.0); floor = S.get("floor"); ppm = None
     w, h = a["w"] * base * z, a["h"] * base * z
     return dict(name=name, file=a["file"], x=(1080 - w) / 2, y=(1920 - h) / 2 if c["set"] == "table" else 0, w=w, h=h, zoom=z, scale=base * z, floor=floor, ppm=ppm,
-                **{k: S[k] for k in ("seat", "front") if k in S})
+                **({"seat": S["seat"] * z} if "seat" in S else {}), **({"front": (540 + (S["front"][0] - 540) * z, S["front"][1] * z, 540 + (S["front"][2] - 540) * z, S["front"][3] * z)} if "front" in S else {}))
 
 def piece_scale(name, who, ppm):
     a = K[name]; an = a["anchor"]
@@ -146,6 +146,7 @@ def board_layers(c):
         X0, Y0 = P["keys"][0][1], P["keys"][0][2]; sx, sy = scr(X0, Y0)
         l = dict(id=f"c{c['n']}-{P['id']}", kind="prop", place="board", frames=frames, k=k, x=sx - ax * k, y=sy - ay * k, w=a["w"] * k, h=a["h"] * k,
                  z=P["z"], prop=PROP_OF(f), ppm=ppm, origin=(sx, sy), o={})
+        if P.get("crop"): fx0, fy0, fx1, fy1 = P["crop"]; l["crop"] = (l["x"] + fx0 * l["w"], l["y"] + fy0 * l["h"], l["x"] + fx1 * l["w"], l["y"] + fy1 * l["h"])   # M2: 조각 일부만(줄 하나씩 그어지는 쪽지)
         L.append(l)
         # 움직임: 열쇠 사이를 12fps 계단으로 선형 보간
         ks = P["keys"]; ticks = [q(t0 + i * TICK) for i in range(int(round((t1 - t0) * 12)) + 1)]; prev = None
@@ -190,7 +191,7 @@ def build():
                     ppm = PRESET["CU"]["ppm"][who]; foot = PRESET["CU"]["head_top"] + REG["char"][who]["h"] * ppm
                 x = 540
             else:
-                ppm = PRESET[cam]["ppm"]; x = PRESET[cam]["pos"].get(at, at); foot = bg["floor"]     # M2: 자리 이름 대신 x(px)도 된다(큰 인물 셋)
+                ppm = bg["ppm"]; x = PRESET[cam]["pos"].get(at, at); foot = bg["floor"]     # M2: 자리 이름 대신 x(px)도 된다(큰 인물 셋)
             sit = seq[0][1].startswith("앉기") and bg.get("seat") is not None       # M2: 앉기 조각은 발끝을 세트의 좌판선(seat)에
             if sit: foot = bg["seat"]
             chair = who == "winky" and (cam == "M" or (cam == "CU" and c["set"] != "door"))
@@ -256,9 +257,11 @@ def build():
                 if o.get("grip") == "center": g = (a["w"] / 2, a["h"] * 0.62)   # 기록장·사과: 손바닥이 아래쪽 3분의 1 뒤에 가린다(종이 인형 방식)
                 if o.get("grip") == "low": g = (a["w"] / 2, a["h"] * 0.3)       # 22번 사과: 두 손이 사과 윗부분을 감싼다(입을 가리지 않게)
                 if o.get("grip") == "top": g = (a["w"] / 2, a["h"] * 0.08)     # M2: 위 끝을 쥐고 늘어뜨린 쪽지
-                if place in ("sweat", "on"): g = (a["w"] / 2, a["h"] / 2); P["z"] = 45 if place == "sweat" else 40
+                if place == "sweat" or place == "on" and not o.get("grip"): g = (a["w"] / 2, a["h"] / 2)
+                if place == "sweat": P["z"] = 45
+                k *= o.get("mag", 1.0)                                          # M2: 화면에서 읽히게 키운 소품(check 2가 mag로 나눠 본다)
                 if o.get("off"): g = (g[0] - o["off"][0] * ppm / k, g[1] - o["off"][1] * ppm / k)   # M2: 손에서 mm만큼 떨어진 자리(늘어진 쪽지 둘째 장)
-                P.update(k=k, x=X - g[0] * k, y=Y - g[1] * k, w=a["w"] * k, h=a["h"] * k, anchor=(X, Y), ppm=ppm, holder=tgt, grip=g)
+                P.update(k=k, x=X - g[0] * k, y=Y - g[1] * k, w=a["w"] * k, h=a["h"] * k, anchor=(X, Y), ppm=ppm, holder=tgt, grip=g, **({"mag": o["mag"]} if "mag" in o else {}))
             L.append(P)
         bev = []
         if cam == "판":
@@ -399,6 +402,7 @@ def end_layout(t0, t1):
     for r in END:
         if r is None: y += 50; continue
         s, px = r; f = "jua" if px > 60 else "pre"; w = tw(s, px, f); rows.append(dict(s=s, px=px, x=540 - w / 2, y=y, w=w, weight=800 if px > 60 else 700, font=f)); y += px * 1.45
+        if "END_COLOR" in globals(): rows[-1]["color"] = END_COLOR[0 if px > 60 else 1]       # M2: 짙은 끝 화면 바탕이면 글자 색(큰 줄, 작은 줄)
     return dict(kind="end", t0=t0, t1=t1, rows=rows)
 
 # 9d 시리즈 로고(../logo/README.md): 그림이라 글자 줄이 아니라 상자 하나. 첫 컷 위쪽은 한 줄형, 끝 화면 아래는 큰 로고를 작게
@@ -488,6 +492,7 @@ def events(C, chars, c):
         o = l.get("o", {})
         for tt, n in l.get("seq", []):
             E.append((q(tt), l["id"], n, None, None))
+        if o.get("rot"): E.append((q(t0), l["id"], "rot", o["rot"], None))   # M2: 기울여 꽂은 쪽지(손 앵커 기준 회전)
         if o.get("vis"):                                  # M2: (나타남, 사라짐|None) — 주머니 → 손으로 넘어가는 쪽지
             on, off = o["vis"]; E.append((q(t0), l["id"], "hide", None, None)); E.append((q(on), l["id"], l["frames"][0], None, None))
             if off: E.append((q(off), l["id"], "hide", None, None))

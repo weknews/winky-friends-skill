@@ -44,7 +44,7 @@ function show(node, t0, t1) { if (t0 > 0.001) { node.style.visibility = "hidden"
 function text(p, r, extra) {
   const d = el(p, "div", "txt"); d.textContent = r.s;
   d.style.cssText += `font-size:${r.px}px;font-weight:${r.weight || 800};left:${px(r.x)};top:${px(r.y)}`;
-  d.style.fontFamily = FAM[r.font || "pre"];
+  d.style.fontFamily = FAM[r.font || "pre"]; if (r.color) d.style.color = r.color;
   if (extra) Object.assign(d.dataset, extra); return d;
 }
 function stripRows(g, rows) { rows.forEach((r) => { (r.strips || []).forEach(([n, x, y, w, h]) => img(g, K[n].file, x, y, w, h)); text(g, r); }); }
@@ -64,7 +64,9 @@ S.cuts.forEach((C) => {
       let r;
       if (l.kind === "char") r = l.pl[f];
       else { const a = K[f]; const ww = a.w * l.k, hh = a.h * l.k; r = { x: l.x + (l.w - ww) / 2, y: l.y + l.h - hh, w: ww, h: hh }; }
-      const im = img(w, K[f].file, r.x, r.y, r.w, r.h); im.dataset.kit = f; fr[f] = im;
+      let box = w;
+      if (l.crop) { const [x0, y0, x1, y1] = l.crop; box = el(w, "div", "w"); box.style.cssText = `left:${px(x0)};top:${px(y0)};width:${px(x1 - x0)};height:${px(y1 - y0)};overflow:hidden`; r = { ...r, x: r.x - x0, y: r.y - y0 }; }   // M2: 조각 일부만
+      const im = img(box, K[f].file, r.x, r.y, r.w, r.h); im.dataset.kit = f; fr[f] = im;
       if (i) { im.style.visibility = "hidden"; im.style.opacity = 0; }
       paper.set(im, { autoAlpha: i === 0 ? 1 : 0 }, 0);
     });
@@ -102,7 +104,7 @@ S.cuts.forEach((C) => {
     if (x.kind === "end") { x.rows.forEach((r) => text(g, r)); show(g, x.t0, null); return; }
     if (x.kind === "logo") { g.style.zIndex = 50; img(g, x.file, x.x, x.y, x.w, x.h); show(g, x.t0, x.t1); return; }   // 9d 시리즈 로고(그림). 다음 컷 위로 넘어가도 보이게 맨 위
     stripRows(g, x.rows); show(g, x.t0, x.t1);
-    if (x.think) { g.querySelectorAll("img").forEach((i) => (i.style.opacity = 0.72)); g.querySelectorAll(".txt").forEach((d) => (d.style.color = "#55607A")); }   // M2: 속마음 = 흐린 띠·흐린 글씨
+    if (x.think) g.querySelectorAll(".txt").forEach((d) => { d.style.fontStyle = "italic"; d.style.fontSynthesis = "style"; });   // M2: 속마음 = 괄호 + 기울임(띠·글씨는 대사와 같게 읽히게)
   });
 });
 // 아이리스 아웃(7b, iris 전용): 검정 색지에 찢긴 원 구멍. 원 밖만 남기는 evenodd 경로를 12fps 계단마다 바꾼다.

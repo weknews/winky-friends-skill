@@ -40,7 +40,7 @@ for C in S["cuts"]:
         f = l["frames"][0]
         if f.startswith("strike"): continue                          # 연필 줄: 칸 글자 「한」 폭에 맞춘 획(소품 아님)
         reg = B.REG["prop"][B.PROP_OF(f) if f != "box-closed" else "box"]
-        ppm = l.get("ppm") or (B.PRESET["CU"]["ppm"]["winky"] if cam == "CU" else B.PRESET[cam]["ppm"])
+        ppm = (l.get("ppm") or (B.PRESET["CU"]["ppm"]["winky"] if cam == "CU" else B.PRESET[cam]["ppm"])) * l.get("mag", 1.0)   # M2 mag: 회차가 일부러 키운 소품
         an = K[f].get("anchor", {})
         if "paw" in an: mm = (an["paw"][2] - an["paw"][0]) * l["k"] / ppm; ok(abs(mm / reg["w"] - 1) < TOL, 2, f"컷{n} {f} 손바닥 폭 {mm:.0f}mm / {reg['w']}")
         elif f.startswith(("box", "notebook", "note-list")): mm = l["w"] / ppm; ok(abs(mm / reg["w"] - 1) < TOL, 2, f"컷{n} {f} 폭 {mm:.0f}mm / {reg['w']}")
@@ -182,7 +182,7 @@ for C in S["cuts"]:
         if x["kind"] == "sub": speech.append((x["t0"], x["t1"]))
     if C["line"]: speech.append((C["line"]["syl"][0]["t"], C["line"]["end"]))
 for a, b in mus:
-    for s0, s1 in speech: ok(min(b, s1) - max(a, s0) <= 1e-6, 10, f"음악 {a}~{b} ↔ 대사 {s0}~{s1:.2f}")
+    for s0, s1 in speech: ok(min(b, s1) - max(a, s0) <= getattr(B, "CUE_OVERLAP", 0) + 1e-6, 10, f"음악 {a}~{b} ↔ 대사 {s0}~{s1:.2f}")   # M2 CUE_OVERLAP: 회차가 허용한 스팅 꼬리(덕킹)
 tot = sum(b - a for a, b in mus); ok(tot <= 0.2 * S["D"], 10, f"음악 합 {tot:.1f}초 = {tot / S['D'] * 100:.0f}%")
 ok({tuple(c) for c in S["cues"]} <= CUE_SHEET, 10, "큐 시트 밖 음악 없음")
 # 11 표기
