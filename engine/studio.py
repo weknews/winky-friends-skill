@@ -158,8 +158,10 @@ def assets_tab():
     for n in CAST:
         key = NAME2KEY.get(n)
         poses = [(k, it["file"]) for k, it in items.items() if key and it.get("actor") == key and it.get("file", "").endswith((".webp", ".png"))]
-        st = "그림 " + str(len(poses)) + "장" if poses else "그림 없음"
-        grid = "".join(f'<figure><img loading="lazy" src="/{E(f)}" alt=""><figcaption>{E(k.split("-",1)[-1])}</figcaption></figure>' for k, f in poses)
+        poses.sort(key=lambda kf: items[kf[0]].get("status") == "approved")   # 승인 기다리는 그림을 맨 앞에
+        nd = sum(1 for k, _ in poses if items[k].get("status") != "approved")
+        st = ("그림 " + str(len(poses)) + "장" + (f' · <b class="wait">승인 기다림 {nd}</b>' if nd else "")) if poses else "그림 없음"
+        grid = "".join(f'<figure class="{"draft" if items[k].get("status") != "approved" else ""}"><img loading="lazy" src="/{E(f)}" alt=""><figcaption>{E(k.split("-",1)[-1])}{"<small>승인 기다림</small>" if items[k].get("status") != "approved" else ""}</figcaption></figure>' for k, f in poses)
         more = f'<details><summary>자세·표정 {len(poses)}개 보기</summary><div class="grid">{grid}</div></details>' if poses else '<p class="meta">대본이 정해지면 winky-assets로 만든다</p>'
         out.append(f'<article class="person{"" if poses else " empty"}">{face(n, reg)}<div><h3>{E(n)}</h3><p class="meta">{st}</p>{more}</div></article>')
     out.append("</div>")
@@ -299,6 +301,7 @@ details>summary{cursor:pointer}.choice details summary{min-height:44px;display:f
 .day{font-size:14px;margin:20px 0 6px;color:var(--muted,#777)}.log{border-top:1px solid #0001}.log>summary{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:12px 4px;cursor:pointer;list-style:none}
 .log>summary .t,.changes .t{font-variant-numeric:tabular-nums;color:#888;font-size:13px;min-width:44px}.log>summary .chose{color:var(--accent);font-weight:600}.log>summary q{flex-basis:100%;color:#555;font-size:14px;margin-left:56px}
 .log[open]>summary{background:#0000000a}.changes{list-style:none;padding:0;margin:0}.changes li{display:flex;gap:12px;padding:6px 0;border-top:1px solid #0001;font-size:15px}
+.wait{color:var(--accent)}.person figure.draft{outline:3px solid var(--accent);border-radius:8px}.person figcaption small{display:block;color:var(--accent);font-size:12px}
 .recent figure.draft{outline:3px solid var(--accent);border-radius:8px}.recent figcaption small{display:block;color:#888;font-size:12px}
 .done{color:var(--accent);font-weight:600;margin-top:16px}.req.answered .choice:not(.chosen){opacity:.6}
 @media (max-width:600px){.send{grid-template-columns:1fr}.go{width:100%}}
