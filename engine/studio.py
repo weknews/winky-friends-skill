@@ -322,7 +322,7 @@ class H(BaseHTTPRequestHandler):
     def log_message(self, *a): pass
     def send(self, code, body, ctype="text/html; charset=utf-8"):
         b = body if isinstance(body, bytes) else body.encode("utf-8")
-        self.send_response(code); self.send_header("Content-Type", ctype); self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
+        self.send_response(code); self.send_header("Content-Type", ctype); self.send_header("Content-Length", str(len(b))); self.send_header("Cache-Control", "no-cache"); self.end_headers(); self.wfile.write(b)  # no-cache: 같은 이름으로 고친 그림이 옛것으로 안 보이게
     def do_GET(self):
         p = urllib.parse.unquote(self.path.split("?")[0])  # 한글 파일 이름
         if p == "/": return self.send(200, page())
