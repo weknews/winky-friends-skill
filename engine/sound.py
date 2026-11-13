@@ -118,6 +118,8 @@ def onset(x): return int(np.argmax(np.abs(x) > 0.1 * np.abs(x).max()))
 SRC = [x[onset(x):] / np.abs(x).max() for x in SRC]
 VOICE = {"bear": dict(semi=-7, jit=1.0), "panda": dict(semi=2, jit=1.0), "penguin": dict(semi=-2, jit=0.5), "winky": dict(semi=9, jit=1.0)}
 RATE = {"bear": 7, "panda": 9, "penguin": 6, "winky": 10}
+for w_, a_ in REGISTRY["actors"].items():                # M2: 새 인물(도치 등)은 레지스트리 actors.*.voice에서. 기존 넷은 위 값 그대로
+    VOICE.setdefault(w_, dict(semi=a_["voice"]["semi"], jit=1.0)); RATE.setdefault(w_, a_["voice"]["rate"])
 BASE = 12                                             # 기준 음높이: 녹음을 한 옥타브 올린 소리
 def syl_sound(ch, semi, dur):
     cho = (ord(ch) - 0xAC00) // 588; f = 2 ** ((BASE + semi) / 12)
@@ -139,6 +141,8 @@ for C in S["cuts"]:
         if emo == "놀람": semi += 2
         if emo == "시무룩": semi -= 2; db -= 4
         if emo == "당황": semi += r.uniform(-2, 2); dur *= 0.7
+        if emo == "속마음": db -= 9                       # M2: 속마음 말풍선은 작게(대본 「(…)」)
+        if emo == "속삭임": db -= 6                       # M2: 「..」 속삭임
         add(vox, s["t"], syl_sound(s["ch"], semi, max(dur, 0.06)), 10 ** (db / 20), pan)
     speech.append((L["syl"][0]["t"], L["end"]))
 # ── 음악(9b): 버스 둘. bed = 오프닝·배경·끝 테마(덕킹 받음), sting = 스팅(덕킹 받음, 배경보다 크다)

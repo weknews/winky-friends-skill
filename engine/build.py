@@ -37,10 +37,19 @@ def PROP_OF(n):
     if n.startswith("jug"): return "jug"
     if n.startswith("bear-hand"): return "bear-paw"
     if n == "winky-hand": return "winky-paw"
+    if n == "panda-hand": return "panda-paw"
+    if n.startswith("note-list"): return "note"          # M2: 쪽지 펼침·접힘·줄 그음(폭 125mm 같음)
+    if n == "queue-ticket": return "ticket"
     return n
 # ── 2. 세트(배경 실측). base = 화면 폭 1080에 맞춘 배율(0.9375)에서 잰 기준 사물(px)과 px/mm
 SETS = {
- "door":    {"CU": dict(bg="set-door-cu", z=1.0, floor=1210)},           # 사양: 바닥선 63% = 1210
+ "door":    {"CU": dict(bg="set-door-cu", z=1.0, floor=1210),            # 사양: 바닥선 63% = 1210
+             "M": dict(bg="set-door-m", floor=1560)},                     # M2 두 사람 현관. 저녁은 컷의 bg="set-door-m-evening"
+ # M2 새 세트(배경이 1080 폭에 z 1.0). floor = 발끝 y(앞쪽 바닥), seat = 앉기 조각 발끝 y(의자·벤치 높이), front = 앉은 인물 앞에 다시 그리는 배경 상자(책상)
+ # ponytail: floor·seat·front는 그림을 보고 잰 값이다. 세트 그림이 바뀌면 다시 잰다
+ "company": {"M": dict(bg="set-company-m", floor=1330, seat=1110, front=(400, 966, 1080, 1330)), "CU": dict(bg="set-company-cu", z=1.0)},
+ "recycle": {"M": dict(bg="set-recycle-m", floor=1560), "CU": dict(bg="set-recycle-cu-a", z=1.0)},
+ "clinic":  {"M": dict(bg="set-clinic-m", floor=1580, seat=1575), "CU": dict(bg="set-clinic-cu", z=1.0)},
  "kitchen": {"M": dict(bg="set-kitchen-w", ref="조리대 윗면 905·밑선 1310 (850mm)", ppm0=405 / 850, base=1310),
              "CU": dict(bg="set-kitchen-cu", z=1.0)},
  "office":  {"M": dict(bg="set-office-m", ref="책상 윗면 930·다리 끝 1318 (750mm)", ppm0=388 / 750, base=1318),
@@ -50,7 +59,7 @@ SETS = {
 }
 # ── 3. 프리셋 (KIT-SPEC 2절). M은 7판에서 바꿨다(ep01-v7 README 「기획과 다르게 한 것」 1)
 PRESET = {
- "M":  dict(ppm=0.54, pos={"좌": 200, "중": 540, "우": 880}),
+ "M":  dict(ppm=0.54, pos={"좌": 200, "중": 540, "우": 880, "좌2": 290, "우2": 790}),   # M2: 좌2·우2 = 두 사람 컷
  "CU": dict(ppm={"winky": 1.40}, head_top=300, bust_head_px=770),
 }
 SAFE = dict(l=60, r=1020, t=200, b=1700)
@@ -91,15 +100,18 @@ def split_lines(text): return [s.strip() for s in text.split("/")]
 
 # ── 배치 계산
 def bg_layer(c):
-    S = SETS[c["set"]][c["cam"]]; a = K[S["bg"]]
+    S = SETS[c["set"]][c["cam"]]; name = c.get("bg", S["bg"]); a = K[name]     # M2: 컷마다 배경을 바꿀 수 있다(저녁·맞은편 CU)
     base = 1080 / a["w"]
-    if c["cam"] == "M":
+    if c["cam"] == "M" and "floor" in S:                                     # M2: 바닥선을 잰 세트(배경 확대 없음)
+        ppm = PRESET["M"]["ppm"]; z = 1.0; floor = S["floor"]
+    elif c["cam"] == "M":
         ppm = PRESET["M"]["ppm"]; z = ppm / S["ppm0"]                     # 배경을 프리셋 px/mm에 맞춰 한 값으로 키운다
         floor = S["base"] * z + 80 * ppm                                   # 뒷벽 가구 밑선 = 바닥선 − 80mm
     else:
         z = S.get("z", 1.0); floor = S.get("floor"); ppm = None
     w, h = a["w"] * base * z, a["h"] * base * z
-    return dict(name=S["bg"], file=a["file"], x=(1080 - w) / 2, y=(1920 - h) / 2 if c["set"] == "table" else 0, w=w, h=h, zoom=z, scale=base * z, floor=floor, ppm=ppm)
+    return dict(name=name, file=a["file"], x=(1080 - w) / 2, y=(1920 - h) / 2 if c["set"] == "table" else 0, w=w, h=h, zoom=z, scale=base * z, floor=floor, ppm=ppm,
+                **{k: S[k] for k in ("seat", "front") if k in S})
 
 def piece_scale(name, who, ppm):
     a = K[name]; an = a["anchor"]
@@ -114,20 +126,21 @@ def prop_k(f, ppm):
     """판·바닥·윗면 소품의 배율: 레지스트리 mm × px/mm ÷ 조각 px. 손은 손바닥 폭, 기록장은 폭, 나머지는 높이."""
     a = K[f]; r = REG["prop"][PROP_OF(f) if f != "box-closed" else "box"]; an = a.get("anchor", {})
     if "paw" in an: return r["w"] * ppm / (an["paw"][2] - an["paw"][0])
-    if f.startswith(("notebook", "box")): return r["w"] * ppm / a["w"]
+    if f.startswith(("notebook", "box", "note-list")): return r["w"] * ppm / a["w"]
     if f.startswith("strike"): return 1.0
     return r["h"] * ppm / a["h"]
 
 def board_layers(c):
     """판 컷: 조각마다 첫 열쇠 자리에 놓고, 움직임은 12fps 사건(dx, dy, 기울기)으로."""
-    ppm = TPPM[c["ppm"]]; L = []; E = []; t0, t1 = c["t"]
-    scr = lambda X, Y: (540 + X * ppm, 960 + Y * ppm)
+    ppm0 = TPPM[c["ppm"]]; L = []; E = []; t0, t1 = c["t"]
+    scr = lambda X, Y: (540 + X * ppm0, 960 + Y * ppm0)               # 자리(mm)는 컷 배율 하나로 잰다
     for P in board_cut(c["n"]):
+        ppm = TPPM[P["ppm"]] if P.get("ppm") else ppm0                   # M2: 조각 배율만 따로(조각 확대 1.3 한도의 작은 손 그림)
         f = P["f"]; frames = list(dict.fromkeys([f] + [n for _, n in P["seq"]]))
         a = K[f]; an = a.get("anchor", {})
         k = prop_k(f, ppm) if not f.startswith("strike") else _NB["strike_k"]
-        if "paw" in an: ax, ay = an.get("tip", an["pawc"])                          # 손: 손바닥 가운데(연필 손은 연필 끝)
-        elif f.startswith(("notebook", "strike")): ax, ay = a["w"] / 2, a["h"] / 2
+        if "paw" in an: ax, ay = an.get("tip", an.get("pawc") or ((an["paw"][0] + an["paw"][2]) / 2, (an["paw"][1] + an["paw"][3]) / 2))   # 손: 손바닥 가운데(연필 손은 연필 끝)
+        elif f.startswith(("notebook", "strike", "note-list")): ax, ay = a["w"] / 2, a["h"] / 2
         else: ax, ay = a["w"] / 2, a["h"]                                          # 잔·사과·통: 밑변 가운데
         if f == "jug": ax, ay = a["w"] / 2, a["h"] / 2
         X0, Y0 = P["keys"][0][1], P["keys"][0][2]; sx, sy = scr(X0, Y0)
@@ -177,10 +190,14 @@ def build():
                     ppm = PRESET["CU"]["ppm"][who]; foot = PRESET["CU"]["head_top"] + REG["char"][who]["h"] * ppm
                 x = 540
             else:
-                ppm = PRESET[cam]["ppm"]; x = PRESET[cam]["pos"][at]; foot = bg["floor"]
+                ppm = PRESET[cam]["ppm"]; x = PRESET[cam]["pos"].get(at, at); foot = bg["floor"]     # M2: 자리 이름 대신 x(px)도 된다(큰 인물 셋)
+            sit = seq[0][1].startswith("앉기") and bg.get("seat") is not None       # M2: 앉기 조각은 발끝을 세트의 좌판선(seat)에
+            if sit: foot = bg["seat"]
             chair = who == "winky" and (cam == "M" or (cam == "CU" and c["set"] != "door"))
             holds = any("held" in K[fam_frame(who, p)]["anchor"] for _, p in seq) or any(pr[1] == "hand" and pr[2] == who for pr in c.get("props", []))
-            chars[who] = dict(who=who, at=at, x=x, ppm=ppm, foot=foot, chair=chair, seq=seq, ex=ex, z=20 if at == "중" else 22 if holds else 10)
+            chars[who] = dict(who=who, at=at, x=x, ppm=ppm, foot=foot, chair=chair, seq=seq, ex=ex, z=8 if sit and bg.get("front") else 20 if at == "중" else 22 if holds else 10)
+        if bg.get("front") and any(C["z"] == 8 for C in chars.values()):    # M2: 책상 뒤에 앉은 인물 앞에 책상(배경 그림의 그 상자)을 다시 그린다
+            L.append(dict(id=f"c{c['n']}-front", kind="front", place="front", frames=[], z=9, box=bg["front"]))
         # 의자(윙키 발판): 바닥선에 놓고 좌판 윗면이 윙키 발끝
         for who, C in chars.items():
             if not C["chair"]: continue
@@ -230,14 +247,17 @@ def build():
             else:
                 C = chars[tgt]; ppm = C["ppm"]
                 pose = fam_frame(tgt, C["seq"][0][1]); pp = C["pl"][pose]; an = K[pose]["anchor"]
-                ax, ay = an["hand"] if place == "hand" else an["sweat"]
+                # M2 "on": 조각 상자 안 비율 자리(o["at"]) — 손 앵커가 없는 자세의 주머니·무릎
+                ax, ay = an["hand"] if place == "hand" else an["sweat"] if place == "sweat" else (o["at"][0] * K[pose]["w"], o["at"][1] * K[pose]["h"])
                 X = pp["x"] + ax * pp["k"]; Y = pp["y"] + ay * pp["k"]
                 a = K[fr0]; k = prop_k(fr0, ppm)
                 g = K[fr0].get("anchor", {}).get("grip", (a["w"] / 2, a["h"]))
                 if o.get("grip") == "bottom": g = (a["w"] / 2, a["h"])          # 받쳐 들기
                 if o.get("grip") == "center": g = (a["w"] / 2, a["h"] * 0.62)   # 기록장·사과: 손바닥이 아래쪽 3분의 1 뒤에 가린다(종이 인형 방식)
                 if o.get("grip") == "low": g = (a["w"] / 2, a["h"] * 0.3)       # 22번 사과: 두 손이 사과 윗부분을 감싼다(입을 가리지 않게)
-                if place == "sweat": g = (a["w"] / 2, a["h"] / 2); P["z"] = 45
+                if o.get("grip") == "top": g = (a["w"] / 2, a["h"] * 0.08)     # M2: 위 끝을 쥐고 늘어뜨린 쪽지
+                if place in ("sweat", "on"): g = (a["w"] / 2, a["h"] / 2); P["z"] = 45 if place == "sweat" else 40
+                if o.get("off"): g = (g[0] - o["off"][0] * ppm / k, g[1] - o["off"][1] * ppm / k)   # M2: 손에서 mm만큼 떨어진 자리(늘어진 쪽지 둘째 장)
                 P.update(k=k, x=X - g[0] * k, y=Y - g[1] * k, w=a["w"] * k, h=a["h"] * k, anchor=(X, Y), ppm=ppm, holder=tgt, grip=g)
             L.append(P)
         bev = []
@@ -249,15 +269,19 @@ def build():
             lines = split_lines(line[2]); s0 = line[1]; s1 = t1
             if c.get("iris"): s1 = IRIS["t0"]
             PROT[:] = prot; texts.append(sub_layout(c, lines, s0, s1))
+            if opt.get(0) == "속마음": texts[-1]["think"] = True     # M2: 속마음 = 흐린 띠·흐린 글씨·괄호(rules/directing.md 8절). 말풍선 그림은 아직 없다
         if c.get("title"): texts.append(caption(c["title"][2], c["title"][0], c["title"][1], "title"))
         if c.get("source"): texts.append(caption(c["source"], t0, t1, "source"))
-        if c.get("tag"): texts.append(tag_layout(c["tag"], t0, t1, prot, [(r["sx"], r["sy"], r["sx"] + r["sw"], r["sy"] + r["sh"]) for x in texts if x["kind"] == "sub" for r in x["rows"]]))
+        if c.get("tag"):
+            texts.append(tag_layout(c["tag"][:2], t0, t1, prot, [(r["sx"], r["sy"], r["sx"] + r["sw"], r["sy"] + r["sh"]) for x in texts if x["kind"] == "sub" for r in x["rows"]]))
+            if len(c["tag"]) > 2 and c["tag"][2]: texts[-1]["cont"] = True    # M2: 앞 컷에서 이어지는 이름표(다시 튀어나오지 않는다)
         if c.get("end"): texts.append(end_layout(t0, t1))   # 9e: 끝 화면 로고 뺌
         if c.get("logo"): texts.append(logo_layout("inline", *c["logo"], top=CAPTION["y0"] - 15, w=LOGO_OPEN_W))
         for P in L:
             if P.get("o", {}).get("label"): texts.append(label_layout(P, P["o"]["label"]))
             if P.get("place") == "board" and P["frames"][0] == "notebook-open": texts.append(notebook_texts(c, P))
             if P.get("place") == "board" and "notebook-closed" in P["frames"]: texts.append(cover_text(c, P))
+        if "extra_texts" in globals(): texts += extra_texts(c, L)            # M2: 회차 소품 칸 글자(쪽지 제목·손글씨)
         C2 = dict(n=c["n"], t0=t0, t1=t1, set=c["set"], cam=cam, bg=bg, layers=sorted(L, key=lambda l: l["z"]), texts=texts,
                   line=dict(who=line[0], t0=line[1], text=line[2], syl=syl, end=vend) if line else None,
                   sfx=c.get("sfx", []), freeze=None, prot=prot, still=c.get("still", False))
@@ -440,10 +464,12 @@ def events(C, chars, c):
             p = state(t); base = fam_frame(who, p); fr = base; dy = 0; dx = 0
             if t in talking: mouth = talking[t]
             speaking = who == speaker and syl and syl[0]["t"] - 1e-6 <= t < (vend or 0) + 0.05
-            if C["cam"] == "CU" and p.endswith("-말") and speaking:
+            if p.endswith("-말") and speaking:               # M2: 넓은 컷도 '-말' 상태면 입을 바꾼다(ep01 넓은 컷엔 '-말'이 없다)
                 fr = base.replace("-평온", "-말하기") if mouth == "open" else base
             elif C["cam"] == "M" and speaking and mouth == "open":
                 dy = -6                                       # 넓은 컷: 말하는 조각이 살짝 까딱
+            mv = ch["ex"].get("move")                         # M2: 걸어 나가기 [(시각, dx)] 사이를 12fps 계단으로
+            if mv: dx = mv[0][1] if t <= mv[0][0] else mv[-1][1] if t >= mv[-1][0] else next(a[1] + (b[1] - a[1]) * (t - a[0]) / (b[0] - a[0]) for a, b in zip(mv, mv[1:]) if a[0] <= t <= b[0])
             bl = base.rsplit("-", 1)[0] + "-눈감음"
             if t in blinks and bl in ch["pl"] and fr == base and base.endswith("-평온"):
                 fr = bl
@@ -462,6 +488,9 @@ def events(C, chars, c):
         o = l.get("o", {})
         for tt, n in l.get("seq", []):
             E.append((q(tt), l["id"], n, None, None))
+        if o.get("vis"):                                  # M2: (나타남, 사라짐|None) — 주머니 → 손으로 넘어가는 쪽지
+            on, off = o["vis"]; E.append((q(t0), l["id"], "hide", None, None)); E.append((q(on), l["id"], l["frames"][0], None, None))
+            if off: E.append((q(off), l["id"], "hide", None, None))
         if o.get("show") is not None:
             s = o["show"]; E.append((q(t0), l["id"], "hide", None, None))
             for j in range(4): E.append((q(s + j * TICK), l["id"], l["frames"][0], 0, 8 * j))

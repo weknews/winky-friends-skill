@@ -56,6 +56,10 @@ S.cuts.forEach((C) => {
   const L = {};
   C.layers.forEach((l) => {
     const w = el(c, "div", "w"); w.dataset.layer = l.id; const fr = {};
+    if (l.kind === "front") {                                 // M2: 책상 앞판 = 배경 그림의 그 상자만 다시(앉은 인물 위). 넘치는 부분은 상자 밖이라 안 보인다
+      const [x0, y0, x1, y1] = l.box; w.style.cssText = `left:${px(x0)};top:${px(y0)};width:${px(x1 - x0)};height:${px(y1 - y0)};overflow:hidden`;
+      img(w, K[b.name].file, b.x - x0, b.y - y0, b.w, b.h); L[l.id] = { w, fr, cur: null }; return;
+    }
     l.frames.forEach((f, i) => {
       let r;
       if (l.kind === "char") r = l.pl[f];
@@ -90,13 +94,15 @@ S.cuts.forEach((C) => {
       x.rows.forEach((r) => text(g, r, { box: x.textBox.join(","), cut: C.n }));
       const cx = x.card.x + x.card.w / 2, cy = x.card.y + x.card.h / 2; g.style.transformOrigin = `${px(cx)} ${px(cy)}`;
       show(g, x.t0, x.t1);
-      paper.fromTo(g, { scale: 1.12, rotation: -6 }, { scale: 1, rotation: -3, duration: 1 / 6, ease: "steps(2)", immediateRender: false }, q(x.t0));
+      if (x.cont) gsap.set(g, { rotation: -3 });              // M2: 앞 컷에서 이어지는 이름표는 다시 튀지 않는다
+      else paper.fromTo(g, { scale: 1.12, rotation: -6 }, { scale: 1, rotation: -3, duration: 1 / 6, ease: "steps(2)", immediateRender: false }, q(x.t0));
       return;
     }
     if (x.kind === "ono") { x.rows.forEach((r) => text(g, r)); show(g, x.t0, x.t1); return; }
     if (x.kind === "end") { x.rows.forEach((r) => text(g, r)); show(g, x.t0, null); return; }
     if (x.kind === "logo") { g.style.zIndex = 50; img(g, x.file, x.x, x.y, x.w, x.h); show(g, x.t0, x.t1); return; }   // 9d 시리즈 로고(그림). 다음 컷 위로 넘어가도 보이게 맨 위
     stripRows(g, x.rows); show(g, x.t0, x.t1);
+    if (x.think) { g.querySelectorAll("img").forEach((i) => (i.style.opacity = 0.72)); g.querySelectorAll(".txt").forEach((d) => (d.style.color = "#55607A")); }   // M2: 속마음 = 흐린 띠·흐린 글씨
   });
 });
 // 아이리스 아웃(7b, iris 전용): 검정 색지에 찢긴 원 구멍. 원 밖만 남기는 evenodd 경로를 12fps 계단마다 바꾼다.

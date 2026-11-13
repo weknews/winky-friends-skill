@@ -17,3 +17,5 @@
 모든 스크립트는 회차 폴더에서 `python3 ../../engine/<파일>` / `node ../../engine/<파일>`로 돈다(Windows는 `python3` 대신 `py`). bash 없이 macOS·Linux·Windows에서 같게 돈다. 쓰는 법은 `skills/winky-episode/SKILL.md`.
 
 한계: build.py의 판 컷(`table`)·기록장 칸 글자 처리는 ep01 소품(잔·기록장·연필) 기준이라, 판 컷 소품이 다른 회차는 episode.py에 회차 함수를 더해야 한다.
+
+M2(r05 「하나만요」에서 더함): 두 사람 `M`, 새 세트(door M·company·recycle·clinic) 바닥선·좌판선·책상 앞판, 컷별 배경, 속마음 자막, 소품 `on`·`vis`·`off`, 넓은 컷 입 모양, 걸어 나가기, 이어지는 이름표, 판 조각별 배율, 회차 길이 렌더. ep01 scene.json·audio.wav는 그대로다. 컷 표 쓰는 법은 `skills/winky-episode/SKILL.md` 2절.

@@ -43,7 +43,7 @@ for C in S["cuts"]:
         ppm = l.get("ppm") or (B.PRESET["CU"]["ppm"]["winky"] if cam == "CU" else B.PRESET[cam]["ppm"])
         an = K[f].get("anchor", {})
         if "paw" in an: mm = (an["paw"][2] - an["paw"][0]) * l["k"] / ppm; ok(abs(mm / reg["w"] - 1) < TOL, 2, f"컷{n} {f} 손바닥 폭 {mm:.0f}mm / {reg['w']}")
-        elif f.startswith(("box", "notebook")): mm = l["w"] / ppm; ok(abs(mm / reg["w"] - 1) < TOL, 2, f"컷{n} {f} 폭 {mm:.0f}mm / {reg['w']}")
+        elif f.startswith(("box", "notebook", "note-list")): mm = l["w"] / ppm; ok(abs(mm / reg["w"] - 1) < TOL, 2, f"컷{n} {f} 폭 {mm:.0f}mm / {reg['w']}")
         else: mm = l["h"] / ppm; ok(abs(mm / reg["h"] - 1) < TOL, 2, f"컷{n} {f} 높이 {mm:.0f}mm / {reg['h']}")
     for l in chars:
         for f, p in l["pl"].items():
@@ -69,7 +69,7 @@ for C in S["cuts"]:
     # 4 자리
     for l in chars:
         f0 = l["frames"][0]; p = l["pl"][f0]; x = p["x"] + K[f0]["anchor"]["cx"] * p["k"]
-        want = 540 if cam in ("CU", "board") else B.PRESET[cam]["pos"][l["at"]]
+        want = 540 if cam in ("CU", "board") else B.PRESET[cam]["pos"].get(l["at"], l["at"])
         ok(abs(x - want) <= 1, 4, f"컷{n} {l['who']} x {x:.0f} = {want}")
         if l["who"] == "winky" and cam in ("W", "M"):
             chair = next((x for x in props if x["frames"][0] == "chair"), None)
@@ -198,8 +198,8 @@ ok("1화" not in allt, 11, "화면 어디에도 「1화」 없음")
 for C in S["cuts"]:
     n = C["n"]
     for l in C["layers"]:
-        f = l["frames"][0]; ppm = l.get("ppm")
-        if l["kind"] != "prop" or not ppm: continue
+        if l["kind"] != "prop" or not l.get("ppm"): continue
+        f = l["frames"][0]; ppm = l["ppm"]
         for g in l["frames"]:
             if g.startswith("notebook"):
                 r = B.REG["prop"][g]; a = K[g]; kk = B.prop_k(g, ppm)

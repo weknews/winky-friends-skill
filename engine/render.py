@@ -12,7 +12,13 @@ for f in ("out/thumb.png", "out/audio.wav"):
     if not os.path.exists(os.path.join(EP, f)): sys.exit(f"{f} 가 없다. thumbshot.mjs·sound.py를 먼저 돈다")
 
 run = lambda *a: subprocess.run(a, cwd=EP, check=True)
-run(node, HF, "render", "--quality", "high", "--output", "out/raw.mp4")
+# M2: hyperframes는 index.html의 data-duration(ep01 50.0)을 읽는다. 회차 길이(scene.json D)로 바꾼 사본을 렌더하고 지운다
+import json, re
+D = json.load(open(os.path.join(EP, "scene.json"), encoding="utf-8"))["D"]
+html = re.sub(r'data-duration="[\d.]+"', f'data-duration="{D}"', open(os.path.join(EP, "index.html"), encoding="utf-8").read(), count=1)
+open(os.path.join(EP, "_render.html"), "w", encoding="utf-8").write(html)
+try: run(node, HF, "render", "-c", "_render.html", "--quality", "high", "--output", "out/raw.mp4")
+finally: os.remove(os.path.join(EP, "_render.html"))
 run(ffmpeg, "-y", "-loop", "1", "-framerate", "30", "-t", "0.4", "-i", "out/thumb.png", "-i", "out/raw.mp4", "-i", "out/audio.wav", "-i", "out/thumb.png",
     "-filter_complex", "[0:v]format=yuv420p,setsar=1,fps=30[t];[1:v]format=yuv420p,setsar=1[m];[t][m]concat=n=2:v=1:a=0[v]",
     "-map", "[v]", "-map", "2:a", "-map", "3:v", "-c:v:0", "libx264", "-crf", "18", "-preset", "slow", "-c:a", "aac", "-b:a", "192k",

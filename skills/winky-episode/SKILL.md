@@ -48,7 +48,8 @@ cd episodes/ep02-<영문-짧게>
 - 판 컷(`cam="판"`)은 `board_cut(n)`에 조각과 움직임 열쇠 `(시각, X mm, Y mm[, 기울기])`를 적는다(원점 화면 가운데, 12fps 계단). 손은 화면 끝에서 들어온다.
 - `TAGS`(이름표), `END`(끝 화면 줄·크기), `CUES`/`CUE_SHEET`(큐 시트), `IRIS`, `D`(전체 길이), `TPPM`(판 배율)을 회차 값으로 바꾼다. 기록장처럼 회차 전용 칸 글자는 `prebuild()`·`notebook_texts()`처럼 회차 파일에 함수로 둔다.
 - 제작하며 시각을 옮겨야 하면 ep01처럼 원래 시각을 두고 `W()` 구간 선형 시계로 옮긴다. 대본과 다르게 한 것은 회차 `README.md` 「기획과 다르게 한 것」에 이유와 함께 적는다.
-- `index.html`의 `data-duration`(지금 50.0)이 `D`와 다르면 회차 폴더의 index.html 링크를 지우고 `engine/index.html`을 복사해 고친다. 이 파일은 .gitignore에 걸리므로 `git add -f`로 올린다.
+- 렌더 길이는 `D`를 따른다(`render.py`가 `data-duration`을 `D`로 바꾼 사본을 렌더한다). index.html을 복사하지 않는다.
+- 엔진 M2 컷 표 기능(예: `episodes/r05-hanaman/episode.py`): 두 사람 `M` 자리 `좌2`·`우2`(또는 x 숫자), 컷별 배경 `bg=`, 앉기 자세는 세트 좌판선, 속마음 `line=(…, {0: "속마음"})`, 소품 `on`(조각 상자 비율 자리)·`vis=(나타남, 사라짐)`·`grip="top"`·`off=(mm, mm)`, 인물 4번째 칸 `dict(move=[(시각, dx)])`, 이어지는 이름표 `tag=(인물, 자리, True)`, 판 조각별 배율 `piece(..., ppm=)`, 회차 칸 글자 `extra_texts(c, L)`.
 
 ## 3. 새 프리미티브
 
