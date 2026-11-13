@@ -11,7 +11,7 @@ studio/answers/<id>.json 이 생기고, 백그라운드로 돌던 `wait` 가 그
    "options": [{"id": "1", "title": "...", "body": "마크다운"}], "reason": true}
 표준 라이브러리만 쓴다. localhost 에만 붙는다.
 """
-import html, json, re, sys, time, os
+import html, json, re, sys, time, os, urllib.parse
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
@@ -35,6 +35,9 @@ def md(text):
         m = re.match(r"(#{1,4}) (.*)", s)
         if m:
             n = len(m.group(1)) + 1; out.append(f"<h{n}>{inline(m.group(2))}</h{n}>"); i += 1; continue
+        imgs = re.findall(r"!\[([^\]]*)\]\((kit/[^)\s]+)\)", s)
+        if imgs and re.fullmatch(r"(\s*!\[[^\]]*\]\(kit/[^)\s]+\))+\s*", s):  # 그림 줄 → 그림판(kit 안만)
+            out.append('<div class="grid">' + "".join(f'<figure><img loading="lazy" src="/{E(f)}" alt=""><figcaption>{E(a)}</figcaption></figure>' for a, f in imgs) + "</div>"); i += 1; continue
         if s.startswith("|"):
             rows = []
             while i < len(lines) and lines[i].strip().startswith("|"):
@@ -66,7 +69,7 @@ def md(text):
         out.append(f"<p>{inline(' '.join(para))}</p>")
     return "\n".join(out)
 
-assert "<h2>가</h2>" in md("# 가") and 'class="strip"' in md("> **윙키** 넵!") and "<td>2</td>" in md("|a|b|\n|-|-|\n|1|2|")
+assert "<h2>가</h2>" in md("# 가") and 'class="strip"' in md("> **윙키** 넵!") and "<td>2</td>" in md("|a|b|\n|-|-|\n|1|2|") and "<img" in md("![a](kit/x.jpg)") and "<img" not in md("![a](../x.jpg)")
 
 # ---------- 결정 요청 ----------
 def requests():
@@ -279,7 +282,7 @@ iframe{width:100%;height:calc(100vh - 140px);border:1px solid var(--line);border
 .person>div{min-width:0;flex:1}.person h3{font-size:22px}.person .face{width:72px;height:72px}.person.empty{border-style:dashed}
 .person details summary{min-height:44px;display:flex;align-items:center;color:var(--accent);font-weight:600}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin-top:8px}figure{margin:0;background:var(--bg);border-radius:8px;padding:8px}
-figure img{width:100%;height:112px;object-fit:contain}figcaption{font-size:14px;color:var(--mute);text-align:center;word-break:break-all}
+figure img{width:100%;height:112px;object-fit:contain}.req figure img,.card figure img{height:320px}figcaption{font-size:14px;color:var(--mute);text-align:center;word-break:break-all}
 @media (max-width:860px){.home{grid-template-columns:1fr}.more>div{right:auto;left:0}}
 @media (max-width:600px){main{padding-top:24px}.req h2,.doc h2{font-size:22px}.lead{font-size:16px}nav a,nav summary{padding:0 10px}.brand small{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -318,7 +321,7 @@ class H(BaseHTTPRequestHandler):
         b = body if isinstance(body, bytes) else body.encode("utf-8")
         self.send_response(code); self.send_header("Content-Type", ctype); self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
     def do_GET(self):
-        p = self.path.split("?")[0]
+        p = urllib.parse.unquote(self.path.split("?")[0])  # 한글 파일 이름
         if p == "/": return self.send(200, page())
         if p == "/version": return self.send(200, version(), "text/plain")
         if p == "/characters":

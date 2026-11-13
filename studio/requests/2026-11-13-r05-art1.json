@@ -1,0 +1,18 @@
+{
+ "id": "2026-11-13-r05-art1",
+ "title": "「하나만요」 그림 ①② — 도치 기준 조각, 세트 7장",
+ "question": "Codex로 뽑아 draft로 등록했습니다. 승인할 것을 골라 주세요. 고칠 게 있으면 이름과 무엇을 고칠지 적어 주세요(다시 뽑지 않고 그 그림을 편집합니다).",
+ "source": "episodes/drafts/2026-11-13-r05-assets-plan.md",
+ "options": [
+  {
+   "id": "all",
+   "title": "전부 승인",
+   "body": "#### ① 도치 실장 기준 조각\n\n![hedgehog-서기-평온](kit/actors/hedgehog/hedgehog-서기-평온.webp)\n\n- 단체 그림 그대로입니다(둥근 안경, 코발트 정장, 파란 넥타이, 갈색 가시).\n- **제가 본 걸림:** 이름은 「평온」인데 얼굴이 걱정하는 표정(찡그린 눈썹, 땀 자국)입니다. 걱정 많은 인물이라 어울리긴 하지만, 기본 얼굴로 쓰려면 눈썹을 편 편집본이 하나 더 필요할 수 있습니다.\n\n#### ② 세트 7장\n\n![set-door-m](kit/sets/door/M/set-door-m.jpg) ![set-company-m](kit/sets/company/M/set-company-m.jpg) ![set-company-cu](kit/sets/company/CU/set-company-cu.jpg) ![set-recycle-m](kit/sets/recycle/M/set-recycle-m.jpg) ![set-recycle-cu](kit/sets/recycle/CU/set-recycle-cu.jpg) ![set-clinic-m](kit/sets/clinic/M/set-clinic-m.jpg) ![set-clinic-cu](kit/sets/clinic/CU/set-clinic-cu.jpg)\n\n- 그림 속 글자·숫자 없음, 갈색 나무 없음, 빨강 큰 면 없음.\n- **제가 본 걸림:** 현관 벽이 진한 연두입니다. 다른 세트(흰색·옅은 회청)보다 튑니다. 분리수거장은 통 그림(병·캔·종이 그림표)만 있고 글자는 없습니다."
+  },
+  {
+   "id": "fix",
+   "title": "고칠 것 적어서 보내기",
+   "body": "예: 「도치 눈썹 펴기」, 「현관 벽 흰색·옅은 회청으로」. 적어 주신 것만 편집하고 나머지는 승인합니다."
+  }
+ ]
+}

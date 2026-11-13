@@ -45,6 +45,17 @@
     "rate": 10
    },
    "status": "approved"
+  },
+  "hedgehog": {
+   "mm": {
+    "h": 1250,
+    "headW": 500
+   },
+   "voice": {
+    "semi": -4,
+    "rate": 8
+   },
+   "status": "draft"
   }
  },
  "sizes": {
@@ -3040,6 +3051,134 @@
    "prompt": null,
    "ref": null,
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-door-m": {
+   "kind": "set",
+   "file": "kit/sets/door/M/set-door-m.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Morning. The entrance hall inside a small old villa apartment, seen straight on at standing eye level, wide enough for two characters side by side: white front door on the left, low pale gray-blue shoe cabinet on the right, a small step down to the shoe area, coat hooks on the wall, soft morning daylight. Empty, no characters.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-company-m": {
+   "kind": "set",
+   "file": "kit/sets/company/M/set-company-m.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Daytime. A small open-plan office, seen straight on: on the right a manager's desk with a computer monitor (blank pale screen) and an office chair behind it; on the left open standing space in front of the desk; a few file binders, a potted plant. Empty, no characters.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-company-cu": {
+   "kind": "set",
+   "file": "kit/sets/company/CU/set-company-cu.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Daytime. Close background for a chest-up shot in the same small office: the back of an office chair, the side of a blank computer monitor, a wall with a pale bulletin board behind. Empty, no characters.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-recycle-m": {
+   "kind": "set",
+   "file": "kit/sets/recycle/M/set-recycle-m.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Night. The small outdoor recycling corner behind a villa building, seen straight on: a row of separate bins for plastic bottles, cans and paper along a pale wall, one warm bulb lamp above, dark navy night sky, pale concrete floor; wide enough for three characters standing in front of the bins. Empty, no characters.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-recycle-cu": {
+   "kind": "set",
+   "file": "kit/sets/recycle/CU/set-recycle-cu.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Night. Close background for a chest-up shot at the same villa recycling corner: part of a bottle bin and the pale wall, warm bulb light from above, dark navy sky at the top. Empty, no characters.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-clinic-m": {
+   "kind": "set",
+   "file": "kit/sets/clinic/M/set-clinic-m.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Daytime. A hospital outpatient waiting area, seen straight on: a row of connected pale blue waiting chairs facing the camera, a blank queue number display panel on the wall (no numbers), a potted plant, clean white walls. Empty, no characters.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-clinic-cu": {
+   "kind": "set",
+   "file": "kit/sets/clinic/CU/set-clinic-cu.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Daytime. Close background for a chest-up shot of someone seated in the same hospital waiting area: the backs of pale blue waiting chairs and a plain white wall with a blank display panel. Empty, no characters.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "hedgehog-서기-평온": {
+   "kind": "actor",
+   "file": "kit/actors/hedgehog/hedgehog-서기-평온.webp",
+   "w": 725,
+   "h": 1105,
+   "anchor": {
+    "cx": 361,
+    "head": [
+     141,
+     81,
+     581,
+     471
+    ],
+    "face": [
+     181,
+     171,
+     561,
+     451
+    ],
+    "torso": [
+     161,
+     511
+    ],
+    "hand": [
+     481,
+     751
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "HEDGEHOG alone, full body standing, front three-quarter view, calm neutral face, exactly as he appears in the attached lineup: round black glasses, cobalt blue suit, white shirt, blue tie, brown spines with cream tips; empty hands at his sides, no phone. One character centered.",
+   "ref": "kit/gen/refs/lineup.png",
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "hedgehog"
   }
  },
  "music": {
