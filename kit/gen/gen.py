@@ -8,9 +8,13 @@ ep01-v9 시기 series-kit/gen.sh 와 같은 프롬프트 조립. kit/gen/out/ �
 import os, shutil, subprocess, sys
 
 W = os.path.dirname(os.path.abspath(__file__)); P_ = os.path.join(W, "prompts"); R = os.path.join(W, "refs"); OUT = os.path.join(W, "out")
-LOCK = "COLOR LOCK: Bear Dad brown fur, SKY-BLUE hoodie jacket with white zipper, GRAY cap, gray-brown cargo shorts, beige boots. Panda SKY-BLUE knit cardigan over white shirt, COBALT trousers. Penguin Doctor black head and back, white front, pure white coat, blue lanyard with blank card, silver stethoscope, paper fan. Winky exactly as the attached Winky reference, no clothes. EMPTY HANDS: never draw cups, apples, boxes or notes in any hand unless the prompt says so."
+LOCK = "COLOR LOCK: Bear Dad brown fur, SKY-BLUE hoodie jacket with white zipper, GRAY cap, gray-brown cargo shorts, beige boots. Panda SKY-BLUE knit cardigan over white shirt, COBALT trousers. Penguin Doctor black head and back, white front, pure white coat, blue lanyard with blank card, silver stethoscope, paper fan. Hedgehog brown spines with cream tips, round black glasses, cobalt suit, white shirt, blue tie. Winky exactly as the attached Winky reference, no clothes. EMPTY HANDS: never draw cups, apples, boxes or notes in any hand unless the prompt says so."
 
 def part(n): return open(os.path.join(P_, n + ".txt"), encoding="utf-8").read().strip()  # ponytail: bash $(cat) 처럼 끝 줄바꿈을 뗀다
+
+# 세트(key none)에는 인물 설명·색 잠금·단체 그림을 붙이지 않는다. 붙이면 배경이 옷 색(파랑)으로 끌려갔다(rules/color.md, 2026-11-13)
+def cast(key): return "" if key == "none" else f"CHARACTERS: {part('chars')} {LOCK} "
+def base_refs(key): return [os.path.join(R, "s8-winky.png")] + ([] if key == "none" else [os.path.join(R, "lineup.png")])
 
 API_SIZES = {"1024x1024", "1536x1024", "1024x1536"}
 
@@ -23,8 +27,8 @@ def openai_backend(name, size, key, prompt, refs):
     os.makedirs(OUT, exist_ok=True); png = os.path.join(OUT, name + ".png")
     w, h = (int(x) for x in size.lower().split("x"))
     api_size = size if size in API_SIZES else ("1024x1536" if h > w else "1536x1024" if w > h else "1024x1024")  # ponytail: API가 받는 세 크기로 맞춤. 배율은 build가 mm로 다시 맞춘다
-    P = f"{part('style-base')} {part('key-none') if key == 'none' else 'Transparent background, no floor, no shadow on the background.'} CHARACTERS: {part('chars')} {LOCK} IMAGE: {prompt}"
-    files = [open(f, "rb") for f in [os.path.join(R, "s8-winky.png"), os.path.join(R, "lineup.png"), *refs]]
+    P = f"{part('style-base')} {part('key-none') if key == 'none' else 'Transparent background, no floor, no shadow on the background.'} {cast(key)}IMAGE: {prompt}"
+    files = [open(f, "rb") for f in [*base_refs(key), *refs]]
     try:
         r = OpenAI().images.edit(model=os.environ.get("WINKY_IMAGE_MODEL", "gpt-image-1"), image=files, prompt=P, size=api_size,
                                  quality="high", **({} if key == "none" else {"background": "transparent"}))
@@ -42,8 +46,8 @@ if __name__ == "__main__":
         sys.exit(openai_backend(name, size, key, prompt, refs))
     codex = shutil.which("codex") or sys.exit("codex 명령을 찾지 못했다. Codex CLI를 설치하고 로그인한 뒤 새 터미널에서 다시 돈다(npm install -g @openai/codex)")
     os.makedirs(OUT, exist_ok=True); png = os.path.join(OUT, name + ".png")
-    args = [a for r in [os.path.join(R, "s8-winky.png"), os.path.join(R, "lineup.png"), *refs] for a in ("-i", r)]
-    P = f"{part('style-base')} {part('key-' + key)} CHARACTERS: {part('chars')} {LOCK} IMAGE: {prompt}"
+    args = [a for r in [*base_refs(key), *refs] for a in ("-i", r)]
+    P = f"{part('style-base')} {part('key-' + key)} {cast(key)}IMAGE: {prompt}"
     ask = f"내장 image_gen 도구로 quality high, 크기 {size} 그림을 한 장 만들어 {png} 에 저장하라. 코드로 그리지 말고 반드시 image_gen 도구를 써라. 첨부한 그림은 기준 그림이다(그림체, 캐릭터 생김새). 저장 뒤 파일 경로만 한 줄로 답하라. 프롬프트는 아래를 그대로 쓴다. {P}"
     with open(os.path.join(OUT, name + ".log"), "w", encoding="utf-8") as log:
         try: subprocess.run([codex, "exec", "--skip-git-repo-check", "-s", "workspace-write", "-C", W, *args, "--", ask], stdin=subprocess.DEVNULL, stdout=log, stderr=log, timeout=900)
@@ -51,3 +55,5 @@ if __name__ == "__main__":
     open(os.path.join(OUT, name + ".prompt.txt"), "w", encoding="utf-8").write(prompt + "\n")
     if os.path.exists(png): print("OK", name)
     else: print("FAIL", name); print("".join(open(os.path.join(OUT, name + ".log"), encoding="utf-8", errors="replace").readlines()[-3:])); sys.exit(1)
+
+assert cast("none") == "" and "CHARACTERS" in cast("magenta") and len(base_refs("none")) == 1  # 세트엔 인물 설명·단체 그림을 붙이지 않는다
