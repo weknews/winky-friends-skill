@@ -8,7 +8,7 @@ studio/answers/<id>.json 이 생기고, 백그라운드로 돌던 `wait` 가 그
 
 요청 파일 모양:
   {"id": "...", "title": "...", "question": "...", "source": "episodes/drafts/....md",
-   "options": [{"id": "1", "title": "...", "body": "마크다운"}], "reason": true}
+   "body": "마크다운(보기 자료, 안 위에)", "after": "마크다운(긴 자료, 보내기 아래)", "options": [{"id": "1", "title": "...", "body": "마크다운"}], "reason": true}
 표준 라이브러리만 쓴다. localhost 에만 붙는다.
 """
 import html, json, re, sys, time, os, urllib.parse
@@ -134,7 +134,7 @@ def req_html(r):
         foot = f"""<div class="send" id="s-{rid}"><p class="picked" id="p-{rid}">안을 고르거나, 의견만 적어도 됩니다.</p>
         <label for="r-{rid}">고른 이유 (대본 맨 위에 적힙니다)</label><textarea id="r-{rid}" placeholder="예: 윙키가 뛰어다니는 그림이 제일 잘 떠오른다"></textarea><button class="go" onclick="send('{rid}')">보내기</button></div>"""
     return f"""<section class="req {'answered' if a else 'open'}" id="q-{rid}"><p class="eyebrow">{'답한 요청' if a else '결정해 주세요'}</p>
-      <h2>{E(r["title"])}</h2><p class="lead">{inline(r.get("question",""))}</p>{src}<div class="choices">{"".join(cards)}</div>{foot}</section>"""
+      <h2>{E(r["title"])}</h2><p class="lead">{inline(r.get("question",""))}</p>{src}{md(r.get("body", ""))}<div class="choices">{"".join(cards)}</div>{foot}{md(r.get("after", ""))}</section>"""
 
 # ---------- 화면 ----------
 DOCS = [  # (탭 id, 이름, 파일 목록)
