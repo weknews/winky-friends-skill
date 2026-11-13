@@ -55,7 +55,7 @@
     "semi": -4,
     "rate": 8
    },
-   "status": "draft"
+   "status": "approved"
   }
  },
  "sizes": {
@@ -3058,12 +3058,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: grass green #4FA34F, one step darker than before. Ceiling: a darker warm green #3F8F48 instead of white, so white covers under 15% of the frame. Floor and step: dark green #2F7D4A. Front door: deep teal #1F5F5B with white trim. Shoe cabinet and coat hooks: warm off-white. Doormat: golden yellow #F5C518, small. Morning sky in the window. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-company-m": {
    "kind": "set",
@@ -3071,12 +3072,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: tangerine orange #F2A03D, mid value. Floor: darker orange step #C7742A. Desk, shelves and binders: warm off-white #F7F3EA. Office chair: deep teal #1F5F5B. Monitor: off-white with a blank pale screen. Plants green. Window keeps the bright desert view. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only the FLOOR color: the floor becomes deep teal #1F5F5B (no brown, no terracotta). Everything else unchanged. Never pastel.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2, 고친 뒤)"
   },
   "set-company-cu": {
    "kind": "set",
@@ -3084,12 +3086,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Wall: tangerine orange #F2A03D, bulletin board darker orange #C7742A, office chair back deep teal #1F5F5B, monitor and keyboard warm off-white. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-recycle-m": {
    "kind": "set",
@@ -3097,12 +3100,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Recolor the first attached image as a darker NIGHT, keeping exactly the same layout, objects, camera and paper layers; change only colors. Sky: deep navy #1E2A55. Back wall: dark teal #1F5F5B. Floor: darker teal #163F3C. Bins: warm off-white with darker teal lids. One warm amber lamp #F5B841 glowing above, casting a soft amber pool on the floor. The whole frame is dark (low value) except the lamp glow. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-clinic-m": {
    "kind": "set",
@@ -3110,12 +3114,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: mint teal #59BFAE, mid-high value. Floor: darker teal step #2F8C7E. Waiting chairs: deep teal #1F5F5B seats with off-white frames. Shelf and door: warm off-white. Number display panel: off-white, blank. Warm window light. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-clinic-cu": {
    "kind": "set",
@@ -3123,12 +3128,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Wall: mint teal #59BFAE, chair backs deep teal #1F5F5B, blank display panel off-white, floor strip darker teal #2F8C7E. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. The large white wall panel becomes a darker mint teal #3FA593 with a thin off-white rim, so white covers under 15% of the frame. Wall stays mint teal #59BFAE, chair backs deep teal #1F5F5B. Never pastel.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2, 고친 뒤)"
   },
   "hedgehog-서기-평온": {
    "kind": "actor",
@@ -3159,13 +3165,14 @@
     ],
     "scale": "h"
    },
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "HEDGEHOG alone, full body standing, front three-quarter view, calm neutral face, exactly as he appears in the attached lineup: round black glasses, cobalt blue suit, white shirt, blue tie, brown spines with cream tips; empty hands at his sides, no phone. One character centered.",
    "ref": "kit/gen/refs/lineup.png",
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "hedgehog"
+   "actor": "hedgehog",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-door-m-evening": {
    "kind": "set",
@@ -3173,12 +3180,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Recolor the first attached image as EVENING, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: deeper green #3F8F48, ceiling #2F6F3A, floor #24603A, ceiling lamp switched on with a warm glow, the window shows an orange sunset sky. Doormat golden yellow. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-door-cu-g": {
    "kind": "set",
@@ -3186,12 +3194,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: grass green #4FA34F mid value, floor dark green #2F7D4A, door deep teal #1F5F5B with white trim. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-recycle-cu-a": {
    "kind": "set",
@@ -3199,12 +3208,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "NIGHT close background for a chest-up shot, same place as the attached wide image (the bin side): a row of off-white recycling bins with darker teal lids filling the lower half, dark teal wall #1F5F5B behind, deep navy sky #1E2A55 at the top, one warm amber lamp glow #F5B841 high on the left that would sit behind a head as a halo. Low value overall. Empty, no characters. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   },
   "set-recycle-cu-b": {
    "kind": "set",
@@ -3212,12 +3222,13 @@
    "w": 1152,
    "h": 2048,
    "anchor": {},
-   "status": "draft",
+   "status": "approved",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
    "prompt": "NIGHT close background for a chest-up shot, same place as the attached wide image (the villa side, opposite the bins): the villa's dark teal wall #1F5F5B with a small lit window square (warm amber) and a potted cactus, deep navy sky #1E2A55 with a thin moon at the top, warm amber lamp glow #F5B841 high on the right. Low value overall. No bins. Empty, no characters. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "approved": "2026-11-13 미르님(studio 2026-11-13-r05-art2)"
   }
  },
  "music": {
