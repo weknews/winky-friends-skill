@@ -90,7 +90,7 @@ def answer(data):
     (ANS / f"{rid}.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     return True
 
-NAME2KEY = {"윙키": "winky", "곰 아빠": "bear", "판다": "panda", "펭귄 선생님": "penguin"}
+NAME2KEY = {"윙키": "winky", "곰 아빠": "bear", "판다": "panda", "펭귄 선생님": "penguin", "거북 여사": "turtle", "너구리 대리": "raccoon", "고양이 사장": "cat", "다람쥐 코치": "squirrel", "도치 실장": "hedgehog"}
 CAST = ["윙키", "곰 아빠", "판다", "펭귄 선생님", "거북 여사", "너구리 대리", "고양이 사장", "다람쥐 코치", "도치 실장"]
 COLOR = {"윙키": "#e2a54b", "곰 아빠": "#8a5a3c", "판다": "#555", "펭귄 선생님": "#3b6e9c", "거북 여사": "#6f8f4e",
          "너구리 대리": "#8c7a63", "고양이 사장": "#d0773f", "다람쥐 코치": "#b5622f", "도치 실장": "#7a6f8f"}
@@ -102,8 +102,9 @@ def face(name, reg=None):
     """인물 대표 그림(있으면) 또는 색 동그라미."""
     reg = reg or registry(); key = NAME2KEY.get(name)
     if key:
-        files = [it["file"] for it in reg.get("items", {}).values() if it.get("actor") == key and it.get("file", "").endswith(".webp")]
-        pick = next((f for f in files if "calm" in f and "bust" in f), None) or next((f for f in files if "calm" in f), files[0] if files else None)
+        its = [(k, it["file"]) for k, it in reg.get("items", {}).items() if it.get("actor") == key and it.get("kind") == "actor" and it.get("file", "").endswith(".webp")]
+        rank = lambda kf: next((i for i, t in enumerate(["상반신-평온", "bust-calm", "서기-평온", "stand-calm", "calm", "평온"]) if t in kf[0] + kf[1] and "퇴근" not in kf[0]), 9)
+        pick = min(its, key=rank)[1] if its else None  # 정면 상반신 평온 먼저, 뒤돌기·손은 대표로 안 씀
         if pick: return f'<span class="face"><img src="/{E(pick)}" alt=""></span>'
     return f'<span class="face none" style="--c:{COLOR.get(name, "#999")}">{E(name[0])}</span>'
 
@@ -164,9 +165,10 @@ def assets_tab():
     for k, it in items.items():
         if it.get("kind") != "actor" and it.get("file", "").endswith((".webp", ".png", ".jpg")):
             rest.setdefault(it.get("kind", "기타"), []).append((k, it["file"]))
-    for kind, lst in sorted(rest.items()):
+    KIND = {"set": "세트", "prop": "소품", "hand": "손", "fx": "효과", "logo": "로고", "ui": "화면 요소"}
+    for kind, lst in sorted(rest.items(), key=lambda kv: list(KIND).index(kv[0]) if kv[0] in KIND else 99):
         grid = "".join(f'<figure><img loading="lazy" src="/{E(f)}" alt=""><figcaption>{E(k)}</figcaption></figure>' for k, f in lst)
-        out.append(f'<h2>{E(kind)} <span class="meta">{len(lst)}</span></h2><div class="grid">{grid}</div>')
+        out.append(f'<h2>{E(KIND.get(kind, kind))} <span class="meta">{len(lst)}</span></h2><div class="grid">{grid}</div>')
     return "".join(out)
 
 def overview(reqs):
@@ -174,7 +176,7 @@ def overview(reqs):
     open_r = [r for r in reqs if not r["answer"]]
     todo = "".join(f'<a class="todo" href="#decide"><b>{E(r["title"])}</b><span>{len(r.get("options",[]))}안 중 하나 고르기 →</span></a>' for r in open_r) \
         or '<p class="meta">지금 기다리는 결정이 없습니다.</p>'
-    drawn = sum(1 for n in CAST if NAME2KEY.get(n))
+    drawn = sum(1 for n in CAST if any(it.get("actor") == NAME2KEY.get(n) for it in reg.get("items", {}).values()))
     cast = "".join(f'<a class="mini" href="#people">{face(n, reg)}<span>{E(n)}</span></a>' for n in CAST)
     ms = (ROOT / "MILESTONE.md").read_text(encoding="utf-8")
     done, left = len(re.findall(r"^- \[x\]", ms, re.M)), re.findall(r"^- \[ \] (.+)$", ms, re.M)
