@@ -1,0 +1,18 @@
+{
+ "id": "2026-11-13-r05-art2",
+ "title": "「하나만요」 그림 — 도치 기준 조각 + 색 규칙 세트 10장",
+ "question": "색 규칙대로 다시 칠한 세트 10장과 도치 기준 조각입니다. 「전부 승인」이면 회사 벽 한 단 낮추기·대기실 CU 흰 판 두 가지만 고친 뒤 승인 처리하고 도치 얼굴판 시험으로 넘어갑니다.",
+ "source": "rules/color.md",
+ "options": [
+  {
+   "id": "go",
+   "title": "승인 (회사 벽·대기실 CU 흰 판만 고치고)",
+   "body": "#### ① 도치 실장 기준 조각\n\n![도치 실장 서기 (단체 그림 그대로)](kit/actors/hedgehog/hedgehog-서기-평온.webp)\n\n#### ② 넓은 세트 5장, 인물을 얹은 시험 컷 (그림을 누르면 크게)\n\n![현관 아침 (색 · 흑백)](kit/gen/out/trial/door-m-v3.jpg) ![현관 저녁 (색 · 흑백)](kit/gen/out/trial/door-m-evening.jpg) ![회사 (색 · 흑백)](kit/gen/out/trial/company-m-v2.jpg) ![분리수거장 밤 (색 · 흑백)](kit/gen/out/trial/recycle-m-v2.jpg) ![병원 대기실 (색 · 흑백)](kit/gen/out/trial/clinic-m-v2.jpg)\n\n#### ③ 클로즈업 배경 5장\n\n![현관 CU](kit/sets/door/CU/set-door-cu-g.jpg) ![회사 CU](kit/sets/company/CU/set-company-cu.jpg) ![분리수거장 CU 수거함 쪽(펭귄)](kit/sets/recycle/CU/set-recycle-cu-a.jpg) ![분리수거장 CU 빌라 담 쪽(부녀)](kit/sets/recycle/CU/set-recycle-cu-b.jpg) ![대기실 CU](kit/sets/clinic/CU/set-clinic-cu.jpg)\n\n#### 제가 본 것\n\n| 세트 | 벽 밝기 | 걸림 |\n|---|---|---|\n| 현관 아침·저녁 | 0.67 · 0.54 | 없음. 저녁은 창밖 주황과 등 켜짐으로 구분 |\n| 현관 CU | 0.45 | 「주스 세 잔」 승인본은 그대로 두고 새 이름으로 만들었습니다 |\n| 회사 | 0.91 | **목표(0.70)보다 밝습니다.** 귤주황은 원래 밝은 색이라 흑백판에선 중간 회색으로 나옵니다. 한 단 낮추려면 편집 한 번 |\n| 분리수거장 밤 | 0.27 | 등불이 얼굴 뒤 후광 자리. 클로즈업을 수거함 쪽·빌라 담 쪽 둘로 나눠 누가 어디 섰는지 보입니다 |\n| 대기실 | 0.72 | 없음 |\n| 대기실 CU | 0.76 | **흰 판이 화면의 31%**(규칙 15%). 판을 민트로 바꾸는 편집 한 번 |\n\n- 인물 크기·자리는 확인용 임시 합성입니다.\n- 옛 옅은 세트 7장은 이것으로 바꿨습니다(승인 전 draft라 지난 회차 영향 없음)."
+  },
+  {
+   "id": "fix",
+   "title": "고칠 것 적어서 보내기",
+   "body": "그림 이름과 고칠 것을 적어 주세요. 적은 것만 편집합니다."
+  }
+ ]
+}

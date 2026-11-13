@@ -3060,7 +3060,7 @@
    "anchor": {},
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Morning. The entrance hall inside a small old villa apartment, seen straight on at standing eye level, wide enough for two characters side by side: white front door on the left, low pale gray-blue shoe cabinet on the right, a small step down to the shoe area, coat hooks on the wall, soft morning daylight. Empty, no characters.",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: grass green #4FA34F, one step darker than before. Ceiling: a darker warm green #3F8F48 instead of white, so white covers under 15% of the frame. Floor and step: dark green #2F7D4A. Front door: deep teal #1F5F5B with white trim. Shoe cabinet and coat hooks: warm off-white. Doormat: golden yellow #F5C518, small. Morning sky in the window. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
@@ -3073,7 +3073,7 @@
    "anchor": {},
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Daytime. A small open-plan office, seen straight on: on the right a manager's desk with a computer monitor (blank pale screen) and an office chair behind it; on the left open standing space in front of the desk; a few file binders, a potted plant. Empty, no characters.",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: tangerine orange #F2A03D, mid value. Floor: darker orange step #C7742A. Desk, shelves and binders: warm off-white #F7F3EA. Office chair: deep teal #1F5F5B. Monitor: off-white with a blank pale screen. Plants green. Window keeps the bright desert view. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
@@ -3086,7 +3086,7 @@
    "anchor": {},
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Daytime. Close background for a chest-up shot in the same small office: the back of an office chair, the side of a blank computer monitor, a wall with a pale bulletin board behind. Empty, no characters.",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Wall: tangerine orange #F2A03D, bulletin board darker orange #C7742A, office chair back deep teal #1F5F5B, monitor and keyboard warm off-white. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
@@ -3099,20 +3099,7 @@
    "anchor": {},
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Night. The small outdoor recycling corner behind a villa building, seen straight on: a row of separate bins for plastic bottles, cans and paper along a pale wall, one warm bulb lamp above, dark navy night sky, pale concrete floor; wide enough for three characters standing in front of the bins. Empty, no characters.",
-   "ref": null,
-   "created": "2026-11-13",
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
-  },
-  "set-recycle-cu": {
-   "kind": "set",
-   "file": "kit/sets/recycle/CU/set-recycle-cu.jpg",
-   "w": 1152,
-   "h": 2048,
-   "anchor": {},
-   "status": "draft",
-   "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Night. Close background for a chest-up shot at the same villa recycling corner: part of a bottle bin and the pale wall, warm bulb light from above, dark navy sky at the top. Empty, no characters.",
+   "prompt": "Recolor the first attached image as a darker NIGHT, keeping exactly the same layout, objects, camera and paper layers; change only colors. Sky: deep navy #1E2A55. Back wall: dark teal #1F5F5B. Floor: darker teal #163F3C. Bins: warm off-white with darker teal lids. One warm amber lamp #F5B841 glowing above, casting a soft amber pool on the floor. The whole frame is dark (low value) except the lamp glow. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
@@ -3125,7 +3112,7 @@
    "anchor": {},
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Daytime. A hospital outpatient waiting area, seen straight on: a row of connected pale blue waiting chairs facing the camera, a blank queue number display panel on the wall (no numbers), a potted plant, clean white walls. Empty, no characters.",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: mint teal #59BFAE, mid-high value. Floor: darker teal step #2F8C7E. Waiting chairs: deep teal #1F5F5B seats with off-white frames. Shelf and door: warm off-white. Number display panel: off-white, blank. Warm window light. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
@@ -3138,7 +3125,7 @@
    "anchor": {},
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Daytime. Close background for a chest-up shot of someone seated in the same hospital waiting area: the backs of pale blue waiting chairs and a plain white wall with a blank display panel. Empty, no characters.",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Wall: mint teal #59BFAE, chair backs deep teal #1F5F5B, blank display panel off-white, floor strip darker teal #2F8C7E. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
    "ref": null,
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
@@ -3179,6 +3166,58 @@
    "created": "2026-11-13",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "hedgehog"
+  },
+  "set-door-m-evening": {
+   "kind": "set",
+   "file": "kit/sets/door/M/set-door-m-evening.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Recolor the first attached image as EVENING, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: deeper green #3F8F48, ceiling #2F6F3A, floor #24603A, ceiling lamp switched on with a warm glow, the window shows an orange sunset sky. Doormat golden yellow. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-door-cu-g": {
+   "kind": "set",
+   "file": "kit/sets/door/CU/set-door-cu-g.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Recolor the first attached image, keeping exactly the same layout, objects, camera and paper layers; change only colors. Walls: grass green #4FA34F mid value, floor dark green #2F7D4A, door deep teal #1F5F5B with white trim. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-recycle-cu-a": {
+   "kind": "set",
+   "file": "kit/sets/recycle/CU/set-recycle-cu-a.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "NIGHT close background for a chest-up shot, same place as the attached wide image (the bin side): a row of off-white recycling bins with darker teal lids filling the lower half, dark teal wall #1F5F5B behind, deep navy sky #1E2A55 at the top, one warm amber lamp glow #F5B841 high on the left that would sit behind a head as a halo. Low value overall. Empty, no characters. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+  },
+  "set-recycle-cu-b": {
+   "kind": "set",
+   "file": "kit/sets/recycle/CU/set-recycle-cu-b.jpg",
+   "w": 1152,
+   "h": 2048,
+   "anchor": {},
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "NIGHT close background for a chest-up shot, same place as the attached wide image (the villa side, opposite the bins): the villa's dark teal wall #1F5F5B with a small lit window square (warm amber) and a potted cactus, deep navy sky #1E2A55 with a thin moon at the top, warm amber lamp glow #F5B841 high on the right. Low value overall. No bins. Empty, no characters. No blue or gray-blue on walls, floor or large furniture. White only on thin trims. Shadows are a darker step of the same color. Bold, saturated, clear value contrast; never pastel, never washed out.",
+   "ref": null,
+   "created": "2026-11-13",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
   }
  },
  "music": {
