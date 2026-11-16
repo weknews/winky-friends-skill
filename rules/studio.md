@@ -6,7 +6,7 @@
 
 1. 화면이 안 떠 있으면 `python3 engine/studio.py serve`를 **백그라운드로** 띄우고 `open http://localhost:8765`(Windows `start`).
 2. 요청을 `studio/requests/<날짜>-<회차>-<무엇>.json`에 쓴다(아래 2절 규칙).
-3. `python3 engine/studio.py wait <id>`를 **백그라운드로** 돌린다. 사람이 고르면 답(`choice`·`reason`)을 출력하고 끝난다. 시간이 다 되면 종료 코드 2 — 다시 돌린다. 기다리는 동안 채팅으로 같은 질문을 되풀이하지 않는다.
+3. `python3 engine/studio.py wait <id>`를 **백그라운드로** 돌린다. 사람이 고르면 답(`choice`·`reason`)을 출력하고 끝난다. 시간이 다 되면 종료 코드 2 — 다시 돌린다. 없는 id면 바로 종료 코드 1. 기다리는 동안 채팅으로 같은 질문을 되풀이하지 않는다.
 4. 답은 `studio/answers/<id>.json`에 남는다. 대본이면 고른 이유를 대본 맨 위에 옮긴다. 사람이 채팅으로 답하면 같은 모양으로 답 파일을 써 둔다(`"reason": "(채팅) …"`).
 5. `engine/studio.py`를 고쳤으면 서버를 껐다가 다시 띄운다. 보는 중인 화면은 저절로 새로 고치지 않고 「새 내용이 있습니다」 띠만 띄운다.
 6. 화면을 바꿨으면 사람에게 「올렸다」고 말하기 전에 Chrome으로 직접 열어 확인한다(데스크톱 폭과 폰 폭 390px).
@@ -39,9 +39,19 @@
 cd episodes/<회차>
 WINKY_PREVIEW_DRAFTS=1 python3 ../../engine/build.py   # draft 그림까지 붙인 미리 보기(check 16은 계속 draft를 잡는다)
 python3 ../../engine/sound.py && node ../../engine/thumbshot.mjs && python3 ../../engine/render.py
-mkdir -p ../../kit/gen/out/<회차>-frames/v<N> && cp out/<회차>.mp4 ../../kit/gen/out/<회차>-frames/v<N>/
+mkdir -p ../../kit/gen/out/<회차>-frames/v<N> && cp out/<회차>-preview.mp4 ../../kit/gen/out/<회차>-frames/v<N>/
 ```
+
+미리 보기로 build 한 장면은 `render.py`가 `out/<회차>-preview.mp4`로 낸다. `out/<회차>.mp4`(스튜디오 「완성 영상」)는 정식 렌더만 쓴다.
 
 1. 요청 `body`: 미리 보기 영상 하나, 짚을 장면 `**N초**` 목록, draft 그림(캡션에 이름). 안은 `go`(승인하고 마무리)와 `fix`(고칠 것 적어 보내기).
 2. 답이 `go`면 **사람이 승인한 것만** `python3 engine/register.py approve <이름…> --by <승인자>`. 에이전트가 스스로 approve 하지 않는다.
-3. 환경 변수 없이 `build.py` → `check.py`(실패 0) → `sound.py` → `thumbshot` → `render.py`로 정식 렌더.
+3. 환경 변수 없이 `build.py` → `check.py`(실패 0) → `sound.py` → `thumbshot` → `render.py`로 정식 렌더. 순서를 건너뛰면 `render.py`가 멈추고 다시 돌릴 명령을 알려 준다.
+
+## 5. 상태 (파일이 곧 상태다)
+
+| 무엇 | 상태 | 어디서 보나 | 바꾸는 것 |
+|---|---|---|---|
+| 결정 요청 | 열림 → 답함(한 번만) → 거둠 | `requests/<id>.json`만 있음 → `answers/<id>.json` 있음 → 요청을 `studio/archive/`로 옮김 | 화면의 단추(또는 채팅 답을 옮겨 적기). 답한 요청에 다시 보내면 409로 막힌다. 다시 물을 때는 새 id |
+| 그림·음원 | draft → approved (`--replace`면 다시 draft) | `kit/registry.json`의 `status` | `engine/register.py`만. 승인은 사람 답이 `go`일 때 |
+| 회차 | build → check → sound → thumbshot → render | 회차 폴더 파일 시각(결과가 재료보다 새것), 미리 보기는 `scene.json`의 `preview` | 각 스크립트. `render.py`가 순서를 확인 |

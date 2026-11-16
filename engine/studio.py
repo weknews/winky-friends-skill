@@ -16,7 +16,7 @@ studio/answers/<id>.json 이 생기고, 백그라운드로 돌던 `wait` 가 그
   - 안 id "fix" 는 메모가 있어야 보내진다. 안이 3개 이하면 맨 아래 바의 단추로, 4개 이상이면 카드에서 고른다
 표준 라이브러리만 쓴다. localhost 에만 붙는다.
 """
-import subprocess, html, json, re, sys, time, os, urllib.parse
+import subprocess, html, json, re, sys, threading, time, os, urllib.parse
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
@@ -97,13 +97,28 @@ def requests():
         out.append(r)
     return out
 
+def refuse(req, data, answered):
+    """요청 상태: 열림 → 답함(한 번만). 받을 수 없는 답이면 (코드, 까닭), 받을 수 있으면 None."""
+    if req is None: return 400, "요청 없음"
+    if answered: return 409, "이미 답한 요청"     # 에이전트가 첫 답으로 이미 움직였다. 덮어쓰면 아무도 모른다
+    ids = [o["id"] for o in req.get("options", [])]
+    if ids and data.get("choice") not in ids: return 400, "없는 안"
+    if data.get("choice") == "fix" and not (data.get("reason") or "").strip(): return 400, "고칠 것을 적어 주세요"
+
+_R = {"options": [{"id": "go"}, {"id": "fix"}]}
+assert refuse(_R, {"choice": "go"}, False) is None and refuse(_R, {"choice": "go"}, True)[0] == 409 and refuse(None, {}, False)[0] == 400
+assert refuse(_R, {"choice": "x"}, False)[0] == 400 and refuse(_R, {"choice": "fix", "reason": " "}, False)[0] == 400 and refuse(_R, {"choice": "fix", "reason": "0:48 입"}, False) is None
+
+ANSWERING = threading.Lock()
 def answer(data):
-    rid = re.sub(r"[^\w.-]", "", data.get("id", ""))
-    if not (REQ / f"{rid}.json").exists(): return False
-    ANS.mkdir(parents=True, exist_ok=True)
-    data["at"] = time.strftime("%Y-%m-%d %H:%M")
-    (ANS / f"{rid}.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-    return True
+    rid = re.sub(r"[^\w.-]", "", data.get("id", "")); rf, af = REQ / f"{rid}.json", ANS / f"{rid}.json"
+    with ANSWERING:
+        no = refuse(json.loads(rf.read_text(encoding="utf-8")) if rid and rf.exists() else None, data, af.exists())
+        if no: return no
+        ANS.mkdir(parents=True, exist_ok=True)
+        data["at"] = time.strftime("%Y-%m-%d %H:%M")
+        tmp = af.with_suffix(".tmp"); tmp.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8"); os.replace(tmp, af)   # wait가 반쯤 쓴 답을 읽지 않게
+    return 200, "ok"
 
 NAME2KEY = {"윙키": "winky", "곰 아빠": "bear", "판다": "panda", "펭귄 선생님": "penguin", "거북 여사": "turtle", "너구리 대리": "raccoon", "고양이 사장": "cat", "다람쥐 코치": "squirrel", "도치 실장": "hedgehog"}
 CAST = ["윙키", "곰 아빠", "판다", "펭귄 선생님", "거북 여사", "너구리 대리", "고양이 사장", "다람쥐 코치", "도치 실장"]
@@ -468,13 +483,14 @@ const choice=b.dataset.o||picked[id]||null;
 if(!choice){p.dataset.lock=1;p.textContent='위 카드에서 안을 먼저 골라 주세요.';return}
 if(b.dataset.need==='1'&&!reason){p.dataset.lock=1;p.textContent='무엇을 고칠지 적거나, 그림의 [고칠 것]·영상 초를 눌러 주세요.';memo(box.closest('.req')).focus();return}
 $$('button',box).forEach(x=>x.disabled=true);
-const r=await fetch('/answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,choice,reason})});
+const r=await fetch('/answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,choice,reason})}).catch(()=>({ok:false}));
+if(r.status===409){box.innerHTML='<p class="sent">이미 답한 요청입니다. 「새로 보기」를 눌러 주세요.</p>';document.getElementById('fresh').hidden=false;return}
 if(!r.ok){$$('button',box).forEach(x=>x.disabled=false);p.dataset.lock=1;p.textContent='저장하지 못했습니다. 서버가 켜져 있는지 봐 주세요.';return}
 const title=b.dataset.o?b.textContent:(document.querySelector('#o-'+CSS.escape(id)+'-'+CSS.escape(choice)+' .num')?.textContent.replace('을 고르면','')||choice);
 box.innerHTML='<p class="sent">✓ '+new Date().toTimeString().slice(0,5)+' 「'+title+'」 보냄 · 에이전트가 이어서 작업합니다</p>';ver=null}
-/* 새 내용: 보는 중엔 새로고침하지 않고 띠만 띄운다(다른 탭에 있을 때만 바로 새로고침) */
+/* 새 내용: 보는 중엔 새로고침하지 않고 띠만 띄운다(다른 탭에 있고 쓰던 메모가 없을 때만 바로 새로고침) */
 let ver=null;setInterval(async()=>{try{const v=await (await fetch('/version')).text();
-if(ver&&v!==ver){if(document.hidden)location.reload();else document.getElementById('fresh').hidden=false}ver=v}catch(e){}},2000);
+if(ver&&v!==ver){if(document.hidden&&!$$('.act textarea').some(t=>t.value.trim()))location.reload();else document.getElementById('fresh').hidden=false}ver=v}catch(e){}},2000);
 """
 
 def version():  # 화면에 보이는 파일이 바뀌면 값이 바뀐다
@@ -507,8 +523,7 @@ class H(BaseHTTPRequestHandler):
     def do_POST(self):
         if self.path != "/answer": return self.send(404, "없음", "text/plain; charset=utf-8")
         data = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
-        ok = answer(data)
-        self.send(200 if ok else 400, "ok" if ok else "요청 없음", "text/plain; charset=utf-8")
+        self.send(*answer(data), "text/plain; charset=utf-8")
 
 def main():
     args = sys.argv[1:]
@@ -521,6 +536,7 @@ def main():
     elif cmd == "wait":
         rid = args[1]; limit = float(args[args.index("--timeout") + 1]) if "--timeout" in args else 3600
         end = time.time() + limit; f = ANS / f"{rid}.json"
+        if not f.exists() and not (REQ / f"{rid}.json").exists(): sys.exit(f"요청 {rid} 가 없다(studio/requests/{rid}.json). id를 확인한다")   # 틀린 id로 한 시간 기다리지 않게
         while time.time() < end:
             if f.exists(): print(f.read_text(encoding="utf-8")); return
             time.sleep(1)

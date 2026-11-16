@@ -102,6 +102,8 @@ node ../../engine/thumbshot.mjs     # → out/thumb.png, 글자·로고가 안�
 python3 ../../engine/render.py      # hyperframes render → out/raw.mp4, 썸네일·소리·표지를 붙여 out/<회차 폴더 이름>.mp4 (50초 영상이면 렌더·붙이기 약 50초, 맥)
 ```
 
+`render.py`는 순서를 확인한다: `episode.py`·레지스트리가 build 뒤에 바뀌었거나, 지금 장면으로 통과한 check가 없거나, 소리·썸네일이 오래됐으면 렌더하지 않고 다시 돌릴 명령을 알려 준다. 미리 보기 장면(`WINKY_PREVIEW_DRAFTS=1`)은 check 없이 `out/<회차>-preview.mp4`로 나온다.
+
 맨 앞 0.4초가 썸네일이라 첫 프레임 = 썸네일이고, 같은 그림이 mp4 표지(attached_pic)로 들어간다. 완성 파일에서 프레임을 다시 뽑아(`ffmpeg -ss`) 확인판을 만들고, 음량을 다시 잰다.
 
 ## 8. 올릴 때 (Stream 썸네일)

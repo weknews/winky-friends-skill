@@ -53,18 +53,22 @@ def add(o):
     r["items"][o.name] = e; save(r); print("draft 등록", o.name, rel, f"{out.width}×{out.height}")
 
 def music(o):
-    r = load(); rel = f"kit/music/{o.name}.wav"; shutil.copy(o.src, os.path.join(ROOT, rel))
+    r = load(); rel = f"kit/music/{o.name}.wav"
+    if r["music"].get(o.name, {}).get("status") == "approved" and not o.replace:      # add와 같은 관문: 승인된 정식 음원을 말없이 덮지 않는다
+        sys.exit(f"{o.name} 은 이미 승인된 음원이다. 바꾸려면 --replace (PR에서 이유를 적는다)")
+    shutil.copy(o.src, os.path.join(ROOT, rel))
     r["music"][o.name] = dict(kind="music", role=o.role, file=rel, sha256=hashlib.sha256(open(o.src, "rb").read()).hexdigest(), bytes=os.path.getsize(o.src),
                               suno_clip=o.clip, status="draft", source="Suno Pro, 정식 테마 theme-a를 reference로(rules/music.md)", created=datetime.date.today().isoformat(), license=ASSET_LICENSE)
     save(r); print("음원 draft 등록", o.name)
 
 def approve(o):
-    r = load()
+    r = load(); new = []
     for n in o.names:
         e = r["items"].get(n) or r["music"].get(n)
         if not e: sys.exit(f"{n} 없음")
-        e["status"] = "approved"; e["approved"] = f"{datetime.date.today().isoformat()} {o.by}"
-    save(r); print("승인", *o.names)
+        if e["status"] == "approved": print(f"{n} 은 이미 승인됨({e.get('approved', '-')}), 그대로 둔다"); continue   # 처음 승인한 사람·날짜를 덮지 않는다
+        e["status"] = "approved"; e["approved"] = f"{datetime.date.today().isoformat()} {o.by}"; new.append(n)
+    if new: save(r); print("승인", *new)
 
 def sheet(o):
     r = load(); ds = [(n, e) for n, e in r["items"].items() if e["status"] == "draft"]
@@ -90,7 +94,7 @@ if __name__ == "__main__":
     a.add_argument("--actor"); a.add_argument("--set"); a.add_argument("--key", default="magenta", choices=["magenta", "blue", "none"])
     a.add_argument("--mm"); a.add_argument("--size-class"); a.add_argument("--anchor"); a.add_argument("--family"); a.add_argument("--file")
     a.add_argument("--prompt-file"); a.add_argument("--ref"); a.add_argument("--source"); a.add_argument("--replace", action="store_true"); a.set_defaults(f=add)
-    m = sp.add_parser("music"); m.add_argument("name"); m.add_argument("src"); m.add_argument("--role", required=True, choices=["theme", "bed", "stings", "sting", "end"]); m.add_argument("--clip", required=True); m.set_defaults(f=music)
+    m = sp.add_parser("music"); m.add_argument("name"); m.add_argument("src"); m.add_argument("--role", required=True, choices=["theme", "bed", "stings", "sting", "end"]); m.add_argument("--clip", required=True); m.add_argument("--replace", action="store_true"); m.set_defaults(f=music)
     v = sp.add_parser("approve"); v.add_argument("names", nargs="+"); v.add_argument("--by", required=True); v.set_defaults(f=approve)
     s = sp.add_parser("sheet"); s.add_argument("--out", default="review/drafts.jpg"); s.set_defaults(f=sheet)
     l = sp.add_parser("list"); l.add_argument("part", nargs="?"); l.add_argument("--status"); l.set_defaults(f=lst)

@@ -616,6 +616,7 @@ exec(compile(open(os.path.join(EP, "episode.py"), encoding="utf-8").read(), os.p
 
 if __name__ == "__main__":
     sc = build()
+    if os.environ.get("WINKY_PREVIEW_DRAFTS"): sc["preview"] = True       # 미리 보기 표시: render.py가 정식 파일 이름을 쓰지 않는다(정식 장면은 그대로)
     json.dump(sc, open(os.path.join(HERE, "scene.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     open(os.path.join(HERE, "scene.js"), "w", encoding="utf-8").write("window.SCENE=" + json.dumps(sc, ensure_ascii=False) + ";window.KIT=" + json.dumps(K, ensure_ascii=False) + ";")
     for c in sc["cuts"]:
