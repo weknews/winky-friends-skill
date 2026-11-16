@@ -65,6 +65,9 @@ for C in S["cuts"]:
     for l in chars:
         f0 = l["frames"][0]; p = l["pl"][f0]
         if cam == "CU" and "상반신" in f0: ok(abs(p["y"] - B.PRESET["CU"]["head_top"]) <= 4, 3, f"컷{n} {f0} 머리끝 y 300")
+        if cam == "CU":                             # 2026-11-16 미르님 「상반신 하단이 잘려」: 상반신은 화면 아래 끝까지 몸이 이어져야 한다(떠 보이지 않게)
+            for f, q in l["pl"].items():
+                if "상반신" in f: ok(q["y"] + q["h"] >= 1920 - 2, 3, f"컷{n} {f} 아래 끝 y {q['y'] + q['h']:.0f} ≥ 1920(그림을 아래로 늘린다: winky-assets 「상반신」)")
         else: ok(abs(p["y"] + p["h"] - l["foot"]) <= 4, 3, f"컷{n} {f0} 발끝 y {l['foot']:.0f}")
     # 4 자리
     for l in chars:

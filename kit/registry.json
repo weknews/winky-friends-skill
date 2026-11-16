@@ -566,166 +566,162 @@
   },
   "penguin-상반신-평온": {
    "kind": "actor",
-   "actor": "penguin",
    "file": "kit/actors/penguin/penguin-bust-calm.webp",
-   "w": 859,
-   "h": 862,
-   "family": "penguin-상반신-평온",
+   "w": 876,
+   "h": 1506,
    "anchor": {
     "face": [
-     180,
+     198,
      200,
-     620,
+     638,
      380
     ],
-    "cx": 406,
+    "cx": 424,
     "head": [
-     56,
+     74,
      0,
-     706,
+     724,
      440
     ],
     "torso": [
-     0,
-     859
+     18,
+     877
     ],
     "fan": [
-     560,
+     578,
      340,
-     800,
+     818,
      720
     ],
     "scale": "head"
    },
-   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
-   "status": "approved",
-   "approved": "2026-11-11 ep01 9e판",
-   "prompt": null,
-   "ref": null,
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "[2026-11-16] 몸을 화면 아래 끝까지 늘림: kit/gen/out/penguin-bust-ext.png(Codex 편집) 위에 원래 그림을 그대로 얹음.",
+   "ref": "kit/gen/out/penguin-bust-ext.png",
+   "created": "2026-11-16",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin"
   },
   "penguin-상반신-말하기": {
    "kind": "actor",
-   "actor": "penguin",
    "file": "kit/actors/penguin/penguin-bust-talk.webp",
-   "w": 859,
-   "h": 862,
-   "family": "penguin-상반신-평온",
-   "patched": true,
+   "w": 876,
+   "h": 1506,
    "anchor": {
     "face": [
-     180,
+     198,
      200,
-     620,
+     638,
      380
     ],
-    "cx": 406,
+    "cx": 424,
     "head": [
-     56,
+     74,
      0,
-     706,
+     724,
      440
     ],
     "torso": [
-     0,
-     859
+     18,
+     877
     ],
     "fan": [
-     560,
+     578,
      340,
-     800,
+     818,
      720
     ],
     "scale": "head"
    },
-   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
-   "status": "approved",
-   "approved": "2026-11-11 ep01 9e판",
-   "prompt": null,
-   "ref": null,
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "[2026-11-16] 몸을 화면 아래 끝까지 늘림: kit/gen/out/penguin-bust-ext.png(Codex 편집) 위에 원래 그림을 그대로 얹음.",
+   "ref": "kit/gen/out/penguin-bust-ext.png",
+   "created": "2026-11-16",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin",
+   "family": "penguin-상반신-평온"
   },
   "penguin-상반신-눈감음": {
    "kind": "actor",
-   "actor": "penguin",
    "file": "kit/actors/penguin/penguin-bust-blink.webp",
-   "w": 859,
-   "h": 862,
-   "family": "penguin-상반신-평온",
-   "patched": true,
+   "w": 876,
+   "h": 1506,
    "anchor": {
     "face": [
-     180,
+     198,
      200,
-     620,
+     638,
      380
     ],
-    "cx": 406,
+    "cx": 424,
     "head": [
-     56,
+     74,
      0,
-     706,
+     724,
      440
     ],
     "torso": [
-     0,
-     859
+     18,
+     877
     ],
     "fan": [
-     560,
+     578,
      340,
-     800,
+     818,
      720
     ],
     "scale": "head"
    },
-   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
-   "status": "approved",
-   "approved": "2026-11-11 ep01 9e판",
-   "prompt": null,
-   "ref": null,
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "[2026-11-16] 몸을 화면 아래 끝까지 늘림: kit/gen/out/penguin-bust-ext.png(Codex 편집) 위에 원래 그림을 그대로 얹음.",
+   "ref": "kit/gen/out/penguin-bust-ext.png",
+   "created": "2026-11-16",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin",
+   "family": "penguin-상반신-평온"
   },
   "penguin-상반신-부채2": {
    "kind": "actor",
-   "actor": "penguin",
    "file": "kit/actors/penguin/penguin-bust-fan2.webp",
-   "w": 859,
-   "h": 862,
-   "family": "penguin-상반신-평온",
-   "patched": false,
+   "w": 876,
+   "h": 1505,
    "anchor": {
     "face": [
-     180,
+     198,
      200,
-     620,
+     638,
      380
     ],
-    "cx": 406,
+    "cx": 424,
     "head": [
-     56,
+     74,
      0,
-     706,
+     724,
      440
     ],
     "torso": [
-     0,
-     859
+     18,
+     877
     ],
     "fan": [
-     560,
+     578,
      340,
-     800,
+     818,
      720
     ],
     "scale": "head"
    },
-   "source": "series-kit/gen (Codex Images 2.6, kit/gen/gen.sh) → ep01-v9 prep.py",
-   "status": "approved",
-   "approved": "2026-11-11 ep01 9e판",
-   "prompt": null,
-   "ref": null,
-   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)"
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "[2026-11-16] 몸을 화면 아래 끝까지 늘림: kit/gen/out/penguin-bust-ext.png(Codex 편집) 위에 원래 그림을 그대로 얹음.",
+   "ref": "kit/gen/out/penguin-bust-ext.png",
+   "created": "2026-11-16",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin",
+   "family": "penguin-상반신-평온"
   },
   "bear-들기-웃음": {
    "kind": "actor",
@@ -4974,31 +4970,31 @@
   "winky-상반신상자-놀람": {
    "kind": "actor",
    "file": "kit/actors/winky/winky-상반신상자-놀람.webp",
-   "w": 1000,
-   "h": 1489,
+   "w": 820,
+   "h": 1495,
    "anchor": {
-    "cx": 499,
+    "cx": 409,
     "head": [
-     88,
-     393,
-     888,
-     953
+     72,
+     321,
+     728,
+     780
     ],
     "face": [
-     258,
-     683,
-     728,
-     953
+     212,
+     559,
+     597,
+     780
     ],
     "torso": [
-     60,
-     940
+     49,
+     771
     ],
     "scale": "head"
    },
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "IMAGE: WINKY the young desert fox, same character, face, colors and paper-craft texture as the attached references. Waist-up close-up portrait, front view, head large in frame, a stack of flattened brown cardboard delivery boxes hugged against the chest fills the bottom of the frame and is cut off by the bottom edge. Comic double-take of shock: both big ears shot straight up and stiff, eyes wide open and perfectly round with small clean white highlights (same eye style as the surprised reference), small round open mouth, cheek fur slightly puffed. Plain boxes, no text. Empty magenta background, character centered, head top about 10% from the top edge.",
+   "prompt": "Edit the attached guide image: the character's body is cut off and floats. Continue the body and the stack of cardboard boxes DOWNWARD into the empty magenta area so they reach the very bottom edge of the image (a waist-up portrait cropped by the bottom frame edge: add one more plain box at the bottom of the stack and the fox's belly and arms behind it, no legs, no feet, no floor). Keep the character's head, ears, face, paws, boxes, colors, paper-craft texture, size and position exactly the same as the attached guide; same magenta background. Plain boxes, no text.",
    "ref": "kit/actors/winky/winky-stand-surprise.webp",
    "created": "2026-11-16",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
