@@ -47,7 +47,8 @@ SETS = {
              "M": dict(bg="set-door-m", floor=1560)},                     # M2 두 사람 현관. 저녁은 컷의 bg="set-door-m-evening"
  # M2 새 세트(배경이 1080 폭에 z 1.0). floor = 발끝 y(앞쪽 바닥), seat = 앉기 조각 발끝 y(의자·벤치 높이), front = 앉은 인물 앞에 다시 그리는 배경 상자(책상)
  # ponytail: floor·seat·front는 그림을 보고 잰 값이다. 세트 그림이 바뀌면 다시 잰다
- "company": {"M": dict(bg="set-company-m", floor=1330, seat=1110, front=(400, 966, 1080, 1330), z=1.15, ppm=0.62), "CU": dict(bg="set-company-cu", z=1.0)},   # company M은 당겨 찍기(빈 바닥을 줄이고 두 사람을 크게)
+ "company": {"M": dict(bg="set-company-m", floor=1330, seat=1110, front=(400, 966, 1080, 1330), z=1.15, ppm=0.62, chair_x=815),   # chair_x: 의자 등받이 가운데(check 18)
+            "CU": dict(bg="set-company-cu", z=1.0)},   # company M은 당겨 찍기(빈 바닥을 줄이고 두 사람을 크게)
  "recycle": {"M": dict(bg="set-recycle-m", floor=1560), "CU": dict(bg="set-recycle-cu-a", z=1.0)},
  "clinic":  {"M": dict(bg="set-clinic-m", floor=1580, seat=1575), "CU": dict(bg="set-clinic-cu", z=1.0)},
  "kitchen": {"M": dict(bg="set-kitchen-w", ref="조리대 윗면 905·밑선 1310 (850mm)", ppm0=405 / 850, base=1310),
@@ -60,8 +61,11 @@ SETS = {
 # ── 3. 프리셋 (KIT-SPEC 2절). M은 7판에서 바꿨다(ep01-v7 README 「기획과 다르게 한 것」 1)
 PRESET = {
  "M":  dict(ppm=0.54, pos={"좌": 200, "중": 540, "우": 880, "좌2": 290, "우2": 790}),   # M2: 좌2·우2 = 두 사람 컷
- "CU": dict(ppm={"winky": 1.40}, head_top=300, bust_head_px=770),
+ "CU": dict(ppm={"winky": 1.40}, head_top=300, bust_head_px=770, bust_head_max=1000),
 }
+# 클로즈업 상반신 규격(2026-11-16 미르님 「모든 캐릭터가 같은 수준의 상반신 위치」): 그림 위 끝 y 300, 머리 폭 770 기준.
+# 그림이 짧아 아래 끝이 화면 끝(1920)에 못 미치면 닿을 때까지 키운다(머리 폭 1000까지). 늘려 붙이지 않는다. 그래도 모자라면 그림을 규격대로 다시(check 3)
+def bust_k(a): return max(PRESET["CU"]["bust_head_px"] / (a["anchor"]["head"][2] - a["anchor"]["head"][0]), (1920 - PRESET["CU"]["head_top"]) / a["h"])
 SAFE = dict(l=60, r=1020, t=200, b=1700)
 SUB = dict(y0=1500, y1=1700, px=68, lineh=100)
 TAG_AT = {"좌하": (350, 1340), "우하": (730, 1340), "좌상": (350, 420)}   # M2 좌상: 몸이 화면 아래를 채우는 컷(밤 분리수거장)      # 9판: 자막 띠 바로 위(사양 1250에서 시작하면 3인 컷 가운데 윙키를 가린다)
@@ -185,7 +189,7 @@ def build():
             first = fam_frame(who, seq[0][1])
             if cam == "CU":
                 if K[first]["anchor"].get("scale") == "head" and "상반신" in first:   # 상반신: 머리 폭 770px, 머리끝 y 300
-                    a = K[first]["anchor"]; k = PRESET["CU"]["bust_head_px"] / (a["head"][2] - a["head"][0])
+                    a = K[first]["anchor"]; k = bust_k(K[first])
                     ppm = k * (a["head"][2] - a["head"][0]) / REG["char"][who]["headW"]; foot = None
                 else:
                     ppm = PRESET["CU"]["ppm"][who]; foot = PRESET["CU"]["head_top"] + REG["char"][who]["h"] * ppm
@@ -225,7 +229,7 @@ def build():
                     if extra in K and extra not in names and K[extra].get("family") == K[n].get("family"): names.append(extra)
             pl = {}
             for n in names:
-                a = K[n]; an = a["anchor"]; k = piece_scale(n, who, C["ppm"]) if not (cam == "CU" and "상반신" in n) else PRESET["CU"]["bust_head_px"] / (an["head"][2] - an["head"][0])
+                a = K[n]; an = a["anchor"]; k = piece_scale(n, who, C["ppm"]) if not (cam == "CU" and "상반신" in n) else bust_k(a)
                 w, h = a["w"] * k, a["h"] * k
                 if cam == "CU" and "상반신" in n: top = PRESET["CU"]["head_top"]
                 else: top = C["foot"] - h

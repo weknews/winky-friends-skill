@@ -1,0 +1,12 @@
+{
+ "id": "2026-11-16-r05-video5",
+ "title": "클로즈업 상반신 규격 — 「하나만요」 4차(4) + 1화 펭귄",
+ "question": "모든 클로즈업을 같은 규격(그림 위 끝 y 300, 아래 끝 화면 끝)으로 다시 놓았습니다. 53초 윙키와 1화 35초 펭귄이 자연스러운지 봐 주세요. 늘려 붙인 그림은 모두 버렸고, 펭귄은 승인된 전신 그림을 규격 선으로 잘라 다시 그렸습니다.",
+ "source": "engine/build.py",
+ "body": "![「하나만요」 4차(4) 미리 보기](kit/gen/out/r05-frames/v8/r05-hanaman-preview.mp4)\n\n- **35초** 「그럼요, 다 물어…」 → 열두 줄 보고 기겁\n- **53초** 판다 정지 → 윙키 교차 컷(늘리기 전 원본, 화면 끝까지)\n- **29초** 퇴근 펭귄 클로즈업(원래 규격 안이라 그대로)\n\n#### 1화 「주스 세 잔」 미리 보기 — 35초 진료지침 컷 펭귄\n\n![1화 미리 보기](kit/gen/out/r05-frames/v8/ep01-fruit-juice-preview.mp4)\n\n#### 펭귄 상반신 4장 (규격대로 다시)\n\n![penguin-상반신-평온](kit/actors/penguin/penguin-bust-calm.webp) ![penguin-상반신-말하기](kit/actors/penguin/penguin-bust-talk.webp) ![penguin-상반신-눈감음](kit/actors/penguin/penguin-bust-blink.webp) ![penguin-상반신-부채2](kit/actors/penguin/penguin-bust-fan2.webp)\n\n#### 「하나만요」 새 그림 3장\n\n![winky-상반신상자-놀람](kit/actors/winky/winky-상반신상자-놀람.webp) ![penguin-퇴근-상반신-기겁](kit/actors/penguin/penguin-퇴근-상반신-기겁.webp) ![winky-상자-평온](kit/actors/winky/winky-상자-평온.webp)",
+ "options": [
+  {"id": "go", "title": "그림 7장 승인하고 두 회차 정식 렌더", "body": "- 펭귄 상반신 4장(1화), `winky-상반신상자-놀람`, `penguin-퇴근-상반신-기겁`, `winky-상자-평온`\n- 엔진 클로즈업 규격(`bust_k`), check 3(아래 끝·머리 폭), check 18(윙키·의자)"},
+  {"id": "fix", "title": "고칠 것 적어서 보내기", "body": "그림의 [고칠 것]이나 영상 초 단추로 짚어 주세요."}
+ ],
+ "after": "#### 클로즈업 상반신 규격\n\n| | 정한 것 |\n|---|---|\n| 화면 | 그림 위 끝 y 300, 머리 폭 770 기준. 그림이 짧아 아래 끝이 화면 끝에 못 미치면 닿을 때까지 키운다(머리 폭 1000까지) |\n| 그림 만들기 | 다 그린 뒤 늘려 붙이지 않는다. 승인된 전신을 규격 선으로 잘라 같은 구도로 다시 그린다. 키 큰 인물은 가슴께, 짧고 동그란 인물은 발 근처에서 잘린다 |\n| 막는 장치 | check 3(아래 끝 ≥ 1920, 머리 폭 ≤ 1000), winky-assets 「상반신」, 지적 장부 `rules/lessons.md` |\n\n지금 클로즈업 머리 폭: 곰 770 · 판다 770 · 도치 770 · 퇴근 펭귄 770 · 1화 펭귄 893 · 윙키 870.\n\n#### 같은 실수를 막는 장치 (지적 장부)\n\n세 스킬이 시작 전에 `rules/lessons.md`를 읽고, 지적을 고칠 때마다 막는 장치(검사 > 엔진 기본값 > 생성 잠금 > 규칙)를 같이 넣습니다. 이번에 새로 넣은 것: check 18(윙키 한 컷 이상, 앉은 인물은 세트 의자 가운데), 판다 눈 무늬 생성 잠금, 의료인 대사 규칙, 그림 올리기 전 얼굴 확대 확인."
+}

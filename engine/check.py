@@ -67,7 +67,9 @@ for C in S["cuts"]:
         if cam == "CU" and "상반신" in f0: ok(abs(p["y"] - B.PRESET["CU"]["head_top"]) <= 4, 3, f"컷{n} {f0} 머리끝 y 300")
         if cam == "CU":                             # 2026-11-16 미르님 「상반신 하단이 잘려」: 상반신은 화면 아래 끝까지 몸이 이어져야 한다(떠 보이지 않게)
             for f, q in l["pl"].items():
-                if "상반신" in f: ok(q["y"] + q["h"] >= 1920 - 2, 3, f"컷{n} {f} 아래 끝 y {q['y'] + q['h']:.0f} ≥ 1920(그림을 아래로 늘린다: winky-assets 「상반신」)")
+                if "상반신" not in f: continue
+                hw = (K[f]["anchor"]["head"][2] - K[f]["anchor"]["head"][0]) * q["k"]
+                ok(q["y"] + q["h"] >= 1920 - 2 and hw <= B.PRESET["CU"]["bust_head_max"] + 1, 3, f"컷{n} {f} 아래 끝 {q['y'] + q['h']:.0f} ≥ 1920, 머리 폭 {hw:.0f} ≤ {B.PRESET['CU']['bust_head_max']}(짧으면 그림을 상반신 규격대로 다시: winky-assets 「상반신」)")
         else: ok(abs(p["y"] + p["h"] - l["foot"]) <= 4, 3, f"컷{n} {f0} 발끝 y {l['foot']:.0f}")
     # 4 자리
     for l in chars:
@@ -277,6 +279,17 @@ for C in S["cuts"]:
     for x in C["texts"]:
         for r in x.get("rows", []):
             for st in r.get("strips", []): ok(B.REGISTRY["items"].get(st[0], {}).get("status") == "approved", 16, f"컷{C['n']} 띠 {st[0]} 승인됨")
+# 18 시리즈 규칙(rules/lessons.md): 미르님이 짚은 것을 다시 하지 않는다
+# 윙키는 매회 스쳐서라도 나온다(rules/world.md). 빼려면 episode.py에 NO_WINKY = "이유"
+ok(any(l["kind"] == "char" and l["who"] == "winky" for C in S["cuts"] for l in C["layers"]) or bool(getattr(B, "NO_WINKY", "")), 18, "윙키가 한 컷 이상 나온다(빼면 episode.py NO_WINKY = 이유)")
+# 앉은 인물은 세트 그림의 의자 가운데에(세트에 chair_x를 잰 곳만)
+for C in S["cuts"]:
+    st = B.SETS.get(C["set"], {}).get(C["cam"], {})
+    if "chair_x" not in st: continue
+    for l in C["layers"]:
+        if l["kind"] != "char" or "앉기" not in l["frames"][0]: continue
+        f0 = l["frames"][0]; p = l["pl"][f0]; x = p["x"] + B.K[f0]["anchor"]["cx"] * p["k"]
+        ok(abs(x - st["chair_x"]) <= 4, 18, f"컷{C['n']} {l['who']} 의자 가운데 x {x:.0f} = {st['chair_x']}")
 os.makedirs(os.path.join(HERE, "out"), exist_ok=True)
 by = {}
 for s in LOG + FAIL: by.setdefault(s.split("]")[0] + "]", []).append(s)
