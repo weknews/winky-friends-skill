@@ -196,7 +196,7 @@ def build():
             if sit: foot = bg["seat"]
             ppm *= ex.get("mag", 1)     # 2026-11-13: 시트콤식 속임 — 책상 뒤에 앉아 작아지는 인물을 키운다
             if "back" in ex: foot = ex["back"]   # 2026-11-16: 뒤쪽 단역(발끝 y). 앞 인물 뒤에 서고 의자 없음, check 5 겹침에서 빠진다
-            chair = who == "winky" and "back" not in ex and (cam == "M" or (cam == "CU" and c["set"] != "door"))
+            chair = who == "winky" and "back" not in ex and "상반신" not in first and (cam == "M" or (cam == "CU" and c["set"] != "door"))   # 상반신 클로즈업은 발이 안 보여 의자 없음
             holds = any("held" in K[fam_frame(who, p)]["anchor"] for _, p in seq) or any(pr[1] == "hand" and pr[2] == who for pr in c.get("props", []))
             chars[who] = dict(who=who, at=at, x=x, ppm=ppm, foot=foot, chair=chair, seq=seq, ex=ex, z=4 if "back" in ex else 8 if sit and bg.get("front") else 20 if at == "중" else 22 if holds else 10)
         if bg.get("front") and any(C["z"] == 8 for C in chars.values()):    # M2: 책상 뒤에 앉은 인물 앞에 책상(배경 그림의 그 상자)을 다시 그린다

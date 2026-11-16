@@ -4971,39 +4971,38 @@
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "winky"
   },
-  "winky-상자-놀람": {
+  "winky-상반신상자-놀람": {
    "kind": "actor",
-   "file": "kit/actors/winky/winky-상자-놀람.webp",
-   "w": 994,
-   "h": 1350,
+   "file": "kit/actors/winky/winky-상반신상자-놀람.webp",
+   "w": 1000,
+   "h": 1489,
    "anchor": {
-    "cx": 456,
+    "cx": 499,
     "head": [
-     186,
-     247,
-     826,
-     727
+     88,
+     393,
+     888,
+     953
     ],
     "face": [
-     256,
-     467,
-     656,
-     627
+     258,
+     683,
+     728,
+     953
     ],
     "torso": [
-     286,
-     686
+     60,
+     940
     ],
-    "scale": "h"
+    "scale": "head"
    },
    "status": "draft",
    "source": "Codex Images 2.6 (kit/gen/gen.py)",
-   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth; ears may perk up) to surprised: eyes wide, small round open mouth, ears perked straight up. Keep EVERYTHING else pixel-identical: same head size and position, same boxes, same body, same framing, same magenta background. Do not move, scale or redraw the body or the boxes.",
-   "ref": "kit/actors/winky/winky-stand-calm.webp",
+   "prompt": "IMAGE: WINKY the young desert fox, same character, face, colors and paper-craft texture as the attached references. Waist-up close-up portrait, front view, head large in frame, a stack of flattened brown cardboard delivery boxes hugged against the chest fills the bottom of the frame and is cut off by the bottom edge. Comic double-take of shock: both big ears shot straight up and stiff, eyes wide open and perfectly round with small clean white highlights (same eye style as the surprised reference), small round open mouth, cheek fur slightly puffed. Plain boxes, no text. Empty magenta background, character centered, head top about 10% from the top edge.",
+   "ref": "kit/actors/winky/winky-stand-surprise.webp",
    "created": "2026-11-16",
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
-   "actor": "winky",
-   "family": "winky-상자-평온"
+   "actor": "winky"
   }
  },
  "music": {
