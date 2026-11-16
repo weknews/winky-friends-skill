@@ -50,8 +50,8 @@ python3 engine/register.py list <이름 일부>       # 이미 있나
      --prompt-file kit/gen/out/bear-들기컵-웃음.prompt.txt --ref kit/actors/bear/bear-lift-smile.webp
    ```
    키 색을 빼고 알파 둘레로 잘라 `kit/<종류>/`에 webp(배경은 jpg)로 넣는다. 앵커(조각 px)는 잘린 그림을 눈금판에 놓고 잰다: `cx` 몸 중심, `head` 머리 상자(귀 빼고), `face` 이목구비, `torso` 몸통 x 범위, `hand` 소품 얹는 곳, `held` 손에 그린 소품 상자 `[종류,x0,y0,x1,y1]`, 손 조각은 `paw`·`pawc`·`tip`, 칸 글자 자리는 `text`(비율). 새 소품 종류면 `--mm '{"h":190}' --size-class cup`.
-5. **승인 모음.** `python3 engine/register.py sheet` → `review/drafts.jpg`(draft 전부, 이름·px·mm). 쓸 회차 화면에 놓아 본 컷(`winky-episode`의 shot)도 같이 보여 준다.
-6. **사람 승인.** 사람이 보고 승인한 것만 `python3 engine/register.py approve 이름 ... --by 승인자`. 에이전트가 스스로 approve 하지 않는다.
+5. **승인 모음.** `python3 engine/register.py sheet` → `review/drafts.jpg`(draft 전부, 이름·px·mm). 쓸 회차가 있으면 draft를 붙인 미리 보기 영상까지 만들어 **스튜디오에 올린다**(`rules/studio.md` 4절: 영상 + `**N초**` 장면 목록 + 캡션에 에셋 이름을 단 draft 그림, 안은 `go`·`fix`).
+6. **사람 승인.** 사람이 보고 승인한 것만 `python3 engine/register.py approve 이름 ... --by 승인자`. 에이전트가 스스로 approve 하지 않는다. `fix` 답은 메모 줄(`캡션: 내용`, `0:48 내용`)마다 고쳐 다시 올린다.
 7. **공유.** `feature/assets-<무엇>` 브랜치 → 커밋(그림 + registry.json) → PR(승인 모음 그림을 PR 본문에 첨부, 무엇을 왜 만들었나) → 리뷰 → 머지. `CONTRIBUTING.md`.
 
 ## 4. 이미 승인된 것을 고칠 때
