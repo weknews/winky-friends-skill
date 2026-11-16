@@ -71,7 +71,7 @@ for C in S["cuts"]:
         f0 = l["frames"][0]; p = l["pl"][f0]; x = p["x"] + K[f0]["anchor"]["cx"] * p["k"]
         want = 540 if cam in ("CU", "board") else B.PRESET[cam]["pos"].get(l["at"], l["at"])
         ok(abs(x - want) <= 1, 4, f"컷{n} {l['who']} x {x:.0f} = {want}")
-        if l["who"] == "winky" and cam in ("W", "M"):
+        if l["who"] == "winky" and cam in ("W", "M") and not l.get("back"):   # 뒤쪽 단역은 서서 일한다
             chair = next((x for x in props if x["frames"][0] == "chair"), None)
             ok(chair is not None and abs(p["y"] + p["h"] - (chair["y"] + K["chair"]["anchor"]["seat"] * chair["k"])) <= 4, 4, f"컷{n} 윙키는 의자 위")
     # 5 겹침: 몸통 x 범위 겹침 ≤ 좁은 쪽의 15%, 얼굴 상자 0, 소품이 남의 얼굴에 닿지 않음
@@ -84,6 +84,7 @@ for C in S["cuts"]:
         return out
     for i in range(len(chars)):
         for j in range(i + 1, len(chars)):
+            if chars[i].get("back") or chars[j].get("back"): continue   # 뒤쪽 단역은 깊이가 달라 겹쳐도 된다
             for a in boxes(chars[i]):
                 for b in boxes(chars[j]):
                     o = max(0, min(a["torso"][1], b["torso"][1]) - max(a["torso"][0], b["torso"][0]))
@@ -161,7 +162,7 @@ for C in S["cuts"]:
             hit_px += int(A[max(0, Y0):max(0, Y1), max(0, X0):max(0, X1)].sum())
         ok(hit_px == 0, 13, f"컷{n} 윙키 컵이 윙키 몸과 겹치지 않음({hit_px}px)")
     for l in chars:                                 # 의자 위 윙키 발이 좌판 안
-        if l["who"] != "winky" or not chair: continue
+        if l["who"] != "winky" or not chair or l.get("back"): continue
         for f, p in l["pl"].items():
             A = B.alpha(f); cols = np.where(A[-max(3, int(A.shape[0] * 0.03)):].any(0))[0]
             x0, x1 = p["x"] + cols[0] * p["k"], p["x"] + cols[-1] * p["k"]

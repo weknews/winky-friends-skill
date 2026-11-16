@@ -4903,6 +4903,107 @@
    "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
    "actor": "penguin",
    "approved": "2026-11-13 미르님"
+  },
+  "penguin-퇴근-상반신-기겁": {
+   "kind": "actor",
+   "file": "kit/actors/penguin/penguin-퇴근-상반신-기겁.webp",
+   "w": 1115,
+   "h": 1700,
+   "anchor": {
+    "cx": 572,
+    "head": [
+     197,
+     85,
+     947,
+     835
+    ],
+    "face": [
+     247,
+     435,
+     877,
+     795
+    ],
+    "torso": [
+     137,
+     1007
+    ],
+    "scale": "head"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, eye patches, brows, mouth; ears may tilt) to startled shock, a comic double-take: eyes wide open with small pupils, brows shot up, beak dropped open. Keep EVERYTHING else pixel-identical: same head size and position, same clothes, same framing, same magenta background. Do not move, scale or redraw the body.",
+   "ref": "kit/actors/penguin/penguin-퇴근-상반신-평온.webp",
+   "created": "2026-11-16",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "penguin",
+   "family": "penguin-퇴근-상반신-평온"
+  },
+  "winky-상자-평온": {
+   "kind": "actor",
+   "file": "kit/actors/winky/winky-상자-평온.webp",
+   "w": 994,
+   "h": 1350,
+   "anchor": {
+    "cx": 456,
+    "head": [
+     186,
+     247,
+     826,
+     727
+    ],
+    "face": [
+     256,
+     467,
+     656,
+     627
+    ],
+    "torso": [
+     286,
+     686
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "IMAGE: WINKY the young desert fox from the attached reference, same face, colors, outfit and paper-craft texture. Standing, front three-quarter view, full body from ears to feet, carrying a tall stack of four flattened brown cardboard delivery boxes hugged upright against the chest with both arms; the stack reaches from the waist up to the chin and is about as wide as the body. Calm, busy face, mouth gently closed. Plain boxes, no text, no labels, no tape writing. One character centered, empty magenta background.",
+   "ref": "kit/actors/winky/winky-stand-calm.webp",
+   "created": "2026-11-16",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "winky"
+  },
+  "winky-상자-놀람": {
+   "kind": "actor",
+   "file": "kit/actors/winky/winky-상자-놀람.webp",
+   "w": 994,
+   "h": 1350,
+   "anchor": {
+    "cx": 456,
+    "head": [
+     186,
+     247,
+     826,
+     727
+    ],
+    "face": [
+     256,
+     467,
+     656,
+     627
+    ],
+    "torso": [
+     286,
+     686
+    ],
+    "scale": "h"
+   },
+   "status": "draft",
+   "source": "Codex Images 2.6 (kit/gen/gen.py)",
+   "prompt": "Edit the attached image: change ONLY the facial expression (eyes, brows, mouth; ears may perk up) to surprised: eyes wide, small round open mouth, ears perked straight up. Keep EVERYTHING else pixel-identical: same head size and position, same boxes, same body, same framing, same magenta background. Do not move, scale or redraw the body or the boxes.",
+   "ref": "kit/actors/winky/winky-stand-calm.webp",
+   "created": "2026-11-16",
+   "license": "CC-BY-NC-ND-4.0 (위뉴, LICENSE-ASSETS.md)",
+   "actor": "winky",
+   "family": "winky-상자-평온"
   }
  },
  "music": {

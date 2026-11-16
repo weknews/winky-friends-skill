@@ -76,6 +76,8 @@ def extra_texts(c, L):
 DOOR_E = "set-door-m-evening"
 CU_G, CU_A, CU_B = "set-door-cu-g", "set-recycle-cu-a", "set-recycle-cu-b"
 TALK = lambda pose, t, emo_end=None: [(0, pose + "-웃음" if emo_end == "웃음" else pose + "-평온"), (t, pose + "-말"), ("끝", pose + ("-웃음" if emo_end == "웃음" else "-평온"))]
+# 윙키 단역(2026-11-16 미르님 「윙키가 어디서도 안 나온다」): 분리수거장 넓은 컷 뒤에서 택배 상자를 나른다. 대사 없음
+def WINKY(seq=None): return ("winky", 470, seq or [(0, "상자-평온")], dict(back=1080, mag=0.7))
 CUTS = [
  # S1 아침
  dict(n=1, t=(0.0, 2.0), set="table", cam="판", ppm="big", bg=TEAL, title=(0.0, 2.0, "아빠 진료 날 아침"), sfx=[("스윽", 1.4)]),
@@ -102,21 +104,21 @@ CUTS = [
  dict(n=13, t=(25.0, 26.4), set="company", cam="M", chars=[("panda", "좌2", [(0, "서기-평온")]), ("hedgehog", 815, [(0, "앉기-말")], dict(mag=1.35))],
       line=("hedgehog", 25.1, "네. 다녀와요."), sfx=[("톡", 26.0)]),
  # S4 분리수거장(밤)
- dict(n=14, t=(26.4, 28.0), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "양손들기-놀람")])],
+ dict(n=14, t=(26.4, 28.0), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "양손들기-놀람")]), WINKY()],
       title=(26.4, 27.6, "진료 이틀 전 밤"), tag=("penguin", "좌상"), line=("panda", 26.5, "선생님!"), sfx=[("탁", 26.4)]),
  dict(n=15, t=(28.0, 29.5), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", [(0, "퇴근-상반신-눈감음")])],
       tag=("penguin", "좌상", True), line=("penguin", 28.1, "…퇴근했는데요.")),
- dict(n=16, t=(29.5, 31.5), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기쪽지-웃음")])], line=("panda", 29.6, "모레 아빠 병원 가요.")),
- dict(n=17, t=(31.5, 33.6), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기쪽지펼침-웃음")])],
+ dict(n=16, t=(29.5, 31.5), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기쪽지-웃음")]), WINKY()], line=("panda", 29.6, "모레 아빠 병원 가요.")),
+ dict(n=17, t=(31.5, 33.6), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "내밀기쪽지펼침-웃음")]), WINKY()],
       line=("panda", 31.6, "이거 다 물어봐도 돼요?"), sfx=[("스윽", 31.7)]),
- dict(n=18, t=(33.6, 35.4), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 33.7))], line=("penguin", 33.7, "진료 3분이에요.")),
- dict(n=19, t=(35.4, 37.2), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 35.5))], line=("penguin", 35.5, "…하나만 고르세요.")),
- dict(n=20, t=(37.2, 39.0), set="recycle", cam="M", chars=[("bear", "좌2", [(0, "들기-웃음"), (38.6, "들기쪽지-웃음")], dict(move=[(37.2, -620), (37.75, 0)])), ("panda", "우2", [(0, "내밀기쪽지-웃음"), (38.6, "내밀기-웃음")])],   # 3차: 쪽지를 쥔 손을 그림에 구웠다(떠 있는 스티커 대신)
+ dict(n=18, t=(33.6, 35.4), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 33.7))], line=("penguin", 33.7, "그럼요, 다 물어…")),
+ dict(n=19, t=(35.4, 37.2), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 35.5))], line=("penguin", 35.5, "…궁금한 거부터요.")),
+ dict(n=20, t=(37.2, 39.0), set="recycle", cam="M", chars=[("bear", "좌2", [(0, "들기-웃음"), (38.6, "들기쪽지-웃음")], dict(move=[(37.2, -620), (37.75, 0)])), ("panda", "우2", [(0, "내밀기쪽지-웃음"), (38.6, "내밀기-웃음")]), WINKY()],   # 3차: 쪽지를 쥔 손을 그림에 구웠다(떠 있는 스티커 대신)
       line=("panda", 37.3, "아빠, 하나만 골라.")),
  dict(n=21, t=(39.0, 41.8), set="recycle", cam="CU", bg=CU_B, chars=[("bear", "중", TALK("상반신", 39.1, "웃음"))], line=("bear", 39.1, "허허허! 원 플러스 원은 안 되냐?")),
  dict(n=22, t=(41.8, 43.6), set="table", cam="판", ppm="note", bg=TEAL, line=("bear", 41.9, "이건 아빠도 알아."), sfx=[("사각", 41.95), ("사각", 42.45), ("사각", 42.95)]),
  dict(n=23, t=(43.6, 45.0), set="recycle", cam="CU", bg=CU_B, chars=[("panda", "중", [(0, "상반신-놀람")])], line=("panda", 43.7, "그걸 왜 지워!", {0: "놀람"})),
- dict(n=24, t=(45.0, 47.8), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "서기-평온")])], line=("penguin", 45.1, "근데 따님은 검사 받아 봤어요?"), sfx=[("탁", 45.0)]),
+ dict(n=24, t=(45.0, 47.8), set="recycle", cam="M", chars=[("penguin", "좌2", [(0, "퇴근-서기-평온")]), ("panda", "우2", [(0, "서기-평온")]), WINKY([(0, "상자-평온"), (46.2, "상자-놀람")])], line=("penguin", 45.1, "근데 따님은 검사 받아 봤어요?"), sfx=[("탁", 45.0)]),
  dict(n=25, t=(47.8, 49.2), set="recycle", cam="CU", bg=CU_B, chars=[("panda", "중", TALK("상반신", 47.9))], line=("panda", 47.9, "네?")),
  dict(n=26, t=(49.2, 51.6), set="recycle", cam="CU", bg=CU_A, chars=[("penguin", "중", TALK("퇴근-상반신", 49.3))], line=("penguin", 49.3, "아버님이 당뇨시잖아요.")),
  dict(n=27, t=(51.6, 52.9), set="recycle", cam="CU", bg=CU_B, chars=[("panda", "중", [(0, "상반신-놀람")])], still=True),
@@ -186,8 +188,9 @@ DIRECT = {
           seq=("penguin", [(0, "퇴근-상반신-평온"), (28.4, "퇴근-상반신-눈감음"), (28.45, "퇴근-상반신-말"), (29.6, "퇴근-상반신-눈감음")]), t=28.45),
  16: dict(fx=[("act", "panda", "lean", 29.9), ("act", "penguin", "slump", 30.2)]),
  17: dict(fx=[("pull", 1.06, 1.0, 32.0, 32.6), ("act", "penguin", "recoil", 32.1)], seq=("panda", [(0, "내밀기쪽지-웃음"), (32.0, "내밀기쪽지펼침-웃음")]), ono=("스윽", 32.0)),
- 18: dict(fx=[("act", "penguin", "pop", 34.6)], text="진료 *3분*이에요."),
- 19: dict(fx=[("push", 1.0, 1.06, 35.8, 37.5)], seq=("penguin", [(0, "퇴근-상반신-눈감음"), (36.0, "퇴근-상반신-말"), ("끝", "퇴근-상반신-평온")]), text="…*하나만* 고르세요."),
+ 18: dict(fx=[("snap", 1.08, 34.95), ("act", "penguin", "recoil", 34.95), ("mark", "!", "penguin", 34.95, 35.7)],   # 2026-11-16 미르님: 「다 물어봐도 되는데 질문표를 보고 기겁」
+         seq=("penguin", [(0, "퇴근-상반신-평온"), (34.0, "퇴근-상반신-말"), (34.95, "퇴근-상반신-기겁")]), text="그럼요, 다 물어…", sfx_add=[("삐질", 35.0)]),
+ 19: dict(fx=[("push", 1.0, 1.06, 35.8, 37.5)], seq=("penguin", [(0, "퇴근-상반신-눈감음"), (36.0, "퇴근-상반신-말"), ("끝", "퇴근-상반신-평온")]), text="…*궁금한* 거부터요."),
  20: dict(fx=[("act", "bear", "pop", 38.05), ("act", "bear", "pop", 38.9), ("act", "panda", "lean", 37.6)], sfx_add=[("스윽", 38.9)]),
  21: dict(fx=[("act", "bear", "hop", 39.4)]),   # 강조하면 줄이 안전 여백을 넘는다(check 7)
  22: dict(fx=[("push", 1.0, 1.05, 42.2, 43.9)], ono=("사각", 42.25)),

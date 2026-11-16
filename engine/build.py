@@ -195,9 +195,10 @@ def build():
             sit = seq[0][1].startswith("앉기") and bg.get("seat") is not None       # M2: 앉기 조각은 발끝을 세트의 좌판선(seat)에
             if sit: foot = bg["seat"]
             ppm *= ex.get("mag", 1)     # 2026-11-13: 시트콤식 속임 — 책상 뒤에 앉아 작아지는 인물을 키운다
-            chair = who == "winky" and (cam == "M" or (cam == "CU" and c["set"] != "door"))
+            if "back" in ex: foot = ex["back"]   # 2026-11-16: 뒤쪽 단역(발끝 y). 앞 인물 뒤에 서고 의자 없음, check 5 겹침에서 빠진다
+            chair = who == "winky" and "back" not in ex and (cam == "M" or (cam == "CU" and c["set"] != "door"))
             holds = any("held" in K[fam_frame(who, p)]["anchor"] for _, p in seq) or any(pr[1] == "hand" and pr[2] == who for pr in c.get("props", []))
-            chars[who] = dict(who=who, at=at, x=x, ppm=ppm, foot=foot, chair=chair, seq=seq, ex=ex, z=8 if sit and bg.get("front") else 20 if at == "중" else 22 if holds else 10)
+            chars[who] = dict(who=who, at=at, x=x, ppm=ppm, foot=foot, chair=chair, seq=seq, ex=ex, z=4 if "back" in ex else 8 if sit and bg.get("front") else 20 if at == "중" else 22 if holds else 10)
         if bg.get("front") and any(C["z"] == 8 for C in chars.values()):    # M2: 책상 뒤에 앉은 인물 앞에 책상(배경 그림의 그 상자)을 다시 그린다
             L.append(dict(id=f"c{c['n']}-front", kind="front", place="front", frames=[], z=9, box=bg["front"]))
         # 의자(윙키 발판): 바닥선에 놓고 좌판 윗면이 윙키 발끝
@@ -232,7 +233,7 @@ def build():
                 pl[n] = dict(k=k, x=left, y=top, w=w, h=h)
             C["pl"] = pl; C["names"] = names
             L.append(dict(id=f"c{c['n']}-{who}", kind="char", who=who, at=C["at"], frames=names, pl=pl, z=C["z"], chair=C["chair"],
-                          foot=C["foot"], ppm=C["ppm"], cam=cam))
+                          foot=C["foot"], ppm=C["ppm"], cam=cam, **({"back": True} if "back" in C["ex"] else {})))
         # 소품
         for pi, pr in enumerate(c.get("props", [])):
             spec, place, tgt = pr[0], pr[1], pr[2]; o = pr[3] if len(pr) > 3 else {}
